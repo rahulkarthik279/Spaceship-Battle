@@ -1,0 +1,3 @@
+d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_BattleContent\obj\x86\Debug\Spaceship_BattleContent.contentprojResolveAssemblyReference.cache
+D:\Documents\Spaceship Battle - Copy\Spaceship Battle\Spaceship_BattleContent\obj\x86\Debug\Spaceship_BattleContent.contentprojResolveAssemblyReference.cache
+D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_BattleContent\obj\x86\Debug\Spaceship_BattleContent.contentprojResolveAssemblyReference.cache
