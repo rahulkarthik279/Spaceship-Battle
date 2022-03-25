@@ -87,3 +87,16 @@ D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bi
 D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb
 D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb
 D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb
+D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb
+d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb

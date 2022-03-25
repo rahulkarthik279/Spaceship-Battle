@@ -18,6 +18,7 @@ namespace Spaceship_Battle
         
         public Rectangle world;
         Texture2D worldText;
+        Background bk;
 
         public Player player;
 
@@ -33,11 +34,12 @@ namespace Spaceship_Battle
         Random rand = new Random();
         public int width, height;
 
-        public Level(IServiceProvider sp, int w, int h) {
+        public Level(IServiceProvider sp, GraphicsDevice g, int w, int h) {
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
             world = new Rectangle(0, 0, 3000, 400);
+            //bk = new Background(g, @"Content\huge mountain.jpg");
             enemies = new List<Enemy>();
             content = new ContentManager(sp, "Content");
             worldText = content.Load<Texture2D>("space");
@@ -50,7 +52,8 @@ namespace Spaceship_Battle
             player.text = content.Load<Texture2D>("playerspaceship");
             //player = new Player(this, new Rectangle(30, h / 2, 60, 30));
             //player.LoadContent();
-            numEnemies = rand.Next(5, 11);
+            planets = new Planet[] { new Planet(1, 200, 200, true) };
+            numEnemies = 0;// rand.Next(5, 11);
             unfilledHealthBar = new Rectangle(30, 30, 100, 20);
             healthBar = unfilledHealthBar;
             unfilledText = content.Load<Texture2D>("box (1)");
@@ -59,9 +62,15 @@ namespace Spaceship_Battle
 
         public static void LoadContent(IServiceProvider sp, int w, int h) {
             Planet.LoadContent(sp, w, h);
+            
         }
         public void update(GameTime gt)
         {
+            //basic nonmoving image update
+            for (int i = 0; i < planets.Length; i++) {
+                planets[i].update(gt);
+            }
+
             List<Bullet> bullets = player.gun.bullets;
             for (int i = 0; i < enemies.Count; i++)
             {
@@ -93,6 +102,15 @@ namespace Spaceship_Battle
             player.update(gt);
             GravityBody.offsetX = world.X;
             GravityBody.offsetY = world.Y;
+            for (int j = 0; j < planets.Length; j++)
+            {
+                for (int i = 0; i < enemies.Count(); i++)
+                {
+                    planets[j].physicsstuff(enemies[i]);
+                }
+                planets[j].physicsstuff(player);
+            }
+
 
             if (timer % 240 == 0 && enemies.Count < numEnemies)
             {
@@ -116,6 +134,11 @@ namespace Spaceship_Battle
         {
             //draw background
             sb.Draw(worldText, world, Color.White);
+
+            //draw planets
+            for (int i = 0; i < planets.Length; i++) {
+                planets[i].draw(gt, sb);
+            }
 
             //draw enemy
             for (int i = 0; i < enemies.Count; i++)

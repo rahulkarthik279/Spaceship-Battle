@@ -23,6 +23,7 @@ namespace Spaceship_Battle
         Level level;
         public enum GameState { Start, Level, Complete};
         public GameState gamestate;
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -120,7 +121,7 @@ namespace Spaceship_Battle
             graphics.ApplyChanges();
             w = GraphicsDevice.Viewport.Width;
             h = GraphicsDevice.Viewport.Height;
-            level = new Level(Services, w, h);
+            level = new Level(Services, GraphicsDevice, w, h);
         }
     }
 }

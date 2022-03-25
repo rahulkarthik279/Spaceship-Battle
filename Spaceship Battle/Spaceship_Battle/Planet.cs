@@ -14,7 +14,7 @@ namespace Spaceship_Battle
     class Planet : GravityBody
     {
         public static Texture2D[] pics;
-        Planet moon;
+        public Planet moon;
         public bool hasMoon;
         Texture2D pic;
         //type determine the kind of planet
@@ -26,16 +26,17 @@ namespace Spaceship_Battle
         {
             pic = pics[type - 1];
             rect = new Rectangle((int)x, (int)y, pic.Bounds.Width/8, pic.Bounds.Height/8);
+            pos = new Vector2(x, y);
             switch (type) {
                 case 1:
-                    base.mass = 500;
+                    base.mass = 10000;
                     break;
                 case 2:
-                    base.mass = 100;
+                    base.mass = 5000;
                     break;
                 case 3:
-                    base.mass = 10;
-                    base.velocity = new Vector2(5, 0);
+                    base.mass = 1000;
+                    base.velocity = new Vector2(1, 0);
                     break;
             }
             hasMoon = false;
@@ -46,26 +47,50 @@ namespace Spaceship_Battle
         {
             pic = pics[type - 1];
             rect = new Rectangle((int)x, (int)y, pic.Bounds.Width / 8, pic.Bounds.Height / 8);
+            pos = new Vector2(x, y);
             switch (type)
             {
                 case 1:
-                    base.mass = 5000;
+                    base.mass = 10000;
                     break;
                 case 2:
-                    base.mass = 1000;
+                    base.mass = 5000;
                     break;
                 case 3:
-                    base.mass = 100;
-                    base.velocity = new Vector2(5, 0);
+                    base.mass = 1000;
+                    base.velocity = new Vector2(1, 0);
                     break;
             }
             hasMoon = addMoon;
             if (addMoon)
             {
-                moon = new Planet(3,pos.X, pos.Y-200);
+                moon = new Planet(3,pos.X, pos.Y-100);
             }
             else {
                 moon = null;
+            }
+        }
+
+        public new void physicsstuff(GravityBody other)
+        {
+            //ignore 0 masses
+            if (mass > 0 && other.mass > 0)
+            {
+                double dx = other.pos.X - pos.X - rect.Width / 2;
+                double dy = other.pos.Y - pos.Y - rect.Height / 2;
+                double distancesquared = Math.Pow(dx, 2) + Math.Pow(dy, 2);
+                if (distancesquared < 1)
+                {
+                    return;
+                }
+                double dv = gravitationalconstant * mass / distancesquared;
+                double distance = Math.Sqrt(distancesquared);
+                other.velocity.X -= (float)(dv * dx / distance);
+                other.velocity.Y -= (float)(dv * dy / distance);
+            }
+
+            if (hasMoon) {
+                moon.physicsstuff(other);
             }
         }
 
@@ -77,14 +102,22 @@ namespace Spaceship_Battle
 
         public void update(GameTime gt)
         {
-            if (mass > 100) {
-                //update();
+            base.update();
+            if (pic == pics[2]) {
+                Console.WriteLine("updated moon");
+            }
+            if (hasMoon) {
+                physicsstuff(moon);
+                moon.update(gt);
             }
         }
 
         public void draw(GameTime gt, SpriteBatch sb)
         {
             sb.Draw(pic, rect, Color.White);
+            if (hasMoon) {
+                moon.draw(gt,sb);
+            }
         }
     }
 }

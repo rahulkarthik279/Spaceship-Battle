@@ -7,7 +7,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb</Output>
       <Time>2022-03-17T00:52:34.8179029-07:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb</Output>
       <Time>2022-03-17T00:52:50.6624669-07:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2022-03-17T03:49:32.6499668-07:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb</Output>
       <Time>2022-03-17T00:38:44.7995019-07:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb</Output>
       <Time>2022-03-17T00:39:13.4911325-07:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb</Output>
       <Time>2022-03-17T03:49:30.3937254-07:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb</Output>
       <Time>2022-03-17T03:49:30.4037837-07:00</Time>
     </Item>
     <Item>
@@ -70,8 +70,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb</Output>
       <Time>2022-03-17T03:49:30.4098243-07:00</Time>
+    </Item>
+    <Item>
+      <Source>meteor.png</Source>
+      <Name>meteor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb</Output>
+      <Time>2022-03-17T03:49:30.4183316-07:00</Time>
     </Item>
     <Item>
       <Source>playerspaceship.png</Source>
@@ -79,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb</Output>
       <Time>2022-03-17T03:49:30.4384187-07:00</Time>
     </Item>
     <Item>
@@ -88,26 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb</Output>
       <Time>2022-03-17T03:49:30.4419572-07:00</Time>
-    </Item>
-    <Item>
-      <Source>save.png</Source>
-      <Name>save</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb</Output>
-      <Time>2022-03-17T03:49:30.4535016-07:00</Time>
-    </Item>
-    <Item>
-      <Source>space.jpg</Source>
-      <Name>space</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb</Output>
-      <Time>2022-03-17T03:49:32.6288517-07:00</Time>
     </Item>
     <Item>
       <Source>spaceship_rifle.jpg</Source>
@@ -115,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb</Output>
       <Time>2022-03-17T03:49:32.6383892-07:00</Time>
     </Item>
     <Item>
@@ -124,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb</Output>
       <Time>2022-03-17T03:49:32.6584744-07:00</Time>
     </Item>
     <Item>
@@ -133,17 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb</Output>
       <Time>2022-03-17T03:49:32.6737433-07:00</Time>
-    </Item>
-    <Item>
-      <Source>meteor.png</Source>
-      <Name>meteor</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb</Output>
-      <Time>2022-03-17T03:49:30.4183316-07:00</Time>
     </Item>
     <Item>
       <Source>planet2.png</Source>
@@ -151,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb</Output>
       <Time>2022-03-20T21:00:56.2496921-07:00</Time>
     </Item>
     <Item>
@@ -160,8 +142,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb</Output>
+      <Output>D:\Documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb</Output>
       <Time>2022-03-20T21:01:24.7797529-07:00</Time>
+    </Item>
+    <Item>
+      <Source>space.jpg</Source>
+      <Name>space</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb</Output>
+      <Time>2022-03-23T19:10:56.1162972-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -170,10 +161,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_BattleContent\</RootDirectory>
-      <LoggerRootDirectory>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\Documents\Spaceship Battle - Copy - Copy\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_BattleContent\</RootDirectory>
+      <LoggerRootDirectory>d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\</LoggerRootDirectory>
+      <IntermediateDirectory>d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
