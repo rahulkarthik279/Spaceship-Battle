@@ -27,18 +27,7 @@ namespace Spaceship_Battle
             pic = pics[type - 1];
             rect = new Rectangle((int)x, (int)y, pic.Bounds.Width/8, pic.Bounds.Height/8);
             pos = new Vector2(x, y);
-            switch (type) {
-                case 1:
-                    base.mass = 10000;
-                    break;
-                case 2:
-                    base.mass = 5000;
-                    break;
-                case 3:
-                    base.mass = 1000;
-                    base.velocity = new Vector2(1, 0);
-                    break;
-            }
+            typeswitch(type);
             hasMoon = false;
             moon = null;
         }
@@ -48,28 +37,34 @@ namespace Spaceship_Battle
             pic = pics[type - 1];
             rect = new Rectangle((int)x, (int)y, pic.Bounds.Width / 8, pic.Bounds.Height / 8);
             pos = new Vector2(x, y);
-            switch (type)
-            {
-                case 1:
-                    base.mass = 10000;
-                    break;
-                case 2:
-                    base.mass = 5000;
-                    break;
-                case 3:
-                    base.mass = 1000;
-                    base.velocity = new Vector2(1, 0);
-                    break;
-            }
+            typeswitch(type);
             hasMoon = addMoon;
             if (addMoon)
             {
-                moon = new Planet(3,pos.X, pos.Y-100);
+                moon = new Planet(3,pos.X, pos.Y-50);
             }
             else {
                 moon = null;
             }
         }
+
+        public void typeswitch(int type) {
+            switch (type)
+            {
+                case 1:
+                    base.mass = 0;
+                    break;
+                case 2:
+                    base.mass = 0;
+                    break;
+                case 3:
+                    base.mass = 1000;
+                    base.velocity = new Vector2(0, 0);
+                    break;
+            }
+        }
+
+
 
         public new void physicsstuff(GravityBody other)
         {
@@ -79,11 +74,12 @@ namespace Spaceship_Battle
                 double dx = other.pos.X - pos.X - rect.Width / 2;
                 double dy = other.pos.Y - pos.Y - rect.Height / 2;
                 double distancesquared = Math.Pow(dx, 2) + Math.Pow(dy, 2);
-                if (distancesquared < 1)
+                if (distancesquared < 20)
                 {
                     return;
                 }
                 double dv = gravitationalconstant * mass / distancesquared;
+                Console.WriteLine(dv);
                 double distance = Math.Sqrt(distancesquared);
                 other.velocity.X -= (float)(dv * dx / distance);
                 other.velocity.Y -= (float)(dv * dy / distance);
@@ -103,9 +99,6 @@ namespace Spaceship_Battle
         public void update(GameTime gt)
         {
             base.update();
-            if (pic == pics[2]) {
-                Console.WriteLine("updated moon");
-            }
             if (hasMoon) {
                 physicsstuff(moon);
                 moon.update(gt);
@@ -114,7 +107,7 @@ namespace Spaceship_Battle
 
         public void draw(GameTime gt, SpriteBatch sb)
         {
-            sb.Draw(pic, rect, Color.White);
+            base.draw(sb, false, pic);
             if (hasMoon) {
                 moon.draw(gt,sb);
             }

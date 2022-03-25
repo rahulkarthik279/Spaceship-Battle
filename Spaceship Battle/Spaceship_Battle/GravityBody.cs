@@ -85,5 +85,21 @@ namespace Spaceship_Battle
                 other.velocity.Y -= (float)(dv * dy / distance);
             }
         }
+
+        public void draw(SpriteBatch sb, Boolean centered, Texture2D pic) {
+            sb.Draw(pic, rect, Color.White);
+        }
+        public void draw(SpriteBatch sb, Boolean centered, Texture2D pic, float rotation)
+        {
+            if (centered)
+            {
+                Rectangle drect = new Rectangle(rect.X - rect.Width / 2, rect.Y - rect.Height / 2, rect.Width, rect.Height);
+                sb.Draw(pic, drect, null, Color.White, rotation, new Vector2(pic.Width / 2, pic.Height / 2), SpriteEffects.None, 0);
+            }
+            else
+            {
+                sb.Draw(pic, rect, null, Color.White, rotation, new Vector2(0, 0), SpriteEffects.None, 0);
+            }
+        }
     }
 }
