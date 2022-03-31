@@ -12,11 +12,10 @@ namespace Spaceship_Battle
 {
     class GravityBody
     {
-        public static double gravityfactor = 10;
+        public static double gravitationalconstant = .01;
         public static int offsetX=0, offsetY=0;
         public int mass;
         public Vector2 pos, velocity;
-        public static double gravitationalconstant=.01;
         public Rectangle rect;
 
         //Rectangle input in constructor gets the starting position of the object. The position is absolute relative to the level, not the position on screen. 
@@ -71,12 +70,13 @@ namespace Spaceship_Battle
         public void physicsstuff(GravityBody other)
         {
             //ignore 0 masses
-            if (mass > 0 && other.mass>0)
+            if (mass > 0 && other.mass > 0)
             {
-                double dx = other.pos.X - pos.X - rect.Width/2;
-                double dy = other.pos.Y - pos.Y - rect.Height/2;
+                double dx = other.pos.X - pos.X - rect.Width / 2;
+                double dy = other.pos.Y - pos.Y - rect.Height / 2;
                 double distancesquared = Math.Pow(dx, 2) + Math.Pow(dy, 2);
-                if (distancesquared < 1) {
+                if (distancesquared < 1)
+                {
                     return;
                 }
                 double dv = gravitationalconstant * mass / distancesquared;

@@ -38,8 +38,8 @@ namespace Spaceship_Battle
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            world = new Rectangle(0, 0, 3000, 400);
-            //bk = new Background(g, @"Content\huge mountain.jpg");
+            bk = new Background(g, @"Content\smallmountain.jpg");
+            world = new Rectangle(0, 0, bk.w, bk.h);
             enemies = new List<Enemy>();
             content = new ContentManager(sp, "Content");
             worldText = content.Load<Texture2D>("space");
@@ -52,8 +52,8 @@ namespace Spaceship_Battle
             player.text = content.Load<Texture2D>("playerspaceship");
             //player = new Player(this, new Rectangle(30, h / 2, 60, 30));
             //player.LoadContent();
-            planets = new Planet[] { new Planet(1, 200, 200, true) };
-            numEnemies = 0;// rand.Next(5, 11);
+            planets = new Planet[] { new Planet(1, 600, 200, true) };
+            numEnemies = rand.Next(5, 11);
             unfilledHealthBar = new Rectangle(30, 30, 100, 20);
             healthBar = unfilledHealthBar;
             unfilledText = content.Load<Texture2D>("box (1)");
@@ -64,11 +64,12 @@ namespace Spaceship_Battle
             Planet.LoadContent(sp, w, h);
             
         }
+
         public void update(GameTime gt)
         {
             //basic nonmoving image update
             for (int i = 0; i < planets.Length; i++) {
-                planets[i].update(gt);
+                planets[i].update();
             }
 
             List<Bullet> bullets = player.gun.bullets;
@@ -96,25 +97,34 @@ namespace Spaceship_Battle
                 {
                     enemyBullets[k].intersectsPlayer(player);
                 }
+
                 enemies[i].update();
             }
 
+            //gravity stuff
             player.update(gt);
             GravityBody.offsetX = world.X;
             GravityBody.offsetY = world.Y;
             for (int j = 0; j < planets.Length; j++)
             {
+                //enemies
                 for (int i = 0; i < enemies.Count(); i++)
                 {
                     planets[j].physicsstuff(enemies[i]);
                 }
+                //bullets
+                for (int i = 0; i < bullets.Count(); i++) {
+                    planets[j].physicsstuff(enemyBullets[i]);
+                }
+                //player
                 planets[j].physicsstuff(player);
             }
 
 
             if (timer % 240 == 0 && enemies.Count < numEnemies)
             {
-                enemies.Add(new Enemy(this, new Rectangle(900-getoffset(0), rand.Next(0, world.Height - 30), 60, 30)));
+                //enemies.Add(new Enemy(this, new Rectangle(900-getoffset(0), rand.Next(0, world.Height - 30), 60, 30)));
+                enemies.Add(new Enemy(this, new Rectangle(rand.Next((int)player.pos.X,world.Width), rand.Next((int)player.pos.Y-500, world.Height), 60, 30)));
             }
             if (player.rect.X + player.rect.Width == width)
             {
@@ -133,7 +143,8 @@ namespace Spaceship_Battle
         public void draw(SpriteBatch sb, GameTime gt)
         {
             //draw background
-            sb.Draw(worldText, world, Color.White);
+            //sb.Draw(worldText, world, Color.White);
+            bk.draw(sb, GravityBody.offsetX, GravityBody.offsetY);
 
             //draw planets
             for (int i = 0; i < planets.Length; i++) {

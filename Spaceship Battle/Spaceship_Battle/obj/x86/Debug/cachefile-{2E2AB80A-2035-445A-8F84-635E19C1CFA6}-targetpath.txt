@@ -16,3 +16,5 @@ Content\planet2.xnb
 Content\moon.xnb
 Content\space.xnb
 Content\Orbitron-Regular.ttf
+Content\mountain.jpg
+Content\smallmountain.jpg

@@ -15,8 +15,8 @@ namespace Spaceship_Battle
     {
         public static Texture2D[] pics;
         public Planet moon;
-        public bool hasMoon;
         Texture2D pic;
+        public int type;
         //type determine the kind of planet
         //1 - big orange planet
         //2 - smaller blue planet
@@ -28,8 +28,8 @@ namespace Spaceship_Battle
             rect = new Rectangle((int)x, (int)y, pic.Bounds.Width/8, pic.Bounds.Height/8);
             pos = new Vector2(x, y);
             typeswitch(type);
-            hasMoon = false;
             moon = null;
+            this.type = type;
         }
 
         public Planet(int type, int x, int y, bool addMoon) : base(0, 0, 0, new Rectangle())
@@ -38,7 +38,7 @@ namespace Spaceship_Battle
             rect = new Rectangle((int)x, (int)y, pic.Bounds.Width / 8, pic.Bounds.Height / 8);
             pos = new Vector2(x, y);
             typeswitch(type);
-            hasMoon = addMoon;
+            this.type = type;
             if (addMoon)
             {
                 moon = new Planet(3,pos.X, pos.Y-50);
@@ -52,24 +52,48 @@ namespace Spaceship_Battle
             switch (type)
             {
                 case 1:
-                    base.mass = 0;
+                    mass = 40000;
                     break;
                 case 2:
-                    base.mass = 0;
+                    mass = 5000;
                     break;
                 case 3:
-                    base.mass = 1000;
-                    base.velocity = new Vector2(0, 0);
+                    mass = 1000;
+                    velocity = new Vector2(2, 0);
                     break;
             }
         }
 
 
 
+        public static void LoadContent(IServiceProvider service, int w, int h)
+        {
+            ContentManager content = new ContentManager(service);
+            //pics = new Texture2D[3] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
+        }
+
+        public new void update()
+        {
+            base.update();
+            if (moon!=null) {
+                this.physicsstuff(moon);
+                moon.update();
+            }
+        }
+
+        public void draw(GameTime gt, SpriteBatch sb)
+        {
+            base.draw(sb, false, pic);
+            if (moon!=null)
+            {
+                moon.draw(gt, sb);
+            }
+        }
+
         public new void physicsstuff(GravityBody other)
         {
             //ignore 0 masses
-            if (mass > 0 && other.mass > 0)
+            if (this.mass > 0 && other.mass > 0)
             {
                 double dx = other.pos.X - pos.X - rect.Width / 2;
                 double dy = other.pos.Y - pos.Y - rect.Height / 2;
@@ -79,38 +103,17 @@ namespace Spaceship_Battle
                     return;
                 }
                 double dv = gravitationalconstant * mass / distancesquared;
-                Console.WriteLine(dv);
                 double distance = Math.Sqrt(distancesquared);
                 other.velocity.X -= (float)(dv * dx / distance);
                 other.velocity.Y -= (float)(dv * dy / distance);
             }
-
-            if (hasMoon) {
+            if (moon != null && other != moon)
+            {
                 moon.physicsstuff(other);
             }
         }
 
-        public static void LoadContent(IServiceProvider service, int w, int h)
-        {
-            ContentManager content = new ContentManager(service);
-            //pics = new Texture2D[3] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
-        }
 
-        public void update(GameTime gt)
-        {
-            base.update();
-            if (hasMoon) {
-                physicsstuff(moon);
-                moon.update(gt);
-            }
-        }
-
-        public void draw(GameTime gt, SpriteBatch sb)
-        {
-            base.draw(sb, false, pic);
-            if (hasMoon) {
-                moon.draw(gt,sb);
-            }
-        }
+        
     }
 }

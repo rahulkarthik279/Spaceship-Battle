@@ -28,7 +28,7 @@ namespace Spaceship_Battle
         {
             level = l;
             rect = r;
-            health = 100;
+            health = 10000000;
             isAlive = true;
             gun = new Gun(level, 15, new Rectangle(r.X + 15, r.Y + r.Height, 30, 10));
             for (int i = 0; i < gun.bullets.Count; i++)
@@ -151,7 +151,7 @@ namespace Spaceship_Battle
             }
             if (kb.IsKeyDown(Keys.Up) || gamePad.ThumbSticks.Left.Y > 0)
             {
-                if(velocity.Y>-2)
+                if(velocity.Y>-5)
                 {
                     velocity.Y -= .1f;
                 }
@@ -159,7 +159,7 @@ namespace Spaceship_Battle
             }
             if (kb.IsKeyDown(Keys.Down) || gamePad.ThumbSticks.Left.Y < 0)
             {
-                if (velocity.Y < 2)
+                if (velocity.Y < 5)
                 {
                     velocity.Y += .1f;
                 }

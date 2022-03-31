@@ -47,11 +47,11 @@ namespace Spaceship_Battle
             {
                 if (!isPlayers)
                 {
-                    bullets.Add(new Bullet(level, rect.X - rect.Width+level.getoffset(0), rect.Y - rect.Height+level.getoffset(1), Level.player.rect.X, Level.player.rect.Y, rand.Next(60, 180)));
+                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rect.X, Level.player.rect.Y, rand.Next(60, 180)));
                 }
                 else
                 {
-                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 + rect.Width - level.getoffset(0), rect.Y + rect.Height / 2 + rect.Height, Level.player.rotation, rand.Next(2, 4)));
+                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(2, 4)));
                 }
                 bullets[numActive].isFired = true;
                 numActive++;
@@ -67,6 +67,7 @@ namespace Spaceship_Battle
             rect.X = playerrect.X + 15;
             rect.Y = playerrect.Y + playerrect.Height;
         }
+
         public void draw(SpriteBatch sb, GameTime gt, bool isPlayers)
         {
             if (isPlayers)

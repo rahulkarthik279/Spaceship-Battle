@@ -31,7 +31,7 @@ namespace Spaceship_Battle
             gun = new Gun(level, rand.Next(10, 16), new Rectangle(r.X + 10, r.Y + r.Height, 30, 10));
             rect = r;
             health = rand.Next(1, 4) * 100;
-            velocity.X = rand.Next(1, 4);
+            velocity.X = -1* rand.Next(1, 4);
             velocity.Y = rand.Next(1, 3);
             for(int i = 0; i < gun.bullets.Count; i++)
             {
@@ -43,27 +43,42 @@ namespace Spaceship_Battle
         
         public new void update()
         {
-            if(health > 0 && (rect.X + rect.Width > 0) && Level.player.health > 0)
+            if(health > 0 && Level.player.health > 0)
             {
-                pos.X -= velocity.X;
-                if(rand.NextDouble() < 0.50)
-                {
-                    if(rect.Y > 0)
-                    {
-                        pos.Y += velocity.Y;
-                    }
+                //positioning
+                base.update();
+                //if(rand.NextDouble() < 0.50)
+                //{
+                //    if(rect.Y > 0)
+                //    {
+                //        pos.Y += velocity.Y;
+                //    }
                     
-                }
-                else
+                //}
+
+                //constrain location to world
+                if (pos.X < 1)
                 {
-                    if(rect.Y + rect.Height < 400)
-                    {
-                        pos.Y -= velocity.Y;
-                    }
+                    velocity.X = 1f;
+                    pos.X = 0;
+                }else if (pos.X > level.world.Width)
+                {
+                    velocity.X = -1f;
+                    pos.X = level.world.Width;
+                }
+                if (pos.Y < 1)
+                {
+                    velocity.Y = 1f;
+                    pos.Y = 0;
+                }
+                else if (pos.Y > level.world.Height)
+                {
+                    velocity.Y = -1f;
+                    pos.Y = level.world.Height;
                 }
 
 
-                
+
                 if (seconds == timeForFiring)
                 {
                     gun.fire(false);
@@ -72,9 +87,6 @@ namespace Spaceship_Battle
                 seconds++;
             }
             gun.update(rect);
-
-            rect.X = (int)pos.X + level.getoffset(0);
-            rect.Y = (int)pos.Y + level.getoffset(1);
         }
         public void draw(SpriteBatch sb, GameTime gt)
         {
