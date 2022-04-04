@@ -20,10 +20,8 @@ namespace Spaceship_Battle
         SpriteBatch spriteBatch;
         int w, h;
         StartMenu startmenu;
-        Level level;
         public enum GameState { Start, Level, Complete};
-        public GameState gamestate;
-        
+        GameState gamestate;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -42,8 +40,6 @@ namespace Spaceship_Battle
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            w = GraphicsDevice.Viewport.Width;
-            h = GraphicsDevice.Viewport.Height;
             gamestate = GameState.Start;
             base.Initialize();
         }
@@ -56,6 +52,8 @@ namespace Spaceship_Battle
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            w = GraphicsDevice.Viewport.Width;
+            h = GraphicsDevice.Viewport.Height;
             startmenu = new StartMenu(Services, w, h);
             Level.LoadContent(Services, w, h);
             // TODO: use this.Content to load your game content here
@@ -80,17 +78,9 @@ namespace Spaceship_Battle
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            switch (gamestate) {
-                case GameState.Start:
-                    gamestate += startmenu.update(gameTime);
-                    if (gamestate == GameState.Level) {
-                        startLevel();
-                    }
-                    break;
-                case GameState.Level:
-                    level.update(gameTime);
-                    break;
-            }
+            startmenu.update(gameTime);
+            
+
             base.Update(gameTime);
         }
 
@@ -102,26 +92,9 @@ namespace Spaceship_Battle
         {
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin();
-            switch (gamestate)
-            {
-                case GameState.Start:
-                    startmenu.draw(gameTime, spriteBatch);
-                    break;
-                case GameState.Level:
-                    level.draw(spriteBatch, gameTime);
-                    break;
-            }
+            startmenu.draw(gameTime, spriteBatch);
             spriteBatch.End();
             base.Draw(gameTime);
-        }
-
-        public void startLevel() {
-            graphics.PreferredBackBufferHeight = 400;
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.ApplyChanges();
-            w = GraphicsDevice.Viewport.Width;
-            h = GraphicsDevice.Viewport.Height;
-            level = new Level(Services, GraphicsDevice, w, h);
         }
     }
 }

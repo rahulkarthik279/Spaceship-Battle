@@ -12,93 +12,49 @@ namespace Spaceship_Battle
 {
     class GravityBody
     {
-        public static double gravitationalconstant = .01;
-        public static int offsetX=0, offsetY=0;
         public int mass;
         public Vector2 pos, velocity;
-        public Rectangle rect;
+        public static double gravitationalconstant=.01;
 
-        //Rectangle input in constructor gets the starting position of the object. The position is absolute relative to the level, not the position on screen. 
-        public GravityBody(int mass, Vector2 v, Rectangle r) {
+        public GravityBody(int mass, Vector2 pos, Vector2 v) {
             this.mass = mass;
-            this.pos = new Vector2(r.X, r.Y);
+            this.pos = pos;
             this.velocity = v;
-            this.rect = r;
-            rect.X = (int)pos.X + offsetX;
-            rect.Y = (int)pos.Y + offsetY;
         }
 
-        public GravityBody(int mass, double vx, double vy, Rectangle r)
+        public GravityBody(int mass, double x, double y, double vx, double vy)
         {
             this.mass = mass;
-            pos = new Vector2(r.X, r.Y);
-            velocity = new Vector2((float)vx, (float)vy);
-            this.rect = r;
-            rect.X = (int)pos.X + offsetX;
-            rect.Y = (int)pos.Y + offsetY;
+            pos = new Vector2((float) x, (float) y);
+            pos = new Vector2((float)vx, (float)vy);
         } 
 
-        public GravityBody(int mass, float vx, float vy, Rectangle r) {
+        public GravityBody(int mass, float x, float y, float vx, float vy) {
             this.mass = mass;
-            pos = new Vector2(r.X, r.Y);
-            velocity = new Vector2(vx, vy);
-            this.rect = r;
-            rect.X = (int)pos.X + offsetX;
-            rect.Y = (int)pos.Y + offsetY;
+            pos = new Vector2(x, y);
+            pos = new Vector2(vx, vy);
         }
 
-        public GravityBody(int mass, int vx, int vy, Rectangle r)
+        public GravityBody(int mass, int x, int y, int vx, int vy)
         {
             this.mass = mass;
-            pos = new Vector2(r.X, r.Y);
-            velocity = new Vector2(vx, vy);
-            this.rect = r;
-            rect.X = (int)pos.X + offsetX;
-            rect.Y = (int)pos.Y + offsetY;
+            pos = new Vector2(x, y);
+            pos = new Vector2(vx, vy);
         }
 
 
-        //updates the position and the rectangle to draw it
-        public void update() {
-            pos.X += velocity.X;
-            pos.Y += velocity.Y;
-            rect.X = (int)pos.X + offsetX;
-            rect.Y = (int)pos.Y + offsetY;
-        }
-
-        //do physics calculation for a single object
-        public void physicsstuff(GravityBody other)
+        public void update(GravityBody other)
         {
-            //ignore 0 masses
-            if (mass > 0 && other.mass > 0)
+            //ignore trivial masses
+            if (mass > 1)
             {
-                double dx = other.pos.X - pos.X - rect.Width / 2;
-                double dy = other.pos.Y - pos.Y - rect.Height / 2;
+                double dx = other.pos.X - pos.X;
+                double dy = other.pos.Y - pos.Y;
                 double distancesquared = Math.Pow(dx, 2) + Math.Pow(dy, 2);
-                if (distancesquared < 1)
-                {
-                    return;
-                }
                 double dv = gravitationalconstant * mass / distancesquared;
                 double distance = Math.Sqrt(distancesquared);
                 other.velocity.X -= (float)(dv * dx / distance);
                 other.velocity.Y -= (float)(dv * dy / distance);
-            }
-        }
-
-        public void draw(SpriteBatch sb, Boolean centered, Texture2D pic) {
-            sb.Draw(pic, rect, Color.White);
-        }
-        public void draw(SpriteBatch sb, Boolean centered, Texture2D pic, float rotation)
-        {
-            if (centered)
-            {
-                Rectangle drect = new Rectangle(rect.X - rect.Width / 2, rect.Y - rect.Height / 2, rect.Width, rect.Height);
-                sb.Draw(pic, drect, null, Color.White, rotation, new Vector2(pic.Width / 2, pic.Height / 2), SpriteEffects.None, 0);
-            }
-            else
-            {
-                sb.Draw(pic, rect, null, Color.White, rotation, new Vector2(0, 0), SpriteEffects.None, 0);
             }
         }
     }

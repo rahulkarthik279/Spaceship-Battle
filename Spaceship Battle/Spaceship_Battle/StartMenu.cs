@@ -32,7 +32,7 @@ namespace Spaceship_Battle
             buttons[2] = new Button(new Rectangle((w - buttonsize[0]) / 2, 700, buttonsize[0], buttonsize[1]), yellowbutton, "Multiplayer");
         }
 
-        public int update(GameTime gt) {
+        public void update(GameTime gt) {
             MouseState m = Mouse.GetState();
             Point mousepos = new Point(m.X, m.Y);
             for (int i = 0; i < buttons.Length; i++) {
@@ -40,16 +40,19 @@ namespace Spaceship_Battle
                 {
                     buttons[i].setActive(true);
                     if (m.LeftButton==ButtonState.Pressed) {
-                        return 1;
+                        startLevel(i);
+                        return;
                     }
                 }
                 else {
                     buttons[i].setActive(false);
                 }
             }
-            return 0;
         }
 
+        public void startLevel(int level) {
+            new Level(w,h)
+        }
 
         public void draw(GameTime gt, SpriteBatch sb) {
             for (int i = 0; i < buttons.Length; i++)
@@ -59,7 +62,7 @@ namespace Spaceship_Battle
                 float startstringX = drect.X + drect.Width / 2.0f - buttons[i].insideText.Length*4.5f;
                 sb.DrawString(font, buttons[i].insideText, new Vector2(startstringX,buttons[i].drect.Y+20), Color.White);
             }
-            sb.DrawString(bigfont, "Spaceship Battle", new Vector2(300,100),Color.Yellow);
+            sb.DrawString(bigfont, "Spaceship Battle", new Vector2(300,100),Color.White);
         }
 
     }

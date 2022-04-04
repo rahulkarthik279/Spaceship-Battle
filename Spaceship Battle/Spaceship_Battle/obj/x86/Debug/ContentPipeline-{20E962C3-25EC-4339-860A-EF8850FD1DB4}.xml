@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Sci-Fi-buttons-cover.jpg</Source>
+      <Name>Sci-Fi-buttons-cover</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb</Output>
+      <Time>2022-02-22T13:35:15.0906773-06:00</Time>
+    </Item>
+    <Item>
+      <Source>menufont.spritefont</Source>
+      <Name>menufont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2022-02-28T13:40:41.4684248-06:00</Time>
+    </Item>
+    <Item>
+      <Source>menufontbig.spritefont</Source>
+      <Name>menufontbig</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb</Output>
+      <Time>2022-02-28T13:48:18.3062933-06:00</Time>
+    </Item>
+    <Item>
+      <Source>airplane.png</Source>
+      <Name>airplane</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb</Output>
+      <Time>2022-02-28T14:10:27.3301294-06:00</Time>
+    </Item>
+    <Item>
+      <Source>meteor.png</Source>
+      <Name>meteor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb</Output>
+      <Time>2022-02-28T14:10:27.3457517-06:00</Time>
+    </Item>
+    <Item>
+      <Source>playerspaceship.png</Source>
+      <Name>playerspaceship</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb</Output>
+      <Time>2022-02-28T14:10:27.3457517-06:00</Time>
+    </Item>
+    <Item>
+      <Source>planet.png</Source>
+      <Name>planet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb</Output>
+      <Time>2022-02-28T14:10:27.3613733-06:00</Time>
+    </Item>
+    <Item>
+      <Source>turret.png</Source>
+      <Name>turret</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\turret.xnb</Output>
+      <Time>2022-02-28T14:10:27.3613733-06:00</Time>
+    </Item>
+    <Item>
+      <Source>planet2.png</Source>
+      <Name>planet2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb</Output>
+      <Time>2022-02-28T14:13:08.9918402-06:00</Time>
+    </Item>
+    <Item>
+      <Source>moon.jpg</Source>
+      <Name>moon</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb</Output>
+      <Time>2022-02-28T14:13:08.9762331-06:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{20E962C3-25EC-4339-860A-EF8850FD1DB4}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_BattleContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\156403\Desktop\Spaceship Battle\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2021-10-08T11:18:50.7141671-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
