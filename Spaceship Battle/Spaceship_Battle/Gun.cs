@@ -17,7 +17,7 @@ namespace Spaceship_Battle
         public List<Bullet> bullets;
         public Rectangle rect;
         public static Texture2D text;
-        int numActive = 0;
+        public int numActive = 0;
         Random rand = new Random();
         public Level Level
         {
