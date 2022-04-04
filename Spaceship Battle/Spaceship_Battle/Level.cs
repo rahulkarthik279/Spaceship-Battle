@@ -79,7 +79,6 @@ namespace Spaceship_Battle
 
         public static void LoadContent(IServiceProvider sp, int w, int h) {
             Planet.LoadContent(sp, w, h);
-            
         }
 
         public void update(GameTime gt)

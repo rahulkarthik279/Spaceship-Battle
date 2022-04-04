@@ -60,6 +60,8 @@ namespace Spaceship_Battle
                 sb.DrawString(font, buttons[i].insideText, new Vector2(startstringX,buttons[i].drect.Y+20), Color.White);
             }
             sb.DrawString(bigfont, "Spaceship Battle", new Vector2(300,100),Color.Yellow);
+
+
         }
 
     }

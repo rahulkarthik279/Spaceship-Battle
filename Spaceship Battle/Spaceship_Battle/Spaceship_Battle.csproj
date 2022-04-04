@@ -81,6 +81,7 @@
     <Compile Include="GravityBody.cs" />
     <Compile Include="Gun.cs" />
     <Compile Include="Level.cs" />
+    <Compile Include="LoadingScreen.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Powerup.cs" />

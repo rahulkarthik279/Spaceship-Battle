@@ -20,8 +20,10 @@ namespace Spaceship_Battle
         SpriteBatch spriteBatch;
         int w, h;
         StartMenu startmenu;
+        LoadingScreen load;
+        
         Level level;
-        public enum GameState { Start, Level, Complete};
+        public enum GameState { Start, Load, Level, Complete};
         public GameState gamestate;
         
         public Game1()
@@ -57,6 +59,7 @@ namespace Spaceship_Battle
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             startmenu = new StartMenu(Services, w, h);
+            load = new LoadingScreen(Services, w, h);
             Level.LoadContent(Services, w, h);
             // TODO: use this.Content to load your game content here
         }
@@ -83,10 +86,12 @@ namespace Spaceship_Battle
             switch (gamestate) {
                 case GameState.Start:
                     gamestate += startmenu.update(gameTime);
-                    if (gamestate == GameState.Level) {
+                    return;
+                case GameState.Load: {
                         startLevel();
+                        gamestate++;
+                        break;
                     }
-                    break;
                 case GameState.Level:
                     level.update(gameTime);
                     break;
@@ -106,6 +111,9 @@ namespace Spaceship_Battle
             {
                 case GameState.Start:
                     startmenu.draw(gameTime, spriteBatch);
+                    break;
+                case GameState.Load:
+                    load.draw(spriteBatch);
                     break;
                 case GameState.Level:
                     level.draw(spriteBatch, gameTime);
