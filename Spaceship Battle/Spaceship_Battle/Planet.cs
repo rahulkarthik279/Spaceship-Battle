@@ -66,10 +66,9 @@ namespace Spaceship_Battle
 
 
 
-        public static void LoadContent(IServiceProvider service, int w, int h)
+        public static void LoadContent(ContentManager content)
         {
-            ContentManager content = new ContentManager(service);
-            //pics = new Texture2D[3] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
+            pics = new Texture2D[] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
         }
 
         public new void update()

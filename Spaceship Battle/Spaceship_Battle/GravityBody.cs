@@ -14,6 +14,7 @@ namespace Spaceship_Battle
     {
         public static double gravitationalconstant = .01;
         public static int offsetX=0, offsetY=0;
+        public static int w, h;
         public int mass;
         public Vector2 pos, velocity;
         public Rectangle rect;
@@ -86,6 +87,17 @@ namespace Spaceship_Battle
             }
         }
 
+        public Boolean withinLevel() {
+            if (pos.X+rect.Width<0 || pos.Y+rect.Height < 0) {
+                return false;
+            }
+            if (pos.X >w || pos.Y >h) {
+                return false;
+            }
+
+            return true;
+        }
+
         public void draw(SpriteBatch sb, Boolean centered, Texture2D pic) {
             sb.Draw(pic, rect, Color.White);
         }
@@ -100,6 +112,11 @@ namespace Spaceship_Battle
             {
                 sb.Draw(pic, rect, null, Color.White, rotation, new Vector2(0, 0), SpriteEffects.None, 0);
             }
+        }
+
+        public void resetcamera() {
+            offsetX = 0;
+            offsetY = 0;
         }
     }
 }

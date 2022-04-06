@@ -176,9 +176,10 @@ namespace Spaceship_Battle
             {
                 gun.fire(true);
             }
+
             if (kb.IsKeyDown(Keys.Space) && !oldKb.IsKeyDown(Keys.Space) && Fireball.isActivated)
             {
-                fireballs.Add(new Fireball(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y + rect.Height / 2 + rect.Height, rotation, 5));
+                fireballs.Add(new Fireball(level, (int)pos.X, (int) pos.Y, rotation, 5));
                 fireballs[numFireballs].isFired = true;
                 Console.WriteLine(fireballs[numFireballs].velocity);
                 numFireballs++;

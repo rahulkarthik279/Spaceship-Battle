@@ -61,6 +61,9 @@ namespace Spaceship_Battle
                     text[a, b].SetData(data);
                 }
             }
+
+
+
         }
 
         public void draw(SpriteBatch sb, int xoffset, int yoffset) {

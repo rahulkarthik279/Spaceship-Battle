@@ -19,6 +19,7 @@ namespace Spaceship_Battle
 
 
         public Rectangle world;
+
         Texture2D worldText;
         Background bk;
 
@@ -45,14 +46,21 @@ namespace Spaceship_Battle
             height = h;
             bk = new Background(g, @"Content\smallmountain.jpg");
             world = new Rectangle(0, 0, bk.w, bk.h);
+            GravityBody.w = bk.w;
+            GravityBody.h = bk.h;
             enemies = new List<Enemy>();
             content = new ContentManager(sp, "Content");
             worldText = content.Load<Texture2D>("space");
             Enemy.text = content.Load<Texture2D>("airplane");
             Bullet.text = content.Load<Texture2D>("redRectForBorg");
             Gun.text = content.Load<Texture2D>("spaceship_rifle");
-            Planet.pics = new Texture2D[] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
+
+            Planet.LoadContent(content);
+            Meteor.LoadContent(content , world.Width, world.Height);
+
+            Fireball.isActivated = true;
             Fireball.text = content.Load<Texture2D>("save");
+            numLevel = 2;
             
             //powerups
             Powerup.pic = content.Load<Texture2D>("redRectForBorg");
@@ -78,7 +86,7 @@ namespace Spaceship_Battle
         }
 
         public static void LoadContent(IServiceProvider sp, int w, int h) {
-            Planet.LoadContent(sp, w, h);
+            
         }
 
         public void update(GameTime gt)

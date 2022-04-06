@@ -51,7 +51,7 @@ namespace Spaceship_Battle
                 }
                 else
                 {
-                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(2, 4)));
+                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12)));
                 }
                 bullets[numActive].isFired = true;
                 numActive++;

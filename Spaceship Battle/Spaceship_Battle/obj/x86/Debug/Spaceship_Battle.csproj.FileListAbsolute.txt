@@ -172,3 +172,4 @@ d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Co
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.exe
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.pdb
+\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb
