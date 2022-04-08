@@ -73,8 +73,8 @@ namespace Spaceship_Battle
         }
         private string invincibility()
         {
-            level.player.isInvincible = true;
-            return "Invincibility for 5 seconds.";
+            level.player.setInvisible();
+            return "Invincibility for 10 seconds.";
         }
         public void draw(SpriteBatch sb, GameTime gt)
         {

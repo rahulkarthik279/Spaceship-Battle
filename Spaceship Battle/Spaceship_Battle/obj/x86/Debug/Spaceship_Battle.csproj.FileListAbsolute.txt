@@ -173,3 +173,79 @@ d:\documents\Spaceship Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Co
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.exe
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.pdb
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Orbitron-Regular.ttf
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\mountain.jpg
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\smallmountain.jpg
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Spaceship_Battle.exe
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Spaceship_Battle.pdb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.dll
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.xml
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.csprojResolveAssemblyReference.cache
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.exe
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.pdb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.csprojResolveAssemblyReference.cache
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.exe
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.pdb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Orbitron-Regular.ttf
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\mountain.jpg
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\smallmountain.jpg
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Spaceship_Battle.exe
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Spaceship_Battle.pdb
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.dll
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Game.dll
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.dll
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.dll
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.dll
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.xml
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Game.xml
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
+D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb

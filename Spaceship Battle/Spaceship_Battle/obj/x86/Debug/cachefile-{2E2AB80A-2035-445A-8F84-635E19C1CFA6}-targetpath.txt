@@ -1,6 +1,7 @@
 Content\menufont.xnb
 Content\menufontbig.xnb
 Content\SpriteFont1.xnb
+Content\nextlevelfont.xnb
 Content\Sci-Fi-buttons-cover.xnb
 Content\planet.xnb
 Content\airplane.xnb

@@ -47,7 +47,7 @@ namespace Spaceship_Battle
             {
                 if (!isPlayers)
                 {
-                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rect.X, Level.player.rect.Y, rand.Next(60, 180)));
+                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), (int)Level.player.pos.X, (int)Level.player.pos.Y, rand.Next(60, 180)));
                 }
                 else
                 {

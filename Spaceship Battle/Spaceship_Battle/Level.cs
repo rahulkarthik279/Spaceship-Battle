@@ -39,15 +39,17 @@ namespace Spaceship_Battle
         int timer = 0;
         Random rand = new Random();
         public int width, height;
+        SpriteFont f1;
 
         public Level(IServiceProvider sp, GraphicsDevice g, int w, int h) {
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            bk = new Background(g, @"Content\smallmountain.jpg");
+            bk = new Background(g, @"Content\mountain.jpg");
             world = new Rectangle(0, 0, bk.w, bk.h);
             GravityBody.w = bk.w;
             GravityBody.h = bk.h;
+            f1 = content.Load<SpriteFont>("nextlevelfont");
             enemies = new List<Enemy>();
             content = new ContentManager(sp, "Content");
             worldText = content.Load<Texture2D>("space");
@@ -60,7 +62,7 @@ namespace Spaceship_Battle
 
             Fireball.isActivated = true;
             Fireball.text = content.Load<Texture2D>("save");
-            numLevel = 2;
+            numLevel = 1;
             
             //powerups
             Powerup.pic = content.Load<Texture2D>("redRectForBorg");
@@ -100,9 +102,9 @@ namespace Spaceship_Battle
             List<Bullet> bullets = player.gun.bullets;
             for (int i = 0; i < enemies.Count; i++)
             {
-                if (player.rect.Intersects(enemies[i].rect) && !player.isInvincible)
+                if (player.rect.Intersects(enemies[i].rect))
                 {
-                    if (enemies[i].health != 0)
+                    if (enemies[i].health != 0 && !player.isInvincible)
                     {
                         player.health -= 30;
                     }
@@ -122,14 +124,15 @@ namespace Spaceship_Battle
                         bullets[j].intersectsBullet(enemyBullets[k]);
                     }
                 }
-                for (int k = 0; k < enemyBullets.Count; k++)
-                {
-                    enemyBullets[k].intersectsPlayer(player);
-                    for (int l = 0; l < player.fireballs.Count; l++)
+                    for (int k = 0; k < enemyBullets.Count; k++)
                     {
-                        player.fireballs[l].intersectsBullet(enemyBullets[k]);
+                        enemyBullets[k].intersectsPlayer(player);
+                        for (int l = 0; l < player.fireballs.Count; l++)
+                        {
+                            player.fireballs[l].intersectsBullet(enemyBullets[k]);
+                        }
                     }
-                }
+                
                 enemies[i].update();
             }
             //End of intersection code
@@ -162,6 +165,27 @@ namespace Spaceship_Battle
                 enemies.Add(new Enemy(this, new Rectangle(rand.Next((int)player.pos.X,world.Width), rand.Next((int)player.pos.Y-500, world.Height), 60, 30)));
             }
 
+            if (player.health <= 0)
+            {
+                newLevel(false);
+            }
+
+            //finish level move on 
+            if (player.pos.X + player.rect.Width >= world.Width)
+            {
+                if (timerBetweenLevels == 300)
+                {
+                    numLevel++;
+                }
+                if (timerBetweenLevels > 0)
+                {
+                    timerBetweenLevels--;
+                    if (timerBetweenLevels == 0)
+                    {
+                        newLevel(true);
+                    }
+                }
+            }
             healthBar.Width = player.health;
 
             //powerups
@@ -187,40 +211,49 @@ namespace Spaceship_Battle
         {
             //draw background
             //sb.Draw(worldText, world, Color.White);
-            bk.draw(sb, GravityBody.offsetX, GravityBody.offsetY);
-
-            //draw planets
-            for (int i = 0; i < planets.Length; i++) {
-                planets[i].draw(gt, sb);
-            }
-
-            //draw enemy
-            for (int i = 0; i < enemies.Count; i++)
+            if (timerBetweenLevels == 300)
             {
-                enemies[i].draw(sb, gt);
-                for (int j = 0; j < enemies[i].gun.bullets.Count; j++)
+                bk.draw(sb, GravityBody.offsetX, GravityBody.offsetY);
+
+                //draw planets
+                for (int i = 0; i < planets.Length; i++)
                 {
-                    if (enemies[i].gun.bullets[j].isFired && !enemies[i].gun.bullets[j].isDestroyed)
+                    planets[i].draw(gt, sb);
+                }
+
+                //draw enemy
+                for (int i = 0; i < enemies.Count; i++)
+                {
+                    enemies[i].draw(sb, gt);
+                    for (int j = 0; j < enemies[i].gun.bullets.Count; j++)
                     {
-                        enemies[i].gun.bullets[j].draw(sb, gt);
+                        if (enemies[i].gun.bullets[j].isFired && !enemies[i].gun.bullets[j].isDestroyed)
+                        {
+                            enemies[i].gun.bullets[j].draw(sb, gt);
+                        }
                     }
                 }
-            }
-            if (player.health > 0)
-            {
-                player.draw(sb, gt);
-                player.gun.draw(sb, gt, true);
-            }
+                if (player.health > 0)
+                {
+                    player.draw(sb, gt);
+                    player.gun.draw(sb, gt, true);
+                }
 
-            //powerups
-            for (int i = 0; i < powerups.Count; i++)
-            {
-                powerups[i].draw(sb, gt);
-            }
+                //powerups
+                for (int i = 0; i < powerups.Count; i++)
+                {
+                    powerups[i].draw(sb, gt);
+                }
 
-            //healthbars
-            sb.Draw(unfilledText, unfilledHealthBar, Color.White);
-            sb.Draw(healthBarText, healthBar, Color.White);
+                //healthbars
+                sb.Draw(unfilledText, unfilledHealthBar, Color.White);
+                sb.Draw(healthBarText, healthBar, Color.White);
+            }
+            else
+            {
+                sb.DrawString(f1, "Level " + (numLevel) + " coming up in", new Vector2(width / 2 - 20, 50), Color.White);
+                sb.DrawString(f1, (timerBetweenLevels / 60 + 1) + "", new Vector2(width / 2, 140), Color.Blue);
+            }
         }
 
 
@@ -237,8 +270,7 @@ namespace Spaceship_Battle
         {
             if (nextLevel)
             {
-                world.Width += 1000;
-                numLevel++;
+                //world.Width += 1000;
                 if (numLevel == 2)
                 {
                     Fireball.isActivated = true;
@@ -250,6 +282,11 @@ namespace Spaceship_Battle
             timerBetweenLevels = 300;
             player.pos.X = 120;
             player.pos.Y = height / 2;
+            world.X = 0; world.Y = 0;
+            GravityBody.offsetX = 0;
+            GravityBody.offsetY = 0;
+            player.velocity.X = 0;
+            player.velocity.Y = 0;
             player.health = 100;
             player.gun.numActive = 0;
             for (int i = enemies.Count - 1; i >= 0; i--)
@@ -261,7 +298,6 @@ namespace Spaceship_Battle
                 powerups.Add(new Powerup(new Rectangle(rand.Next(500, world.Width), rand.Next(10, world.Height), 20, 20), this));
             }
         }
-
 
     }
 }

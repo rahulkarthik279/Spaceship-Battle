@@ -63,9 +63,10 @@ namespace Spaceship_Battle
         }
         public bool intersectsPlayer(Player p)
         {
+
             if (rect.Intersects(p.rect) && p.health > 0)
             {
-                if (!isDestroyed)
+                if (!isDestroyed&&p.isInvincible==false)
                 {
                     p.health -= 20;
                 }

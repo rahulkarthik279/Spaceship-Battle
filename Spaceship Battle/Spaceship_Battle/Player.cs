@@ -21,7 +21,7 @@ namespace Spaceship_Battle
         public float rotation;
         public bool isInvincible;
         public List<Fireball> fireballs;
-        int numFireballs;
+        int numFireballs, invisibletimer;
         public Level Level
         {
             get { return level; }
@@ -33,6 +33,7 @@ namespace Spaceship_Battle
             rect = r;
             health = 100;
             isAlive = true;
+            invisibletimer = 0;
             gun = new Gun(level, 15, new Rectangle(r.X + 15, r.Y + r.Height, 30, 10));
             for (int i = 0; i < gun.bullets.Count; i++)
             {
@@ -50,6 +51,13 @@ namespace Spaceship_Battle
             {
                 getInput(gt);
                 gun.update(rect);
+            }
+
+            if (isInvincible) {
+                invisibletimer--;
+                if (invisibletimer == 0) {
+                    isInvincible = false;
+                }
             }
 
             //set camera position don't touch this jank code
@@ -195,6 +203,11 @@ namespace Spaceship_Battle
             {
                 fireballs[i].draw(sb, gt);
             }
+        }
+
+        public void setInvisible() {
+            invisibletimer = 600;
+            isInvincible = true;
         }
     }
 }
