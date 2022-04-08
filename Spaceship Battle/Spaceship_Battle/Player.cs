@@ -189,7 +189,6 @@ namespace Spaceship_Battle
             {
                 fireballs.Add(new Fireball(level, (int)pos.X, (int) pos.Y, rotation, 5));
                 fireballs[numFireballs].isFired = true;
-                Console.WriteLine(fireballs[numFireballs].velocity);
                 numFireballs++;
             }
             oldMouse = newMouse;

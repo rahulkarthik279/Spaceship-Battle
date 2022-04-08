@@ -7,8 +7,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb</Output>
-      <Time>2022-04-08T01:43:08.0996294-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Time>2022-04-04T14:07:26.3831048-05:00</Time>
     </Item>
     <Item>
       <Source>menufontbig.spritefont</Source>
@@ -16,8 +16,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb</Output>
-      <Time>2022-04-08T01:43:08.0996294-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb</Output>
+      <Time>2022-04-04T14:07:26.3993916-05:00</Time>
     </Item>
     <Item>
       <Source>SpriteFont1.spritefont</Source>
@@ -25,8 +25,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
-      <Time>2022-04-08T01:43:08.0931229-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2022-04-04T14:07:26.2892274-05:00</Time>
     </Item>
     <Item>
       <Source>nextlevelfont.spritefont</Source>
@@ -34,8 +34,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb</Output>
-      <Time>2022-04-08T01:59:53.2543273-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb</Output>
+      <Time>2022-04-08T13:03:54.79152-05:00</Time>
     </Item>
     <Item>
       <Source>Sci-Fi-buttons-cover.jpg</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb</Output>
-      <Time>2022-04-08T01:43:08.0774983-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb</Output>
+      <Time>2022-04-04T14:07:26.2423557-05:00</Time>
     </Item>
     <Item>
       <Source>planet.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb</Output>
-      <Time>2022-04-08T01:43:08.1091351-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb</Output>
+      <Time>2022-04-04T14:07:26.9611042-05:00</Time>
     </Item>
     <Item>
       <Source>airplane.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb</Output>
-      <Time>2022-04-08T01:43:08.0931229-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb</Output>
+      <Time>2022-04-04T14:07:26.3206555-05:00</Time>
     </Item>
     <Item>
       <Source>box (1).png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb</Output>
-      <Time>2022-04-08T01:43:08.0931229-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb</Output>
+      <Time>2022-04-04T14:07:26.3361036-05:00</Time>
     </Item>
     <Item>
       <Source>external-content.duckduckgo.com.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb</Output>
-      <Time>2022-04-08T01:43:08.0996294-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb</Output>
+      <Time>2022-04-04T14:07:26.3673561-05:00</Time>
     </Item>
     <Item>
       <Source>meteor.png</Source>
@@ -88,8 +88,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb</Output>
-      <Time>2022-04-08T01:43:08.0996294-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb</Output>
+      <Time>2022-04-04T14:07:26.4298548-05:00</Time>
     </Item>
     <Item>
       <Source>playerspaceship.png</Source>
@@ -97,8 +97,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb</Output>
-      <Time>2022-04-08T01:43:08.1091351-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb</Output>
+      <Time>2022-04-04T14:12:01.0587598-05:00</Time>
     </Item>
     <Item>
       <Source>redRectForBorg.png</Source>
@@ -106,8 +106,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb</Output>
-      <Time>2022-04-08T01:43:08.1091351-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb</Output>
+      <Time>2022-04-04T14:07:27.0549417-05:00</Time>
     </Item>
     <Item>
       <Source>spaceship_rifle.jpg</Source>
@@ -115,8 +115,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb</Output>
-      <Time>2022-04-08T01:43:08.1247664-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb</Output>
+      <Time>2022-04-04T14:07:27.1955062-05:00</Time>
     </Item>
     <Item>
       <Source>star.png</Source>
@@ -124,8 +124,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb</Output>
-      <Time>2022-04-08T01:43:08.1247664-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb</Output>
+      <Time>2022-04-04T14:07:27.227127-05:00</Time>
     </Item>
     <Item>
       <Source>whiterectangle.png</Source>
@@ -133,8 +133,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb</Output>
-      <Time>2022-04-08T01:43:08.1247664-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb</Output>
+      <Time>2022-04-04T14:07:27.2579837-05:00</Time>
     </Item>
     <Item>
       <Source>planet2.png</Source>
@@ -142,8 +142,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb</Output>
-      <Time>2022-04-08T01:43:08.1091351-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb</Output>
+      <Time>2022-04-04T14:12:01.0118675-05:00</Time>
     </Item>
     <Item>
       <Source>moon.png</Source>
@@ -151,8 +151,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb</Output>
-      <Time>2022-04-08T01:43:08.1091351-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb</Output>
+      <Time>2022-04-04T14:07:26.4923927-05:00</Time>
     </Item>
     <Item>
       <Source>space.jpg</Source>
@@ -160,8 +160,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb</Output>
-      <Time>2022-04-08T01:43:08.1091351-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb</Output>
+      <Time>2022-04-04T14:07:27.16423-05:00</Time>
     </Item>
     <Item>
       <Source>save.png</Source>
@@ -169,8 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb</Output>
-      <Time>2022-04-08T01:43:08.1091351-07:00</Time>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb</Output>
+      <Time>2022-04-04T14:07:27.132983-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -179,39 +179,39 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_BattleContent\</RootDirectory>
-      <LoggerRootDirectory>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_BattleContent\</RootDirectory>
+      <LoggerRootDirectory>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\</LoggerRootDirectory>
+      <IntermediateDirectory>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
-        <Value>2011-09-01T17:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
-        <Value>2011-09-01T17:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
-        <Value>2011-09-01T17:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
-        <Value>2011-09-01T17:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
-        <Value>2011-09-01T17:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
         <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
-        <Value>2011-09-01T17:22:30-07:00</Value>
+        <Value>2011-09-01T16:22:30-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2022-02-12T16:53:26.6368933-08:00</Value>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2021-10-08T11:18:50.7141671-05:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

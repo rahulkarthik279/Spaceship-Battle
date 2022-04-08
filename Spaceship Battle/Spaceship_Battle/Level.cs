@@ -60,7 +60,6 @@ namespace Spaceship_Battle
             Planet.LoadContent(content);
             Meteor.LoadContent(content , world.Width, world.Height);
 
-            Fireball.isActivated = true;
             Fireball.text = content.Load<Texture2D>("save");
             numLevel = 1;
             
