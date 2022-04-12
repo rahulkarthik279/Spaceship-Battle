@@ -13,6 +13,7 @@ namespace Spaceship_Battle
 {
     class Planet : GravityBody
     {
+        //public static planets[];
         public static Texture2D[] pics;
         public Planet moon;
         Texture2D pic;
@@ -69,6 +70,10 @@ namespace Spaceship_Battle
         public static void LoadContent(ContentManager content)
         {
             pics = new Texture2D[] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
+        }
+
+        public static void updateAll() {
+            
         }
 
         public new void update()

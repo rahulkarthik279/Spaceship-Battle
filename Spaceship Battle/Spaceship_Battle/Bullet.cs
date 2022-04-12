@@ -12,24 +12,25 @@ namespace Spaceship_Battle
 {
     class Bullet : GravityBody
     {
-        public bool isDestroyed;
-        public bool isFired;
         public static Texture2D text;
+        public static List<Bullet> list;
+
+        public bool isDestroyed;
         public bool isPlayers;
-        int maxTime, time;
         public Level Level
         {
             get { return level; }
         }
         Level level;
+
         public Bullet(Level l, int startX, int startY, int endX, int endY, int time) : 
             base(0, (double)(endX - startX) / time, (double)(endY - startY) / time, new Rectangle(startX, startY, 20, 20))
         {
             level = l;
             isDestroyed = false;
-            isFired = false;
             maxTime = time;
         }
+
         public Bullet(Level l, int startX, int startY, float angle, float speed) : 
             base(0, 0,0, new Rectangle(startX-20, startY-20, 20, 20))
         {
@@ -37,6 +38,8 @@ namespace Spaceship_Battle
             velocity.X = Level.player.velocity.X + (float)Math.Cos(angle) * speed;
             velocity.Y = Level.player.velocity.Y + (float)Math.Sin(angle) * speed;
         }
+
+
         public bool intersectsBullet(Bullet b)
         {
             if (rect.Intersects(b.rect) && !b.isDestroyed)
@@ -76,21 +79,33 @@ namespace Spaceship_Battle
             }
             return false;
         }
-        public new void update()
-        {
 
-            if(!isDestroyed && isFired)
-            {
-                base.update();
-                time++;
+
+        public static void updateAll()
+        {
+            for (int i = 0; i < list.Count; i++) {
+                list[i].update();
             }
-            //if(time == maxTime)
-            //{
-            //    isDestroyed = true;
-            //}
         }
 
-        public void draw(SpriteBatch sb, GameTime gt)
+        public new void update()
+        {
+            if(!isDestroyed)
+            {
+                base.update();
+            }
+
+
+        }
+
+        public static void drawAll(SpriteBatch sb) {
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].draw(sb);
+            }
+        }
+
+        public void draw(SpriteBatch sb)
         {
             sb.Draw(text, rect, Color.White);        
         }

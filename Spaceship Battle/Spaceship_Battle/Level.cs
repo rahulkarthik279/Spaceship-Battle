@@ -23,17 +23,14 @@ namespace Spaceship_Battle
         Texture2D worldText;
         Background bk;
 
-        public Player player;
-
-        List<Enemy> enemies;
-        int numEnemies; //Max number of enemies spawned
+        public static Player player;
 
         Rectangle unfilledHealthBar;
         Rectangle healthBar;
         Texture2D unfilledText;
         Texture2D healthBarText;
 
-        List<Powerup> powerups;
+        static List<Powerup> powerups;
         int numPowerups;
 
         int timer = 0;
@@ -45,20 +42,20 @@ namespace Spaceship_Battle
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            bk = new Background(g, @"Content\mountain.jpg");
+            bk = new Background(g, @"Content\smallmountain.jpg");
             world = new Rectangle(0, 0, bk.w, bk.h);
             GravityBody.w = bk.w;
             GravityBody.h = bk.h;
             f1 = content.Load<SpriteFont>("nextlevelfont");
-            enemies = new List<Enemy>();
+            
             content = new ContentManager(sp, "Content");
             worldText = content.Load<Texture2D>("space");
-            Enemy.text = content.Load<Texture2D>("airplane");
             Bullet.text = content.Load<Texture2D>("redRectForBorg");
             Gun.text = content.Load<Texture2D>("spaceship_rifle");
 
             Planet.LoadContent(content);
             Meteor.LoadContent(content , world.Width, world.Height);
+            Enemy.loadcontent(content, 12); // second number represent numEnmies
 
             Fireball.text = content.Load<Texture2D>("save");
             numLevel = 1;
@@ -79,7 +76,6 @@ namespace Spaceship_Battle
             //player = new Player(this, new Rectangle(30, h / 2, 60, 30));
             //player.LoadContent();
             planets = new Planet[] { new Planet(1, 600, 200, true) };
-            numEnemies = rand.Next(5, 11);
             unfilledHealthBar = new Rectangle(30, 30, 100, 20);
             healthBar = unfilledHealthBar;
             unfilledText = content.Load<Texture2D>("box (1)");
@@ -99,25 +95,25 @@ namespace Spaceship_Battle
 
             //Start of intersection code
             List<Bullet> bullets = player.gun.bullets;
-            for (int i = 0; i < enemies.Count; i++)
+            for (int i = 0; i < Enemy.enemies.Count; i++)
             {
-                if (player.rect.Intersects(enemies[i].rect))
+                if (player.rect.Intersects(Enemy.enemies[i].rect))
                 {
-                    if (enemies[i].health != 0 && !player.isInvincible)
+                    if (Enemy.enemies[i].health != 0 && !player.isInvincible)
                     {
                         player.health -= 30;
                     }
-                    enemies[i].health = 0;
+                    Enemy.enemies[i].health = 0;
 
                 }
                 for (int x = 0; x < player.fireballs.Count; x++)
                 {
-                    player.fireballs[x].intersectsEnemy(enemies[i]);
+                    player.fireballs[x].intersectsEnemy(Enemy.enemies[i]);
                 }
-                List<Bullet> enemyBullets = enemies[i].gun.bullets;
+                List<Bullet> enemyBullets = Enemy.enemies[i].gun.bullets;
                 for (int j = 0; j < bullets.Count; j++)
                 {
-                    bullets[j].intersectsEnemy(enemies[i]);
+                    bullets[j].intersectsEnemy(Enemy.enemies[i]);
                     for (int k = 0; k < enemyBullets.Count; k++)
                     {
                         bullets[j].intersectsBullet(enemyBullets[k]);
@@ -131,22 +127,25 @@ namespace Spaceship_Battle
                             player.fireballs[l].intersectsBullet(enemyBullets[k]);
                         }
                     }
-                
-                enemies[i].update();
+
+
             }
             //End of intersection code
+
+            Enemy.updateAll();
 
             //gravity stuff
             player.update(gt);
             GravityBody.offsetX = world.X;
             GravityBody.offsetY = world.Y;
+            Meteor.updateAll();
 
             for (int j = 0; j < planets.Length; j++)
             {
                 //enemies
-                for (int i = 0; i < enemies.Count(); i++)
+                for (int i = 0; i < Enemy.enemies.Count(); i++)
                 {
-                    planets[j].physicsstuff(enemies[i]);
+                    planets[j].physicsstuff(Enemy.enemies[i]);
                 }
                 //bullets
                 //for (int i = 0; i < bullets.Count(); i++)
@@ -158,10 +157,9 @@ namespace Spaceship_Battle
             }
 
             //enemy spawning
-            if (timer % 240 == 0 && enemies.Count < numEnemies)
+            if (timer % 240 == 0 && Enemy.enemies.Count < Enemy.numEnemies)
             {
-                //enemies.Add(new Enemy(this, new Rectangle(900-getoffset(0), rand.Next(0, world.Height - 30), 60, 30)));
-                enemies.Add(new Enemy(this, new Rectangle(rand.Next((int)player.pos.X,world.Width), rand.Next((int)player.pos.Y-500, world.Height), 60, 30)));
+                Enemy.enemies.Add(new Enemy(this, new Rectangle(rand.Next((int)player.pos.X, world.Width), rand.Next((int)player.pos.Y - 500, world.Height), 60, 30)));
             }
 
             if (player.health <= 0)
@@ -221,17 +219,7 @@ namespace Spaceship_Battle
                 }
 
                 //draw enemy
-                for (int i = 0; i < enemies.Count; i++)
-                {
-                    enemies[i].draw(sb, gt);
-                    for (int j = 0; j < enemies[i].gun.bullets.Count; j++)
-                    {
-                        if (enemies[i].gun.bullets[j].isFired && !enemies[i].gun.bullets[j].isDestroyed)
-                        {
-                            enemies[i].gun.bullets[j].draw(sb, gt);
-                        }
-                    }
-                }
+
                 if (player.health > 0)
                 {
                     player.draw(sb, gt);
@@ -243,6 +231,8 @@ namespace Spaceship_Battle
                 {
                     powerups[i].draw(sb, gt);
                 }
+
+                Meteor.drawAll(sb);
 
                 //healthbars
                 sb.Draw(unfilledText, unfilledHealthBar, Color.White);
@@ -275,7 +265,7 @@ namespace Spaceship_Battle
                     Fireball.isActivated = true;
                 }
                 player.gun.capacity += 20;
-                numEnemies += 5;
+                Enemy.numEnemies += 5;
                 numPowerups += 5;
             }
             timerBetweenLevels = 300;
@@ -288,10 +278,9 @@ namespace Spaceship_Battle
             player.velocity.Y = 0;
             player.health = 100;
             player.gun.numActive = 0;
-            for (int i = enemies.Count - 1; i >= 0; i--)
-            {
-                enemies.RemoveAt(i);
-            }
+
+            Enemy.enemies.Clear();
+
             for (int i = 0; i < numPowerups; i++)
             {
                 powerups.Add(new Powerup(new Rectangle(rand.Next(500, world.Width), rand.Next(10, world.Height), 20, 20), this));

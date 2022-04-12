@@ -16,9 +16,8 @@ namespace Spaceship_Battle
         public static Texture2D text;
         public static List<Meteor> meteors;
         public static Random rn;
-        public static int w, h;
-
         public float rotation;
+
         public Meteor(): base(500, 0,0, new Rectangle(0,0,72,50))
         {
             while (velocity.X == 0)
@@ -38,20 +37,25 @@ namespace Spaceship_Battle
             else{
                 pos.Y = h;
             }
+            rotation = (float) Math.Atan2(velocity.Y, velocity.X) + 3.2f;
+
+            this.update();
         }
 
-        public void updateAll() {
-            for(int i=meteors.Count-1; i<=0; i--)
+        public static void updateAll() {
+            for(int i=meteors.Count-1; i>=0; i--)
             {
                 if (meteors[i].update()) {
                     meteors.RemoveAt(i);
                 }
             }
-            if (rn.Next(10) == 1)
+
+            if (rn.Next(60) == 1)
             {
                 meteors.Add(new Meteor());
             }
 
+            
         }
         public new Boolean update() {
             base.update();
@@ -70,8 +74,16 @@ namespace Spaceship_Battle
             h = height;
         }
 
-        public void draw(SpriteBatch sb) {
-            sb.Draw(text, rect, Color.White);
+        public static void drawAll(SpriteBatch sb)
+        {
+            for (int i = 0; i < meteors.Count; i++)
+            {
+                //sb.Draw(text, meteors[i].rect, Color.White);
+                meteors[i].draw(sb, true, text, meteors[i].rotation);
+            }
+            
         }
+
+
     }
 }

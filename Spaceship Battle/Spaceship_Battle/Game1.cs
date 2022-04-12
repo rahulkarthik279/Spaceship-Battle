@@ -21,7 +21,6 @@ namespace Spaceship_Battle
         int w, h;
         StartMenu startmenu;
         LoadingScreen load;
-        
         Level level;
         public enum GameState { Start, Load, Level, Complete};
         public GameState gamestate;

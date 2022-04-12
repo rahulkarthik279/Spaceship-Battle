@@ -14,7 +14,7 @@ namespace Spaceship_Battle
     class Gun
     {
         public int capacity;
-        public List<Bullet> bullets;
+        
         public Rectangle rect;
         public static Texture2D text;
         public int numActive = 0;
@@ -27,14 +27,12 @@ namespace Spaceship_Battle
         public Gun(Level l, int c)
         {
             capacity = c;
-            bullets = new List<Bullet>();
         }
         public Gun(Level l, int c, Rectangle r)
         {
             level = l;
             capacity = 9999;//c;
             rect = r;
-            bullets = new List<Bullet>();
             //for (int i = 0; i < capacity; i++)
             //{
             //    bullets.Add(new Bullet(level, rect.X + rect.Width, rect.Y + rect.Height / 2, 400, 400, 120));
@@ -47,23 +45,21 @@ namespace Spaceship_Battle
             {
                 if (!isPlayers)
                 {
-                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), (int)Level.player.pos.X, (int)Level.player.pos.Y, rand.Next(60, 180)));
+                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), (int)Level.player.pos.X, (int)Level.player.pos.Y, rand.Next(60, 180)));
                 }
                 else
                 {
-                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12)));
+                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12)));
                 }
-                bullets[numActive].isFired = true;
+
                 numActive++;
             }
             
         }
+
+
         public void update(Rectangle playerrect)
-        {
-            for(int i = 0; i < bullets.Count; i++)
-            {
-                bullets[i].update();
-            }
+        { 
             rect.X = playerrect.X + 15;
             rect.Y = playerrect.Y + playerrect.Height;
         }
@@ -78,13 +74,7 @@ namespace Spaceship_Battle
             {
                 sb.Draw(text, rect, Color.White);
             }
-            for(int i = 0; i < bullets.Count; i++)
-            {
-                if(bullets[i].isFired && !bullets[i].isDestroyed)
-                {
-                    bullets[i].draw(sb,gt);
-                }
-            }
+           
         }
     }
 }
