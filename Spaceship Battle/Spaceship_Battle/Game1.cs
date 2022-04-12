@@ -29,8 +29,8 @@ namespace Spaceship_Battle
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferHeight = 800;
-            graphics.PreferredBackBufferWidth = 1200;
+            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferWidth = 800;
             IsMouseVisible = true;
             Content.RootDirectory = "Content";
         }
