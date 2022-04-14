@@ -14,11 +14,11 @@ namespace Spaceship_Battle
     class Enemy:GravityBody
     {
         public static Texture2D text;
-        public static List<Enemy> enemies;
+        public static List<Enemy> list;
         public static int numEnemies;
 
         public int health;
-        Random rand;
+        static Random rand;
         public Gun gun;
         int seconds;
         int timeForFiring;
@@ -27,12 +27,10 @@ namespace Spaceship_Battle
         {
             get { return level; }
         }
-        Level level;
+        static Level level;
 
-        public Enemy(Level l, Rectangle r): base(1,0,0,r)
+        public Enemy(Rectangle r): base(1,0,0,r)
         {
-            level = l;
-            rand = new Random();
             gun = new Gun(level, rand.Next(10, 16), new Rectangle(r.X + 10, r.Y + r.Height, 30, 10));
             rect = r;
             health = rand.Next(1, 4) * 100;
@@ -41,19 +39,32 @@ namespace Spaceship_Battle
             timeForFiring = rand.Next(120, 480);
         }
 
-        public static void loadcontent(ContentManager content, int numenemies) {
-            enemies = new List<Enemy>();
+        public static void loadcontent(ContentManager content, int numenemies, Level l) {
+            list = new List<Enemy>();
             text = content.Load<Texture2D>("airplane");
             numEnemies = numenemies;
+            level = l;
+            rand = new Random();
         }
 
         public static void updateAll()
         {
-            for (int i = 0; i < enemies.Count; i++)
+            for (int i = 0; i <list.Count; i++)
             {
-                enemies[i].update();
+               list[i].update();
+            }
+            if (level.timer % 240 == 0 && list.Count < Enemy.numEnemies)
+            {
+                list.Add(new Enemy(new Rectangle(rand.Next((int)Level.player.pos.X, level.world.Width), rand.Next((int)Level.player.pos.Y - 500, level.world.Height), 60, 30)));
+            }
+            for (int i = list.Count - 1; i >= 0; i--) {
+                if (list[i].health == 0)
+                {
+                    list.RemoveAt(i);
+                }
             }
         }
+
         public new void update()
         {
             if(health > 0 && Level.player.health > 0)
@@ -102,10 +113,10 @@ namespace Spaceship_Battle
             }
         }
 
-        public void drawAll(SpriteBatch sb) {
-            for (int i = 0; i < enemies.Count; i++)
+        public static void drawAll(SpriteBatch sb) {
+            for (int i = 0; i <list.Count; i++)
             {
-                enemies[i].draw(sb);
+               list[i].draw(sb);
             }
         }
     }

@@ -28,7 +28,6 @@ namespace Spaceship_Battle
         {
             level = l;
             isDestroyed = false;
-            maxTime = time;
         }
 
         public Bullet(Level l, int startX, int startY, float angle, float speed) : 
@@ -39,17 +38,89 @@ namespace Spaceship_Battle
             velocity.Y = Level.player.velocity.Y + (float)Math.Sin(angle) * speed;
         }
 
-
-        public bool intersectsBullet(Bullet b)
-        {
-            if (rect.Intersects(b.rect) && !b.isDestroyed)
-            {
-                isDestroyed = true;
-                b.isDestroyed = true;
-                return true;
-            }
-            return false;
+        public static void loadcontent(ContentManager content) {
+            Bullet.text = content.Load<Texture2D>("redRectForBorg");
+            list = new List<Bullet>();
         }
+
+        public static void updateAll()
+        {
+            //first loop for intersections
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].update(i);
+            }
+
+            //second loop to remove all destroyed bullets
+            for (int i = list.Count - 1; i >= 0; i--) {
+                if (list[i].isDestroyed) {
+                    list.RemoveAt(i);
+                }
+            }
+        }
+
+        public void update(int index)
+        {
+            if (!isDestroyed)
+            {
+                base.update();
+                for (int j = index + 1; j < list.Count; j++)
+                {
+                    //intersect with other bullets
+                    if (!list[j].isDestroyed && list[j].isPlayers != isPlayers)
+                    {
+                        if (rect.Intersects(list[j].rect))
+                        {
+                            isDestroyed = true;
+                            list[j].isDestroyed = true;
+                        }
+                    }
+                }
+                
+                if (isPlayers)
+                {
+                    //intersect with enemies
+                    for (int j = 0; j < Enemy.list.Count; j++)
+                    {
+                        if (intersectsEnemy(Enemy.list[j])){
+                            isDestroyed = true;
+                        }
+                    }
+                }
+                else {
+                    //intersect with players
+                    if (intersectsPlayer(Level.player)) {
+                        isDestroyed = true;
+                    }
+                }
+            }
+
+        }
+
+        public static void drawAll(SpriteBatch sb)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].draw(sb);
+            }
+        }
+
+        public void draw(SpriteBatch sb)
+        {
+            sb.Draw(text, rect, Color.White);
+        }
+
+        //public bool intersectsBullet(Bullet b)
+        //{
+        //    if (rect.Intersects(b.rect) && !b.isDestroyed)
+        //    {
+        //        isDestroyed = true;
+        //        b.isDestroyed = true;
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
         public bool intersectsEnemy(Enemy e)
         {
             if (rect.Intersects(e.rect) && e.health > 0)
@@ -64,6 +135,7 @@ namespace Spaceship_Battle
             }
             return false;
         }
+
         public bool intersectsPlayer(Player p)
         {
 
@@ -78,36 +150,6 @@ namespace Spaceship_Battle
                 return true;
             }
             return false;
-        }
-
-
-        public static void updateAll()
-        {
-            for (int i = 0; i < list.Count; i++) {
-                list[i].update();
-            }
-        }
-
-        public new void update()
-        {
-            if(!isDestroyed)
-            {
-                base.update();
-            }
-
-
-        }
-
-        public static void drawAll(SpriteBatch sb) {
-            for (int i = 0; i < list.Count; i++)
-            {
-                list[i].draw(sb);
-            }
-        }
-
-        public void draw(SpriteBatch sb)
-        {
-            sb.Draw(text, rect, Color.White);        
         }
     }
 }

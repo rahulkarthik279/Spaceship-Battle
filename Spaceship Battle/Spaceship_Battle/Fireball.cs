@@ -14,12 +14,13 @@ namespace Spaceship_Battle
     class Fireball : GravityBody
     {
         public bool isDestroyed;
-        public bool isFired;
         public static Texture2D text;
+        public static List<Fireball> list;
         //public bool isPlayers;
         //int maxTime, time;
         int numTimesHit;
-        public static bool isActivated = false;
+        public static bool isActivated;
+
         public Level Level
         {
             get { return level; }
@@ -79,25 +80,53 @@ namespace Spaceship_Battle
         //    }
         //    return false;
         //}
+
+        public static void loadcontent(ContentManager content) {
+            Fireball.text = content.Load<Texture2D>("save");
+            list = new List<Fireball>();
+            isActivated = false;
+        }
+
         public new void update()
         {
-
-            if (!isDestroyed && isFired)
+            if (!isDestroyed)
             {
                 base.update();
+                for (int j = 0; j < Enemy.list.Count; j++)
+                {
+                    intersectsEnemy(Enemy.list[j]);
+                }
             }
-            //if(time == maxTime)
-            //{
-            //    isDestroyed = true;
-            //}
         }
-        public void draw(SpriteBatch sb, GameTime gt)
+
+        public static void updateAll() {
+            //first loop for intersections
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].update();
+            }
+
+            //second loop to remove all destroyed bullets
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (list[i].isDestroyed)
+                {
+                    list.RemoveAt(i);
+                }
+            }
+        }
+        public void draw(SpriteBatch sb)
         {
-            if (!isDestroyed && isFired)
+            if (!isDestroyed)
             {
                 sb.Draw(text, rect, Color.Red);
             }
+        }
 
+        public void drawAll(SpriteBatch sb) {
+            for (int i = 0; i < list.Count; i++) {
+                list[i].draw(sb);
+            }
         }
     }
 }

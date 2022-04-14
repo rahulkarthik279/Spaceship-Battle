@@ -20,7 +20,6 @@ namespace Spaceship_Battle
         MouseState oldMouse = Mouse.GetState();
         public float rotation;
         public bool isInvincible;
-        public List<Fireball> fireballs;
         int numFireballs, invisibletimer;
         public Level Level
         {
@@ -35,18 +34,11 @@ namespace Spaceship_Battle
             isAlive = true;
             invisibletimer = 0;
             gun = new Gun(level, 15, new Rectangle(r.X + 15, r.Y + r.Height, 30, 10));
-            for (int i = 0; i < gun.bullets.Count; i++)
-            {
-                gun.bullets[i].isPlayers = true;
-            }
-            fireballs = new List<Fireball>();
         }
         public void update(GameTime gt)
         {
-            for (int i = 0; i < fireballs.Count; i++)
-            {
-                fireballs[i].update();
-            }
+
+            Fireball.updateAll();
             if (health > 0)
             {
                 getInput(gt);
@@ -187,8 +179,7 @@ namespace Spaceship_Battle
 
             if (kb.IsKeyDown(Keys.Space) && !oldKb.IsKeyDown(Keys.Space) && Fireball.isActivated)
             {
-                fireballs.Add(new Fireball(level, (int)pos.X, (int) pos.Y, rotation, 5));
-                fireballs[numFireballs].isFired = true;
+                Fireball.list.Add(new Fireball(level, (int)pos.X, (int) pos.Y, rotation, 5));
                 numFireballs++;
             }
             oldMouse = newMouse;
@@ -198,10 +189,6 @@ namespace Spaceship_Battle
         public void draw(SpriteBatch sb, GameTime gt)
         {
             sb.Draw(text, rect, null, Color.White, (float)Math.PI / 2 + rotation, new Vector2(text.Bounds.Width / 2, text.Bounds.Height / 2), SpriteEffects.None, 0);
-            for (int i = 0; i < fireballs.Count; i++)
-            {
-                fireballs[i].draw(sb, gt);
-            }
         }
 
         public void setInvisible() {

@@ -13,27 +13,66 @@ namespace Spaceship_Battle
 {
     class Powerup : GravityBody
     {
-        Level level;
-        Random rand = new Random();
+        static Level level;
+        static Random rand;
+        static List<Powerup> list;
+
         public int timer;
         public static Texture2D pic;
         public bool pickedup;
         public string messageFromPowerUp;
         public static SpriteFont f1;
 
-        public Powerup(Rectangle r, Level l) : base(0, 0, 0, r)
+
+
+        public Powerup(Rectangle r) : base(0, 0, 0, r)
         {
-            level = l;
             messageFromPowerUp = "";
             pickedup = false;
             timer = 60;
         }
+
+
+
         public new void update()
         {
             base.update();
             if (pickedup) {
                 timer--;
+            }else {
+                if (Level.player.rect.Intersects(rect))
+                {
+                    intersected();
+                }
             }
+        }
+
+        public static void updateAll() {
+            for (int i = list.Count-1; i >=0; i--) {
+                if (list[i].timer < 0)
+                {
+                    list.RemoveAt(i);
+                }
+                else {
+                    list[i].update();
+                }
+            }
+        }
+
+        public static void initialize(int numPowerups) {
+            list.Clear();
+            for (int i = 0; i < numPowerups; i++)
+            {
+                list.Add(new Powerup(new Rectangle(rand.Next(500, level.world.Width), rand.Next(10, level.world.Height), 20, 20)));
+            }
+        }
+
+        public static void loadcontent(ContentManager content, Level l) {
+            Powerup.pic = content.Load<Texture2D>("redRectForBorg");
+            Powerup.f1 = content.Load<SpriteFont>("SpriteFont1");
+            level = l;
+            rand = new Random();
+            list = new List<Powerup>();
         }
 
         public void intersected() {
@@ -58,25 +97,27 @@ namespace Spaceship_Battle
         private string addHealth()
         {
             int addedHealth = rand.Next(1, 4) * 5;
-            level.player.health += addedHealth;
-            if (level.player.health > 100)
+            Level.player.health += addedHealth;
+            if (Level.player.health > 100)
             {
-                level.player.health = 100;
+                Level.player.health = 100;
             }
             return "Added " + addedHealth + " health.";
         }
         private string addBullets()
         {
             int addedBullets = rand.Next(1, 3) * 10;
-            level.player.gun.capacity += addedBullets;
+            Level.player.gun.capacity += addedBullets;
             return "Added " + addedBullets + " bullets.";
         }
         private string invincibility()
         {
-            level.player.setInvisible();
+            Level.player.setInvisible();
             return "Invincibility for 10 seconds.";
         }
-        public void draw(SpriteBatch sb, GameTime gt)
+
+
+        public void draw(SpriteBatch sb)
         {
             if(pickedup){
                 sb.DrawString(f1, messageFromPowerUp, new Vector2(350, 10), Color.White);
@@ -85,6 +126,13 @@ namespace Spaceship_Battle
 
             Color[] colors = { Color.Blue, Color.Green, Color.Orange };
             sb.Draw(pic, rect, colors[rand.Next(0, colors.Length)]);
+        }
+
+        public static void drawAll(SpriteBatch sb) {
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].draw(sb);
+            }
         }
     }
 }

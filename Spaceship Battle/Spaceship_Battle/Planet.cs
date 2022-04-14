@@ -13,7 +13,7 @@ namespace Spaceship_Battle
 {
     class Planet : GravityBody
     {
-        //public static planets[];
+        public static Planet[] list;
         public static Texture2D[] pics;
         public Planet moon;
         Texture2D pic;
@@ -70,10 +70,14 @@ namespace Spaceship_Battle
         public static void LoadContent(ContentManager content)
         {
             pics = new Texture2D[] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
+            list = new Planet[] { new Planet(1, 600, 200, true) };
         }
 
         public static void updateAll() {
-            
+            for (int j = 0; j < list.Length; j++)
+            {
+                list[j].update();
+            }
         }
 
         public new void update()
@@ -83,14 +87,36 @@ namespace Spaceship_Battle
                 this.physicsstuff(moon);
                 moon.update();
             }
+
+            //enemies
+            for (int i = 0; i < Enemy.list.Count(); i++)
+            {
+                physicsstuff(Enemy.list[i]);
+            }
+
+            //bullets
+            //for (int i = 0; i < bullets.Count(); i++)
+            //{
+            //    list[j].physicsstuff(enemyBullets[i]);
+            //}
+
+            //player
+            physicsstuff(Level.player);
         }
 
-        public void draw(GameTime gt, SpriteBatch sb)
+        public void draw(SpriteBatch sb)
         {
             base.draw(sb, false, pic);
             if (moon!=null)
             {
-                moon.draw(gt, sb);
+                moon.draw(sb);
+            }
+        }
+
+        public static void drawAll(SpriteBatch sb) {
+            for (int i = 0; i < list.Length; i++)
+            {
+                list[i].draw(sb);
             }
         }
 

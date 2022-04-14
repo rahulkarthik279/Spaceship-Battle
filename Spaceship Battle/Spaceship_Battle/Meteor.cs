@@ -53,10 +53,9 @@ namespace Spaceship_Battle
             if (rn.Next(60) == 1)
             {
                 meteors.Add(new Meteor());
-            }
-
-            
+            } 
         }
+
         public new Boolean update() {
             base.update();
             if (withinLevel())
@@ -81,7 +80,6 @@ namespace Spaceship_Battle
                 //sb.Draw(text, meteors[i].rect, Color.White);
                 meteors[i].draw(sb, true, text, meteors[i].rotation);
             }
-            
         }
 
 
