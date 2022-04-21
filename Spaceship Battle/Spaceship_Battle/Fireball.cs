@@ -26,16 +26,9 @@ namespace Spaceship_Battle
             get { return level; }
         }
         Level level;
-        //public Fireball(Level l, int startX, int startY, int endX, int endY, int time) :
-        //    base(0, (double)(endX - startX) / time, (double)(endY - startY) / time, new Rectangle(startX, startY, 20, 20))
-        //{
-        //    level = l;
-        //    isDestroyed = false;
-        //    isFired = false;
-        //    maxTime = time;
-        //}
+
         public Fireball(Level l, int startX, int startY, float angle, float speed) :
-            base(0, 0, 0, new Rectangle(startX - 20, startY - 20, 20, 20))
+            base(1, 0, 0, new Rectangle(startX - 20, startY - 20, 20, 20))
         {
             level = l;
             velocity.X = Level.player.velocity.X + (float)Math.Cos(angle) * speed;
@@ -123,7 +116,7 @@ namespace Spaceship_Battle
             }
         }
 
-        public void drawAll(SpriteBatch sb) {
+        public static void drawAll(SpriteBatch sb) {
             for (int i = 0; i < list.Count; i++) {
                 list[i].draw(sb);
             }

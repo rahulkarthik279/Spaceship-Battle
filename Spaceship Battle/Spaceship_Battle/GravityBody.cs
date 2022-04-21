@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 namespace Spaceship_Battle
 {
-    class GravityBody
+    abstract class GravityBody
     {
         public static double gravitationalconstant = .01;
         public static int offsetX=0, offsetY=0;

@@ -131,20 +131,20 @@ namespace Spaceship_Battle
             {
                 bk.draw(sb, GravityBody.offsetX, GravityBody.offsetY);
 
-                //draw enemy
-
-                if (player.health > 0)
-                {
-                    player.draw(sb, gt);
-                    player.gun.draw(sb, gt, true);
-                }
-
 
                 Planet.drawAll(sb);
                 Meteor.drawAll(sb);
                 Powerup.drawAll(sb);
                 Enemy.drawAll(sb);
+                Bullet.drawAll(sb);
+                Fireball.drawAll(sb);
 
+                //player
+                if (player.health > 0)
+                {
+                    player.draw(sb, gt);
+                    player.gun.draw(sb, gt, true);
+                }
 
                 //healthbars
                 sb.Draw(unfilledText, unfilledHealthBar, Color.White);

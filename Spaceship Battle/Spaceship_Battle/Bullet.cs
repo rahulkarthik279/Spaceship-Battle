@@ -24,16 +24,18 @@ namespace Spaceship_Battle
         Level level;
 
         public Bullet(Level l, int startX, int startY, int endX, int endY, int time) : 
-            base(0, (double)(endX - startX) / time, (double)(endY - startY) / time, new Rectangle(startX, startY, 20, 20))
+            base(1, (double)(endX - startX) / time, (double)(endY - startY) / time, new Rectangle(startX, startY, 20, 20))
         {
             level = l;
             isDestroyed = false;
+            isPlayers = false;
         }
 
         public Bullet(Level l, int startX, int startY, float angle, float speed) : 
-            base(0, 0,0, new Rectangle(startX-20, startY-20, 20, 20))
+            base(1, 0,0, new Rectangle(startX-20, startY-20, 20, 20))
         {
             level = l;
+            isPlayers = true;
             velocity.X = Level.player.velocity.X + (float)Math.Cos(angle) * speed;
             velocity.Y = Level.player.velocity.Y + (float)Math.Sin(angle) * speed;
         }

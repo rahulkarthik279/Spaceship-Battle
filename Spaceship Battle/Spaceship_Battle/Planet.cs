@@ -95,11 +95,16 @@ namespace Spaceship_Battle
             }
 
             //bullets
-            //for (int i = 0; i < bullets.Count(); i++)
-            //{
-            //    list[j].physicsstuff(enemyBullets[i]);
-            //}
+            for (int i = 0; i < Bullet.list.Count(); i++)
+            {
+                physicsstuff(Bullet.list[i]);
+            }
 
+            //fireballs
+            for (int i = 0; i < Fireball.list.Count(); i++)
+            {
+                physicsstuff(Fireball.list[i]);
+            }
             //player
             physicsstuff(Level.player);
         }
