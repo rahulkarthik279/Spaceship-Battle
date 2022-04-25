@@ -13,7 +13,7 @@ namespace Spaceship_Battle
     class Player : GravityBody
     {
         public Texture2D text;
-        public int health;
+        public double health;
         public bool isAlive;
         public Gun gun;
         KeyboardState oldKb = Keyboard.GetState();
@@ -34,7 +34,7 @@ namespace Spaceship_Battle
             health = 100;
             isAlive = true;
             invisibletimer = 0;
-            gun = new Gun(level, 15, new Rectangle(r.X + 15, r.Y + r.Height, 30, 10));
+            gun = new Gun(level, 10, new Rectangle(r.X + 15, r.Y + r.Height, 30, 10));
             for (int i = 0; i < gun.bullets.Count; i++)
             {
                 gun.bullets[i].isPlayers = true;
@@ -189,6 +189,7 @@ namespace Spaceship_Battle
             {
                 fireballs.Add(new Fireball(level, (int)pos.X, (int) pos.Y, rotation, 5));
                 fireballs[numFireballs].isFired = true;
+                Console.WriteLine(fireballs[numFireballs].velocity);
                 numFireballs++;
             }
             oldMouse = newMouse;

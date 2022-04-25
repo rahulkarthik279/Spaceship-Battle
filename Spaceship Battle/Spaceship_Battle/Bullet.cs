@@ -17,29 +17,38 @@ namespace Spaceship_Battle
         public static Texture2D text;
         public bool isPlayers;
         int maxTime, time;
+        Color color;
         public Level Level
         {
             get { return level; }
         }
         Level level;
-        public Bullet(Level l, int startX, int startY, int endX, int endY, int time) : 
+        public Bullet(Level l, int startX, int startY, int endX, int endY, int time, Color c) : 
             base(0, (double)(endX - startX) / time, (double)(endY - startY) / time, new Rectangle(startX, startY, 20, 20))
         {
             level = l;
             isDestroyed = false;
             isFired = false;
             maxTime = time;
+            color = c;
         }
-        public Bullet(Level l, int startX, int startY, float angle, float speed) : 
+        public Bullet(Level l, int startX, int startY, float angle, float speed, Color c, bool isPlayer) : 
             base(0, 0,0, new Rectangle(startX-20, startY-20, 20, 20))
         {
             level = l;
-            velocity.X = Level.player.velocity.X + (float)Math.Cos(angle) * speed;
-            velocity.Y = Level.player.velocity.Y + (float)Math.Sin(angle) * speed;
+            
+            velocity.X = (float)Math.Cos(angle) * speed;
+            velocity.Y = (float)Math.Sin(angle) * speed;
+            if (isPlayer)
+            {
+                velocity.X += Level.player.velocity.X;
+                velocity.Y += Level.player.velocity.Y;
+            }
+            color = c;
         }
         public bool intersectsBullet(Bullet b)
         {
-            if (rect.Intersects(b.rect) && !b.isDestroyed)
+            if (rect.Intersects(b.rect) && !b.isDestroyed && !isDestroyed)
             {
                 isDestroyed = true;
                 b.isDestroyed = true;
@@ -76,6 +85,18 @@ namespace Spaceship_Battle
             }
             return false;
         }
+        public bool intersectsTurret(Turret t)
+        {
+            if(rect.Intersects(t.rect) && Turret.health > 0){
+                if (!isDestroyed)
+                {
+                    Turret.health -= 30;
+                }
+                isDestroyed = true;
+                return true;
+            }
+            return false;
+        }
         public new void update()
         {
 
@@ -92,7 +113,7 @@ namespace Spaceship_Battle
 
         public void draw(SpriteBatch sb, GameTime gt)
         {
-            sb.Draw(text, rect, Color.White);        
+            sb.Draw(text, rect, color);        
         }
     }
 }

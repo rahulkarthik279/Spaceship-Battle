@@ -32,7 +32,7 @@ namespace Spaceship_Battle
         public Gun(Level l, int c, Rectangle r)
         {
             level = l;
-            capacity = 9999;//c;
+            capacity = c;
             rect = r;
             bullets = new List<Bullet>();
             //for (int i = 0; i < capacity; i++)
@@ -47,11 +47,11 @@ namespace Spaceship_Battle
             {
                 if (!isPlayers)
                 {
-                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), (int)Level.player.pos.X, (int)Level.player.pos.Y, rand.Next(60, 180)));
+                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), (int)Level.player.pos.X, (int)Level.player.pos.Y, rand.Next(60, 180), Color.Red));
                 }
                 else
                 {
-                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12)));
+                    bullets.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12), Color.Blue, true));
                 }
                 bullets[numActive].isFired = true;
                 numActive++;

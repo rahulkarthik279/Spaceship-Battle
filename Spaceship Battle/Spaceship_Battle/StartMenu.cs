@@ -27,9 +27,9 @@ namespace Spaceship_Battle
             font = content.Load <SpriteFont>("menufont");
             bigfont = content.Load<SpriteFont>("menufontbig");
             buttons = new Button[3];
-            buttons[0] = new Button(new Rectangle((w-buttonsize[0])/2, 250, buttonsize[0], buttonsize[1]), bluebutton, "Continue Single Player");
-            buttons[1] = new Button(new Rectangle((w - buttonsize[0]) / 2, 350, buttonsize[0], buttonsize[1]), bluebutton, "Restart Single Player");
-            buttons[2] = new Button(new Rectangle((w - buttonsize[0]) / 2, 450, buttonsize[0], buttonsize[1]), yellowbutton, "Multiplayer");
+            buttons[0] = new Button(new Rectangle((w-buttonsize[0])/2, 500, buttonsize[0], buttonsize[1]), bluebutton, "Continue Single Player");
+            buttons[1] = new Button(new Rectangle((w - buttonsize[0]) / 2, 600, buttonsize[0], buttonsize[1]), bluebutton, "Restart Single Player");
+            buttons[2] = new Button(new Rectangle((w - buttonsize[0]) / 2, 700, buttonsize[0], buttonsize[1]), yellowbutton, "Multiplayer");
         }
 
         public int update(GameTime gt) {
@@ -59,7 +59,7 @@ namespace Spaceship_Battle
                 float startstringX = drect.X + drect.Width / 2.0f - buttons[i].insideText.Length*4.5f;
                 sb.DrawString(font, buttons[i].insideText, new Vector2(startstringX,buttons[i].drect.Y+20), Color.White);
             }
-            sb.DrawString(bigfont, "Spaceship Battle", new Vector2(120,60),Color.Yellow);
+            sb.DrawString(bigfont, "Spaceship Battle", new Vector2(300,100),Color.Yellow);
 
 
         }
