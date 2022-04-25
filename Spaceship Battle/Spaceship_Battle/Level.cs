@@ -181,7 +181,14 @@ namespace Spaceship_Battle
 
             if (player.health <= 0)
             {
-                newLevel(false);
+                if (timerBetweenLevels > 0)
+                {
+                    timerBetweenLevels--;
+                    if (timerBetweenLevels == 0)
+                    {
+                        newLevel(false);
+                    }
+                }
             }
             Debris.updateAll();
             //finish level move on 
