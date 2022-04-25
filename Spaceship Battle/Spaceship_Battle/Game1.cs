@@ -21,10 +21,11 @@ namespace Spaceship_Battle
         int w, h;
         StartMenu startmenu;
         LoadingScreen load;
+        PauseGame pause;
         Level level;
-        public enum GameState { Start, Load, Level, Complete};
+        public enum GameState { Start, Load, Level, Pause, Complete };
         public GameState gamestate;
-        
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -59,6 +60,7 @@ namespace Spaceship_Battle
             spriteBatch = new SpriteBatch(GraphicsDevice);
             startmenu = new StartMenu(Services, w, h);
             load = new LoadingScreen(Services, w, h);
+            pause = new PauseGame(Services);
             Level.LoadContent(Services, w, h);
             // TODO: use this.Content to load your game content here
         }
@@ -82,17 +84,23 @@ namespace Spaceship_Battle
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-            switch (gamestate) {
+            switch (gamestate)
+            {
                 case GameState.Start:
                     gamestate += startmenu.update(gameTime);
                     return;
-                case GameState.Load: {
+                case GameState.Load:
+                    {
                         startLevel();
                         gamestate++;
                         break;
                     }
                 case GameState.Level:
                     level.update(gameTime);
+                    gamestate += pause.update(gameTime);
+                    break;
+                case GameState.Pause:
+                    gamestate -= pause.update(gameTime);
                     break;
             }
             base.Update(gameTime);
@@ -115,14 +123,21 @@ namespace Spaceship_Battle
                     load.draw(spriteBatch);
                     break;
                 case GameState.Level:
+
                     level.draw(spriteBatch, gameTime);
+                    pause.draw(spriteBatch, gameTime);
+                    break;
+                case GameState.Pause:
+                    level.draw(spriteBatch, gameTime);
+                    pause.draw(spriteBatch, gameTime);
                     break;
             }
             spriteBatch.End();
             base.Draw(gameTime);
         }
 
-        public void startLevel() {
+        public void startLevel()
+        {
             graphics.PreferredBackBufferHeight = 400;
             graphics.PreferredBackBufferWidth = 800;
             graphics.ApplyChanges();

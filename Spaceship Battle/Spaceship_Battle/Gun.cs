@@ -49,7 +49,7 @@ namespace Spaceship_Battle
                 }
                 else
                 {
-                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12)));
+                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12), true));
                 }
 
                 numActive++;

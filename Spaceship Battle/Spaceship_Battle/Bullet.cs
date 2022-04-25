@@ -31,11 +31,11 @@ namespace Spaceship_Battle
             isPlayers = false;
         }
 
-        public Bullet(Level l, int startX, int startY, float angle, float speed) : 
+        public Bullet(Level l, int startX, int startY, float angle, float speed, bool fromPlayer) : 
             base(1, 0,0, new Rectangle(startX-20, startY-20, 20, 20))
         {
             level = l;
-            isPlayers = true;
+            isPlayers = fromPlayer;
             velocity.X = Level.player.velocity.X + (float)Math.Cos(angle) * speed;
             velocity.Y = Level.player.velocity.Y + (float)Math.Sin(angle) * speed;
         }

@@ -34,6 +34,7 @@ namespace Spaceship_Battle
         Random rand = new Random();
         public int width, height;
         SpriteFont f1;
+        FileReader reader;
 
         public Level(IServiceProvider sp, GraphicsDevice g, int w, int h) {
             ContentManager content = new ContentManager(sp, "Content");
@@ -56,14 +57,29 @@ namespace Spaceship_Battle
             Fireball.loadcontent(content);
             Bullet.loadcontent(content);
             Powerup.loadcontent(content, this);
+            Turret.loadcontent(content, this);
+            Debris.LoadContent(content, this);
             
             numLevel = 1;
             
             //powerups
             
             numPowerups = 10;
-            
 
+            reader = new FileReader();
+            reader.read(@"Content/fileForObstacles.txt");
+            List<Object> objects = reader.objects;
+            for (int i = 0; i < objects.Count; i++)
+            {
+                if (objects[i].GetType().Equals(typeof(Planet)))
+                {
+                    Planet.list.Add((Planet)(objects[i]));
+                }
+                else if (objects[i].GetType().Equals(typeof(Debris)))
+                {
+                    Debris.list.Add((Debris)(objects[i]));
+                }
+            }
 
             player = new Player(this, new Rectangle(120, h / 2, 60, 30));
             player.text = content.Load<Texture2D>("playerspaceship");
@@ -82,7 +98,6 @@ namespace Spaceship_Battle
 
         public void update(GameTime gt)
         {
-
             //gravity stuff
             player.update(gt);
             GravityBody.offsetX = world.X;
@@ -94,10 +109,19 @@ namespace Spaceship_Battle
             Fireball.updateAll();
             Powerup.updateAll();
             Bullet.updateAll();
+            //Turret.updateAll();
+            Debris.updateAll();
 
             if (player.health <= 0)
             {
-                newLevel(false);
+                if (timerBetweenLevels > 0)
+                {
+                    timerBetweenLevels--;
+                    if (timerBetweenLevels == 0)
+                    {
+                        newLevel(false);
+                    }
+                }
             }
 
             //finish level move on 
@@ -116,9 +140,7 @@ namespace Spaceship_Battle
                     }
                 }
             }
-            healthBar.Width = player.health;
-
-
+            healthBar.Width = (int)player.health;
 
             timer++;
         }
@@ -138,6 +160,7 @@ namespace Spaceship_Battle
                 Enemy.drawAll(sb);
                 Bullet.drawAll(sb);
                 Fireball.drawAll(sb);
+                Debris.drawAll(sb);
 
                 //player
                 if (player.health > 0)

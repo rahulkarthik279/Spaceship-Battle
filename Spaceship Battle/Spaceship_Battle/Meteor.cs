@@ -58,10 +58,33 @@ namespace Spaceship_Battle
 
         public new Boolean update() {
             base.update();
+            
+
+            if (rect.Intersects(Level.player.rect)) {
+                Level.player.health -= 10;
+                return true;
+            }
+            for (int i = 0; i < Enemy.list.Count; i++) {
+                if (rect.Intersects(Enemy.list[i].rect))
+                {
+                    Enemy.list[i].health = 0;
+                    return true;
+                }
+            }
+            for (int i = 0; i < Bullet.list.Count; i++)
+            {
+                if (rect.Intersects(Bullet.list[i].rect))
+                {
+                    Bullet.list[i].isDestroyed = true;
+                    return true;
+                }
+            }
+
             if (withinLevel())
             {
                 return false;
             }
+
             return true;
         }
         

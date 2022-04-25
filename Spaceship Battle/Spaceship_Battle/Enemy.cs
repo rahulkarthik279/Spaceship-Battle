@@ -93,7 +93,11 @@ namespace Spaceship_Battle
                     pos.Y = level.world.Height;
                 }
 
-
+                //player 
+                if (rect.Intersects(Level.player.rect)) {
+                    health = 0;
+                    Level.player.health -= 30;
+                }
 
                 if (seconds == timeForFiring)
                 {

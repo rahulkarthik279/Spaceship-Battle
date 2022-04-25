@@ -13,7 +13,7 @@ namespace Spaceship_Battle
 {
     class Planet : GravityBody
     {
-        public static Planet[] list;
+        public static List<Planet> list;
         public static Texture2D[] pics;
         public Planet moon;
         Texture2D pic;
@@ -70,11 +70,11 @@ namespace Spaceship_Battle
         public static void LoadContent(ContentManager content)
         {
             pics = new Texture2D[] { content.Load<Texture2D>("planet"), content.Load<Texture2D>("planet2"), content.Load<Texture2D>("moon") };
-            list = new Planet[] { new Planet(1, 600, 200, true) };
+            list = new List<Planet>();
         }
 
         public static void updateAll() {
-            for (int j = 0; j < list.Length; j++)
+            for (int j = 0; j < list.Count; j++)
             {
                 list[j].update();
             }
@@ -119,7 +119,7 @@ namespace Spaceship_Battle
         }
 
         public static void drawAll(SpriteBatch sb) {
-            for (int i = 0; i < list.Length; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 list[i].draw(sb);
             }

@@ -13,7 +13,7 @@ namespace Spaceship_Battle
     class Player : GravityBody
     {
         public Texture2D text;
-        public int health;
+        public double health;
         public bool isAlive;
         public Gun gun;
         KeyboardState oldKb = Keyboard.GetState();
@@ -38,7 +38,6 @@ namespace Spaceship_Battle
         public void update(GameTime gt)
         {
 
-            Fireball.updateAll();
             if (health > 0)
             {
                 getInput(gt);
@@ -51,6 +50,7 @@ namespace Spaceship_Battle
                     isInvincible = false;
                 }
             }
+
 
             //set camera position don't touch this jank code
             //in X direction

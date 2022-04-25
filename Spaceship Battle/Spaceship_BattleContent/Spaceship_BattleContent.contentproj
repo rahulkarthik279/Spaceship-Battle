@@ -82,8 +82,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="external-content.duckduckgo.com.png">
-      <Name>external-content.duckduckgo.com</Name>
+    <Compile Include="turrent.png">
+      <Name>turrent</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
@@ -158,6 +158,17 @@
   <ItemGroup>
     <Compile Include="save.png">
       <Name>save</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fileForObstacles.txt">
+      <Name>fileForObstacles</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <Compile Include="playpause.jpg">
+      <Name>playpause</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
