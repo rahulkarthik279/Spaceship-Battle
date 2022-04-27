@@ -98,6 +98,9 @@ namespace Spaceship_Battle
             for (int i = 0; i < Bullet.list.Count(); i++)
             {
                 physicsstuff(Bullet.list[i]);
+                if (Bullet.list[i].rect.Contains(rect.X + rect.Width/2, rect.Y + rect.Height/2)) {
+                    Bullet.list[i].isDestroyed = true;
+                }
             }
 
             //fireballs

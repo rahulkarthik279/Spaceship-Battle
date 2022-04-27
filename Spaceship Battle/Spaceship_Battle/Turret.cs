@@ -17,14 +17,16 @@ namespace Spaceship_Battle
         public static Level level;
         public static List<Turret> list;
         public int rotation;
-        int numActive;
-        public static int health = 150;
+        public int health;
+        public Rectangle drect;
 
         public Turret(Rectangle r) : base(0, 0, 0, new Rectangle())
         {
             rect = r;
+            drect = new Rectangle(rect.X + rect.Width / 2, rect.Y + rect.Height / 2, rect.Width, rect.Height);
             pos.X = level.world.Width / 2 - rect.Width / 2;
             pos.Y = level.world.Height / 2 - rect.Height / 2;
+            health = 1500;
         }
 
         public static void loadcontent(ContentManager c, Level l) {
@@ -34,15 +36,32 @@ namespace Spaceship_Battle
             list.Add(new Turret(new Rectangle(0, 0, 100, 100)));
         }
 
+        public static void initialize() {
+            for (int i = 0; i < list.Count; i++) {
+                list[i].health = 150;
+            }
+        }
+
         public new void update()
         {
-            base.update();
-            rotation += 1;
-            if (level.timer % 30 == 0)
+            if (health > 0)
             {
-                Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y + rect.Height / 2 - level.getoffset(1), MathHelper.ToRadians(rotation), 15, false));
+                base.update();
+                rotation += 1;
+
+
+                if (level.timer % 30 == 0)
+                {
+                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y + rect.Height / 2 - level.getoffset(1), MathHelper.ToRadians(rotation - 90), 15, false));
+                }
+
+                if (Level.player.rect.Intersects(rect))
+                {
+                    Level.player.velocity.X = 0;
+                    Level.player.velocity.Y = 0;
+                }
+
             }
-            numActive++;
         }
 
         public static void updateAll() {
@@ -54,7 +73,13 @@ namespace Spaceship_Battle
 
         public void draw(SpriteBatch sb)
         {
-            sb.Draw(text, rect, null, Color.White, MathHelper.ToRadians(rotation), new Vector2(text.Width / 2, text.Height / 2), new SpriteEffects(), 0);
+
+            if (health > 0)
+            {
+                Rectangle drect = new Rectangle(rect.X + rect.Width / 2, rect.Y + rect.Height / 2, rect.Width, rect.Height);
+                sb.Draw(text, drect, new Rectangle(725, 75, 85, 85), Color.White, MathHelper.ToRadians(rotation), new Vector2(85 / 2, 85 / 2), SpriteEffects.None, 0);
+            }
+
         }
 
         public static void drawAll(SpriteBatch sb) {

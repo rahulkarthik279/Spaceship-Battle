@@ -128,7 +128,6 @@ namespace Spaceship_Battle
                 }
             }
             // end of camera stuff this crap is cancer
-
             base.update();
         }
         private void getInput(GameTime gt)
@@ -188,6 +187,7 @@ namespace Spaceship_Battle
 
         public void draw(SpriteBatch sb, GameTime gt)
         {
+            //base.draw(sb, true, text);
             sb.Draw(text, rect, null, Color.White, (float)Math.PI / 2 + rotation, new Vector2(text.Bounds.Width / 2, text.Bounds.Height / 2), SpriteEffects.None, 0);
         }
 

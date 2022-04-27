@@ -101,6 +101,7 @@ namespace Spaceship_Battle
         public void draw(SpriteBatch sb, Boolean centered, Texture2D pic) {
             sb.Draw(pic, rect, Color.White);
         }
+
         public void draw(SpriteBatch sb, Boolean centered, Texture2D pic, float rotation)
         {
             if (centered)

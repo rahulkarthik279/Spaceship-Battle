@@ -35,6 +35,7 @@ namespace Spaceship_Battle
         public int width, height;
         SpriteFont f1;
         FileReader reader;
+        String levelstring;
 
         public Level(IServiceProvider sp, GraphicsDevice g, int w, int h) {
             ContentManager content = new ContentManager(sp, "Content");
@@ -90,6 +91,7 @@ namespace Spaceship_Battle
             healthBar = unfilledHealthBar;
             unfilledText = content.Load<Texture2D>("box (1)");
             healthBarText = content.Load<Texture2D>("whiterectangle");
+            levelstring = "";
         }
 
         public static void LoadContent(IServiceProvider sp, int w, int h) {
@@ -162,6 +164,7 @@ namespace Spaceship_Battle
                 Fireball.drawAll(sb);
                 Debris.drawAll(sb);
                 Turret.drawAll(sb);
+
                 //player
                 if (player.health > 0)
                 {
@@ -175,7 +178,7 @@ namespace Spaceship_Battle
             }
             else
             {
-                sb.DrawString(f1, "Level " + (numLevel) + " coming up in", new Vector2(width / 2 - 20, 50), Color.White);
+                sb.DrawString(f1, levelstring, new Vector2( 20, 50), Color.White);
                 sb.DrawString(f1, (timerBetweenLevels / 60 + 1) + "", new Vector2(width / 2, 140), Color.Blue);
             }
         }
@@ -202,7 +205,13 @@ namespace Spaceship_Battle
                 player.gun.capacity += 20;
                 Enemy.numEnemies += 5;
                 numPowerups += 5;
+
+                levelstring = "Level " + (numLevel) + " coming up in";
             }
+            else {
+                levelstring = "YOU DIED! Restarting level " + (numLevel) + " in";
+            }
+
             timerBetweenLevels = 300;
             player.pos.X = 120;
             player.pos.Y = height / 2;
@@ -217,6 +226,7 @@ namespace Spaceship_Battle
             Enemy.list.Clear();
 
             Powerup.initialize(numPowerups);
+            Turret.initialize();
         }
 
     }

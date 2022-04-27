@@ -14,6 +14,7 @@ namespace Spaceship_Battle
     {
         public static Texture2D text;
         public static List<Bullet> list;
+        public static int damage = 20;
 
         public bool isDestroyed;
         public bool isPlayers;
@@ -88,6 +89,14 @@ namespace Spaceship_Battle
                             isDestroyed = true;
                         }
                     }
+                    //intersect with turrets
+                    for (int j = 0; j < Turret.list.Count; j++)
+                    {
+                        if (intersectsTurret(Turret.list[j]))
+                        {
+                            isDestroyed = true;
+                        }
+                    }
                 }
                 else {
                     //intersect with players
@@ -123,6 +132,20 @@ namespace Spaceship_Battle
         //    return false;
         //}
 
+        public bool intersectsTurret(Turret t)
+        {
+            if (rect.Intersects(t.rect) && t.health > 0)
+            {
+                if (!isDestroyed)
+                {
+                    t.health -= damage;
+                }
+                isDestroyed = true;
+                return true;
+            }
+            return false;
+        }
+
         public bool intersectsEnemy(Enemy e)
         {
             if (rect.Intersects(e.rect) && e.health > 0)
@@ -132,7 +155,6 @@ namespace Spaceship_Battle
                     e.health = 0;
                 }
                 isDestroyed = true;
-                Console.WriteLine(e.health);
                 return true;
             }
             return false;
@@ -145,7 +167,7 @@ namespace Spaceship_Battle
             {
                 if (!isDestroyed&&p.isInvincible==false)
                 {
-                    p.health -= 20;
+                    p.health -= damage;
                 }
                 isDestroyed = true;
                 

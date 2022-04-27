@@ -76,7 +76,7 @@ namespace Spaceship_Battle
                 if (rect.Intersects(Bullet.list[i].rect))
                 {
                     Bullet.list[i].isDestroyed = true;
-                    return true;
+                    return false;
                 }
             }
 
