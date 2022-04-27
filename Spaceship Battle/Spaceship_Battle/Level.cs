@@ -109,7 +109,7 @@ namespace Spaceship_Battle
             Fireball.updateAll();
             Powerup.updateAll();
             Bullet.updateAll();
-            //Turret.updateAll();
+            Turret.updateAll();
             Debris.updateAll();
 
             if (player.health <= 0)
@@ -161,7 +161,7 @@ namespace Spaceship_Battle
                 Bullet.drawAll(sb);
                 Fireball.drawAll(sb);
                 Debris.drawAll(sb);
-
+                Turret.drawAll(sb);
                 //player
                 if (player.health > 0)
                 {

@@ -164,15 +164,6 @@
       <Time>2022-04-04T14:07:27.132983-05:00</Time>
     </Item>
     <Item>
-      <Source>turrent.png</Source>
-      <Name>turrent</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\turrent.xnb</Output>
-      <Time>2022-04-04T14:07:26.3673561-05:00</Time>
-    </Item>
-    <Item>
       <Source>playpause.jpg</Source>
       <Name>playpause</Name>
       <Importer>TextureImporter</Importer>
@@ -180,6 +171,15 @@
       <Options>None</Options>
       <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playpause.xnb</Output>
       <Time>2022-04-25T13:48:15.769809-05:00</Time>
+    </Item>
+    <Item>
+      <Source>turret.png</Source>
+      <Name>turret</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\turret.xnb</Output>
+      <Time>2022-04-04T14:07:26.3673561-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

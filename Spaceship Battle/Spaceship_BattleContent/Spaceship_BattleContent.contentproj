@@ -82,8 +82,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="turrent.png">
-      <Name>turrent</Name>
+    <Compile Include="turret.png">
+      <Name>turret</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

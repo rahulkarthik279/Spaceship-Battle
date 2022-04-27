@@ -28,7 +28,7 @@ namespace Spaceship_Battle
         }
 
         public static void loadcontent(ContentManager c, Level l) {
-            text = c.Load<Texture2D>("turrent");
+            text = c.Load<Texture2D>("turret");
             level = l;
             list = new List<Turret>(1);
             list.Add(new Turret(new Rectangle(0, 0, 100, 100)));
@@ -37,8 +37,11 @@ namespace Spaceship_Battle
         public new void update()
         {
             base.update();
-            rotation += 30;
-            Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y + rect.Height / 2 - level.getoffset(1), MathHelper.ToRadians(rotation), 15, false));
+            rotation += 1;
+            if (level.timer % 30 == 0)
+            {
+                Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y + rect.Height / 2 - level.getoffset(1), MathHelper.ToRadians(rotation), 15, false));
+            }
             numActive++;
         }
 
@@ -49,10 +52,16 @@ namespace Spaceship_Battle
             }
         }
 
-        public void draw(SpriteBatch sb, GameTime gt)
+        public void draw(SpriteBatch sb)
         {
             sb.Draw(text, rect, null, Color.White, MathHelper.ToRadians(rotation), new Vector2(text.Width / 2, text.Height / 2), new SpriteEffects(), 0);
         }
 
+        public static void drawAll(SpriteBatch sb) {
+            for (int i = 0; i < list.Count; i++)
+            {
+                list[i].draw(sb);
+            }
+        }
     }
 }
