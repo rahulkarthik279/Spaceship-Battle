@@ -26,7 +26,7 @@ namespace Spaceship_Battle
             drect = new Rectangle(rect.X + rect.Width / 2, rect.Y + rect.Height / 2, rect.Width, rect.Height);
             pos.X = level.world.Width / 2 - rect.Width / 2;
             pos.Y = level.world.Height / 2 - rect.Height / 2;
-            health = 1500;
+            health = 200;
         }
 
         public static void loadcontent(ContentManager c, Level l) {
@@ -38,7 +38,7 @@ namespace Spaceship_Battle
 
         public static void initialize() {
             for (int i = 0; i < list.Count; i++) {
-                list[i].health = 150;
+                list[i].health = 200;
             }
         }
 
@@ -50,7 +50,7 @@ namespace Spaceship_Battle
                 rotation += 1;
 
 
-                if (level.timer % 30 == 0)
+                if (level.timer % 20 == 0)
                 {
                     Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y + rect.Height / 2 - level.getoffset(1), MathHelper.ToRadians(rotation - 90), 15, false));
                 }

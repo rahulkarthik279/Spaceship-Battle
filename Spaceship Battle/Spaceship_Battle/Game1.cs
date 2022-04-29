@@ -101,6 +101,10 @@ namespace Spaceship_Battle
                     break;
                 case GameState.Pause:
                     gamestate -= pause.update(gameTime);
+                    if (pause.exit)
+                    {
+                        this.Exit();
+                    }
                     break;
             }
             base.Update(gameTime);
@@ -128,7 +132,7 @@ namespace Spaceship_Battle
                     pause.draw(spriteBatch, gameTime);
                     break;
                 case GameState.Pause:
-                    level.draw(spriteBatch, gameTime);
+                    //level.draw(spriteBatch, gameTime);
                     pause.draw(spriteBatch, gameTime);
                     break;
             }

@@ -179,10 +179,8 @@ D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\D
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb
-D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb
-D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb
@@ -252,3 +250,8 @@ D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\D
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playpause.xnb
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\fileForObstacles.txt
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\turret.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\turret.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playpause.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\fileForObstacles.txt
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\debris.xnb
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\white.xnb

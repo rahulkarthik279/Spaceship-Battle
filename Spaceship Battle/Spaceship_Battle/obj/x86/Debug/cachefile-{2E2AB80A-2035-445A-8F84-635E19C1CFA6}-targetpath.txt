@@ -6,9 +6,9 @@ Content\Sci-Fi-buttons-cover.xnb
 Content\planet.xnb
 Content\airplane.xnb
 Content\box (1).xnb
+Content\turret.xnb
 Content\meteor.xnb
 Content\playerspaceship.xnb
-Content\redRectForBorg.xnb
 Content\spaceship_rifle.xnb
 Content\star.xnb
 Content\whiterectangle.xnb
@@ -17,7 +17,8 @@ Content\moon.xnb
 Content\space.xnb
 Content\save.xnb
 Content\playpause.xnb
-Content\turret.xnb
+Content\debris.xnb
+Content\white.xnb
 Content\Orbitron-Regular.ttf
 Content\mountain.jpg
 Content\smallmountain.jpg

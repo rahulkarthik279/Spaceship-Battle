@@ -42,7 +42,7 @@ namespace Spaceship_Battle
         }
 
         public static void loadcontent(ContentManager content) {
-            Bullet.text = content.Load<Texture2D>("redRectForBorg");
+            Bullet.text = content.Load<Texture2D>("white");
             list = new List<Bullet>();
         }
 
@@ -118,7 +118,14 @@ namespace Spaceship_Battle
 
         public void draw(SpriteBatch sb)
         {
-            sb.Draw(text, rect, Color.White);
+            if (isPlayers)
+            {
+                sb.Draw(text, rect, Color.LightBlue);
+            }
+            else
+            {
+                sb.Draw(text, rect, Color.Red);
+            }
         }
 
         //public bool intersectsBullet(Bullet b)

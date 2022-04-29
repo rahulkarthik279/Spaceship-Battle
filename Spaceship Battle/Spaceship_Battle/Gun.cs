@@ -31,7 +31,7 @@ namespace Spaceship_Battle
         public Gun(Level l, int c, Rectangle r)
         {
             level = l;
-            capacity = 9999;//c;
+            capacity = c;
             rect = r;
             //for (int i = 0; i < capacity; i++)
             //{

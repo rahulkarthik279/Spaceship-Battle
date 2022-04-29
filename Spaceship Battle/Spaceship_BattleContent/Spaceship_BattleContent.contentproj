@@ -97,11 +97,6 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="redRectForBorg.png">
-      <Name>redRectForBorg</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
     <Compile Include="spaceship_rifle.jpg">
       <Name>spaceship_rifle</Name>
       <Importer>TextureImporter</Importer>
@@ -169,6 +164,20 @@
     </None>
     <Compile Include="playpause.jpg">
       <Name>playpause</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="debris.png">
+      <Name>debris</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="white.png">
+      <Name>white</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

@@ -18,7 +18,7 @@ namespace Spaceship_Battle
         public static Level level;
         public static int maxCapacity = 10;
         public static Random rand;
-        public Debris(int posX, int posY, int width, int height) : base(0, 0, 0, new Rectangle(0, 0, 30, 30))
+        public Debris(int posX, int posY, int width, int height) : base(0, 0, 0, new Rectangle(0, 0, 0,0))
         {
             pos.X = posX;
             pos.Y = posY;
@@ -37,7 +37,7 @@ namespace Spaceship_Battle
 
         public static void LoadContent(ContentManager content, Level l)
         {
-            text = content.Load<Texture2D>("star");
+            text = content.Load<Texture2D>("debris");
             rand = new Random();
             list = new List<Debris>();
             level = l;

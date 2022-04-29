@@ -68,8 +68,8 @@ namespace Spaceship_Battle
         }
 
         public static void loadcontent(ContentManager content, Level l) {
-            Powerup.pic = content.Load<Texture2D>("redRectForBorg");
-            Powerup.f1 = content.Load<SpriteFont>("SpriteFont1");
+            pic = content.Load<Texture2D>("white");
+            f1 = content.Load<SpriteFont>("SpriteFont1");
             level = l;
             rand = new Random();
             list = new List<Powerup>();

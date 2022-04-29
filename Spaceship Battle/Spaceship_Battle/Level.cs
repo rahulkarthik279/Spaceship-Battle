@@ -41,7 +41,7 @@ namespace Spaceship_Battle
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            bk = new Background(g, @"Content\smallmountain.jpg");
+            bk = new Background(g, @"Content\mountain.jpg");
             world = new Rectangle(0, 0, bk.w, bk.h);
             GravityBody.w = bk.w;
             GravityBody.h = bk.h;
@@ -64,8 +64,8 @@ namespace Spaceship_Battle
             numLevel = 1;
             
             //powerups
-            
             numPowerups = 10;
+            Powerup.initialize(numPowerups);
 
             reader = new FileReader();
             reader.read(@"Content/fileForObstacles.txt");
@@ -114,8 +114,10 @@ namespace Spaceship_Battle
             Turret.updateAll();
             Debris.updateAll();
 
+            //handle player death
             if (player.health <= 0)
             {
+                levelstring = "YOU DIED! \nRestarting level " + (numLevel) + " in";
                 if (timerBetweenLevels > 0)
                 {
                     timerBetweenLevels--;
@@ -127,8 +129,9 @@ namespace Spaceship_Battle
             }
 
             //finish level move on 
-            if (player.pos.X + player.rect.Width >= world.Width)
+            if (player.pos.X + player.rect.Width >= world.Width && player.pos.Y + player.rect.Height >= world.Height) 
             {
+                levelstring = "Level " + (numLevel) + " coming up in";
                 if (timerBetweenLevels == 300)
                 {
                     numLevel++;
@@ -179,7 +182,7 @@ namespace Spaceship_Battle
             else
             {
                 sb.DrawString(f1, levelstring, new Vector2( 20, 50), Color.White);
-                sb.DrawString(f1, (timerBetweenLevels / 60 + 1) + "", new Vector2(width / 2, 140), Color.Blue);
+                sb.DrawString(f1, (timerBetweenLevels / 60 + 1) + "", new Vector2(width / 2, 180), Color.Blue);
             }
         }
 
@@ -205,11 +208,6 @@ namespace Spaceship_Battle
                 player.gun.capacity += 20;
                 Enemy.numEnemies += 5;
                 numPowerups += 5;
-
-                levelstring = "Level " + (numLevel) + " coming up in";
-            }
-            else {
-                levelstring = "YOU DIED! Restarting level " + (numLevel) + " in";
             }
 
             timerBetweenLevels = 300;
