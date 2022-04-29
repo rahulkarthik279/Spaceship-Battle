@@ -7,7 +7,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufont.xnb</Output>
       <Time>2022-04-07T21:35:16.3546731-05:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\menufontbig.xnb</Output>
       <Time>2022-04-07T21:35:16.3726237-05:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
       <Time>2022-04-07T21:35:16.2648772-05:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb</Output>
       <Time>2022-04-07T21:35:16.6698455-05:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Sci-Fi-buttons-cover.xnb</Output>
       <Time>2022-04-07T21:35:16.175077-05:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet.xnb</Output>
       <Time>2022-04-07T21:35:16.6987695-05:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane.xnb</Output>
       <Time>2022-04-07T21:35:16.2858233-05:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\box (1).xnb</Output>
       <Time>2022-04-07T21:35:16.3077625-05:00</Time>
     </Item>
     <Item>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb</Output>
-      <Time>2022-04-07T21:35:16.3297033-05:00</Time>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\external-content.duckduckgo.com.xnb</Output>
+      <Time>2022-04-27T14:27:23.3300688-05:00</Time>
     </Item>
     <Item>
       <Source>meteor.png</Source>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\meteor.xnb</Output>
       <Time>2022-04-07T21:35:16.4025439-05:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playerspaceship.xnb</Output>
       <Time>2022-04-07T21:35:16.7895246-05:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redRectForBorg.xnb</Output>
       <Time>2022-04-07T21:35:16.8144598-05:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\spaceship_rifle.xnb</Output>
       <Time>2022-04-07T21:35:17.0776008-05:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\star.xnb</Output>
       <Time>2022-04-07T21:35:17.1005416-05:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\whiterectangle.xnb</Output>
       <Time>2022-04-07T21:35:17.1535076-05:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\planet2.xnb</Output>
       <Time>2022-04-07T21:35:16.7526229-05:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\moon.xnb</Output>
       <Time>2022-04-07T21:35:16.4613888-05:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\space.xnb</Output>
       <Time>2022-04-07T21:35:17.0546611-05:00</Time>
     </Item>
     <Item>
@@ -169,7 +169,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\save.xnb</Output>
       <Time>2022-04-07T21:35:16.8433812-05:00</Time>
     </Item>
     <Item>
@@ -178,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playpause.xnb</Output>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playpause.xnb</Output>
       <Time>2022-04-12T13:25:02.8693452-05:00</Time>
     </Item>
     <Item>
@@ -187,8 +187,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Tank.xnb</Output>
-      <Time>2022-04-20T13:26:16.5011266-05:00</Time>
+      <Output>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\Tank.xnb</Output>
+      <Time>2022-04-27T14:27:23.324081-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -197,10 +197,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_BattleContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Rahul\Downloads\Spaceship-Battle-main\Spaceship-Battle-main\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_BattleContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Rahul\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

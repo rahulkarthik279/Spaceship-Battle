@@ -33,6 +33,5 @@ namespace Spaceship_Battle
                 srect = sourcearray[0];
             }
         }
-
     }
 }

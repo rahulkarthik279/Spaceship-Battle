@@ -6,7 +6,11 @@ Content\Sci-Fi-buttons-cover.xnb
 Content\planet.xnb
 Content\airplane.xnb
 Content\box (1).xnb
+<<<<<<< Updated upstream
 Content\external-content.duckduckgo.com.xnb
+=======
+Content\turrent.xnb
+>>>>>>> Stashed changes
 Content\meteor.xnb
 Content\playerspaceship.xnb
 Content\redRectForBorg.xnb
