@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -23,7 +24,7 @@ namespace Spaceship_Battle
         LoadingScreen load;
         PauseGame pause;
         Level level;
-        public enum GameState { Start, Load, Level, Pause, Complete };
+        public enum GameState { Start, Load, Instructions, Level, Pause, Complete };
         public GameState gamestate;
 
         public Game1()
@@ -62,6 +63,7 @@ namespace Spaceship_Battle
             load = new LoadingScreen(Services, w, h);
             pause = new PauseGame(Services);
             Level.LoadContent(Services, w, h);
+            Instructions.LoadContent();
             // TODO: use this.Content to load your game content here
         }
 
@@ -91,9 +93,26 @@ namespace Spaceship_Battle
                     return;
                 case GameState.Load:
                     {
-                        startLevel();
-                        gamestate++;
+                        int starter = 1;
+                        if (startmenu.buttons[0].active)
+                        {
+                            try
+                            {
+                                Console.WriteLine(PauseGame.savefilename);
+                                String f = File.ReadAllText(PauseGame.savefilename);
+                                starter = Convert.ToInt32(f);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("REEREEEEEEEE");
+                                Console.WriteLine(e.Message);
+                            }
+                        }
+                        startLevel(starter);
+
+                        gamestate+=2;
                         break;
+
                     }
                 case GameState.Level:
                     level.update(gameTime);
@@ -105,6 +124,9 @@ namespace Spaceship_Battle
                     {
                         this.Exit();
                     }
+                    break;
+                case GameState.Instructions:
+                    gamestate += Instructions.update();
                     break;
             }
             base.Update(gameTime);
@@ -135,19 +157,22 @@ namespace Spaceship_Battle
                     //level.draw(spriteBatch, gameTime);
                     pause.draw(spriteBatch, gameTime);
                     break;
+                case GameState.Instructions:
+                    Instructions.draw(spriteBatch, gameTime);
+                    break;
             }
             spriteBatch.End();
             base.Draw(gameTime);
         }
 
-        public void startLevel()
+        public void startLevel(int numlevel)
         {
             graphics.PreferredBackBufferHeight = 400;
             graphics.PreferredBackBufferWidth = 800;
             graphics.ApplyChanges();
             w = GraphicsDevice.Viewport.Width;
             h = GraphicsDevice.Viewport.Height;
-            level = new Level(Services, GraphicsDevice, w, h);
+            level = new Level(Services, GraphicsDevice, numlevel, w, h);
         }
     }
 }

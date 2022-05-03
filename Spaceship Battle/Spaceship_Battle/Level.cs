@@ -13,7 +13,7 @@ namespace Spaceship_Battle
 {
     class Level
     {
-        int numLevel;
+        public static int numLevel;
         int timerBetweenLevels = 300;
 
 
@@ -37,11 +37,11 @@ namespace Spaceship_Battle
         FileReader reader;
         String levelstring;
 
-        public Level(IServiceProvider sp, GraphicsDevice g, int w, int h) {
+        public Level(IServiceProvider sp, GraphicsDevice g, int levelnumber, int w, int h) {
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            bk = new Background(g, @"Content\mountain.jpg");
+            bk = new Background(g, @"Content\smallmountain.jpg");
             world = new Rectangle(0, 0, bk.w, bk.h);
             GravityBody.w = bk.w;
             GravityBody.h = bk.h;
@@ -61,7 +61,7 @@ namespace Spaceship_Battle
             Turret.loadcontent(content, this);
             Debris.LoadContent(content, this);
             
-            numLevel = 1;
+            numLevel = levelnumber;
             
             //powerups
             numPowerups = 10;
@@ -81,6 +81,7 @@ namespace Spaceship_Battle
                     Debris.list.Add((Debris)(objects[i]));
                 }
             }
+            
 
             player = new Player(this, new Rectangle(120, h / 2, 60, 30));
             player.text = content.Load<Texture2D>("playerspaceship");
@@ -92,6 +93,11 @@ namespace Spaceship_Battle
             unfilledText = content.Load<Texture2D>("box (1)");
             healthBarText = content.Load<Texture2D>("whiterectangle");
             levelstring = "";
+
+            if (numLevel >= 2)
+            {
+                Fireball.isActivated = true;
+            }
         }
 
         public static void LoadContent(IServiceProvider sp, int w, int h) {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -23,6 +24,8 @@ namespace Spaceship_Battle
         bool isPaused = false;
         SpriteFont font;
         public bool exit = false;
+        public const string savefilename = @"Content\save.txt";
+
         public PauseGame(IServiceProvider service)
         {
             content = new ContentManager(service, "Content");
@@ -79,6 +82,7 @@ namespace Spaceship_Battle
                         oldM = m;
                         setActive(true);
                         isPaused = false;
+                        saveGame();
                         return 1;
                     }
                 }
@@ -91,6 +95,7 @@ namespace Spaceship_Battle
                     saveAndExit.setActive(true);
                     if (m.LeftButton == ButtonState.Pressed)
                     {
+                        saveGame();
                         exit = true;
                     }
                 }
@@ -99,6 +104,7 @@ namespace Spaceship_Battle
                     saveAndExit.setActive(false);
                 }
             }
+
             if (pauseOrPlay.drect.Contains(mousepos) && (m.LeftButton == ButtonState.Pressed & oldM.LeftButton == ButtonState.Released))
             {
                 setActive(true);
@@ -109,6 +115,12 @@ namespace Spaceship_Battle
             oldM = m;
             return 0;
 
+        }
+
+        public void saveGame() {
+            
+            File.WriteAllText(savefilename, Level.numLevel.ToString());
+            Console.WriteLine(File.ReadAllText(savefilename));
         }
     }
 }

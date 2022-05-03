@@ -25,6 +25,7 @@ namespace Spaceship_Battle
             insideText = c;
         }
         public void setActive(bool input) {
+            active = input;
             if (input)
             {
                 srect = sourcearray[1];
