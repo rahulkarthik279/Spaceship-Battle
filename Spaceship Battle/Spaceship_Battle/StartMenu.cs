@@ -14,9 +14,9 @@ namespace Spaceship_Battle
     class StartMenu
     {
         Button[] buttons;
-        Texture2D spritesheet;
+        public static Texture2D spritesheet;
         ContentManager content;
-        SpriteFont font, bigfont;
+        public static SpriteFont font, bigfont;
         public static int[] buttonsize = new int[] { 250, 60 };
         Rectangle[] bluebutton = new Rectangle[] { new Rectangle(125, 145, 145, 55), new Rectangle(125, 75, 145, 55) };
         Rectangle[] yellowbutton = new Rectangle[] { new Rectangle(440, 148, 128, 55), new Rectangle(440, 80, 128, 55) };
@@ -29,7 +29,7 @@ namespace Spaceship_Battle
             buttons = new Button[3];
             buttons[0] = new Button(new Rectangle((w-buttonsize[0])/2, 250, buttonsize[0], buttonsize[1]), bluebutton, "Continue Single Player");
             buttons[1] = new Button(new Rectangle((w - buttonsize[0]) / 2, 350, buttonsize[0], buttonsize[1]), bluebutton, "Restart Single Player");
-            buttons[2] = new Button(new Rectangle((w - buttonsize[0]) / 2, 450, buttonsize[0], buttonsize[1]), yellowbutton, "Multiplayer");
+            buttons[2] = new Button(new Rectangle((w - buttonsize[0]) / 2, 450, buttonsize[0], buttonsize[1]), yellowbutton, "Instructions");
         }
 
         public int update(GameTime gt) {
@@ -40,7 +40,14 @@ namespace Spaceship_Battle
                 {
                     buttons[i].setActive(true);
                     if (m.LeftButton==ButtonState.Pressed) {
-                        return 1;
+                        if(i == 0 || i == 1)
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                            return 2;
+                        }
                     }
                 }
                 else {

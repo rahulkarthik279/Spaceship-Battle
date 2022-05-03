@@ -33,7 +33,7 @@ namespace Spaceship_Battle
         public int timer = 0;
         Random rand = new Random();
         public int width, height;
-        SpriteFont f1;
+        public static SpriteFont f1;
         FileReader reader;
         String levelstring;
 

@@ -82,6 +82,7 @@
     <Compile Include="Fireball.cs" />
     <Compile Include="GravityBody.cs" />
     <Compile Include="Gun.cs" />
+    <Compile Include="Instructions.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="LoadingScreen.cs" />
     <Compile Include="Meteor.cs" />

@@ -23,7 +23,7 @@ namespace Spaceship_Battle
         LoadingScreen load;
         PauseGame pause;
         Level level;
-        public enum GameState { Start, Load, Level, Pause, Complete };
+        public enum GameState { Start, Load, Instructions, Level, Pause, Complete };
         public GameState gamestate;
 
         public Game1()
@@ -62,6 +62,7 @@ namespace Spaceship_Battle
             load = new LoadingScreen(Services, w, h);
             pause = new PauseGame(Services);
             Level.LoadContent(Services, w, h);
+            Instructions.LoadContent();
             // TODO: use this.Content to load your game content here
         }
 
@@ -92,7 +93,7 @@ namespace Spaceship_Battle
                 case GameState.Load:
                     {
                         startLevel();
-                        gamestate++;
+                        gamestate+=2;
                         break;
                     }
                 case GameState.Level:
@@ -105,6 +106,9 @@ namespace Spaceship_Battle
                     {
                         this.Exit();
                     }
+                    break;
+                case GameState.Instructions:
+                    gamestate += Instructions.update();
                     break;
             }
             base.Update(gameTime);
@@ -134,6 +138,9 @@ namespace Spaceship_Battle
                 case GameState.Pause:
                     //level.draw(spriteBatch, gameTime);
                     pause.draw(spriteBatch, gameTime);
+                    break;
+                case GameState.Instructions:
+                    Instructions.draw(spriteBatch, gameTime);
                     break;
             }
             spriteBatch.End();
