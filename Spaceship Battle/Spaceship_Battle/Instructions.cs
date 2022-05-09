@@ -15,7 +15,6 @@ namespace Spaceship_Battle
     {
         public static List<string> instructions;
         public static Button backButton;
-        public Level level;
         public static void LoadContent()
         {
             instructions = new List<string>();

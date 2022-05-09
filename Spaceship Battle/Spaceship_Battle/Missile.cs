@@ -11,39 +11,34 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Spaceship_Battle
 {
-    class PlayerMissile:GravityBody
+    class Missile:GravityBody
     {
-        public static List<PlayerMissile> list;
-        
+        public const int continuousdamage = 4;
+
+        public static List<Missile> list;
+        public static Texture2D rocketpic, explosionpic;
         public float angle; //rotation in radians with respect to +x axis
-        public static Texture2D pic;
         public Boolean exploded;
         int explosionspeed;
         public static Rectangle srect = new Rectangle(0, 0, 200, 200);
         public Vector2 origin;
         static Random rn = new Random();
-        public static Texture2D rocketpic, explosionpic;
         public int xT;
         public int yT;
 
-        public PlayerMissile(int xtarget, int ytarget, int screenwidth, Rectangle r): base(1,0,0,r)
-        {
-            //stuff for exploding
-            exploded = false;
-            explosionspeed = 1;
-            origin = new Vector2(srect.Width / 2, srect.Height / 2);
-            xT = xtarget;
-            yT = ytarget;
-            Console.WriteLine(xtarget + ", " + ytarget);
 
-            //calculate velocity + setup angle
-            //random y velocity, then calculate x velocity to reach target
-            
-            //setup stuff for drawing
-            pic = rocketpic;
-        }
+        //public Missile(int xtarget, int ytarget, int screenwidth, Rectangle r) : base(1, 0, 0, r)
+        //{
+        //    stuff for exploding
+        //    exploded = false;
+        //    explosionspeed = 1;
+        //    origin = new Vector2(srect.Width / 2, srect.Height / 2);
+        //    xT = xtarget;
+        //    yT = ytarget;
+        //    Console.WriteLine(xtarget + ", " + ytarget);
+        //}
 
-        public PlayerMissile(Level l, int startX, int startY, int endX, int endY, int time) : 
+        public Missile(int startX, int startY, int endX, int endY, int time) : 
             base(1, (double)(endX - startX) / time, (double)(endY - startY) / time, new Rectangle(startX, startY, 20, 20))
         {
             exploded = false;
@@ -51,10 +46,23 @@ namespace Spaceship_Battle
             origin = new Vector2(srect.Width / 2, srect.Height / 2);
             xT = endX;
             yT = endY;
-
+            
             angle = (float)(Math.Atan2(velocity.Y, velocity.X));
             exploded = false;
             explosionspeed = 1;
+        }
+
+        public Missile(int startX, int startY, float angle, float speed) :
+            base(1, 0, 0, new Rectangle(startX - 20, startY - 20, 20, 20))
+        {
+            velocity.X = Level.player.velocity.X + (float)Math.Cos(angle) * speed;
+            velocity.Y = Level.player.velocity.Y + (float)Math.Sin(angle) * speed;
+        }
+
+        public static void loadcontent(ContentManager content) {
+            list = new List<Missile>();
+            rocketpic = content.Load<Texture2D>("missile");
+            explosionpic = content.Load<Texture2D>("redexplosion");
         }
 
         //update method returns whether the main method should delete the object
@@ -71,6 +79,42 @@ namespace Spaceship_Battle
                 rect.Height = rect.Width;
                 if (rect.Width <= 0)
                     return true;
+
+                //intersect with enemies
+                for (int j = 0; j < Enemy.list.Count; j++)
+                {
+                    if (circleintersects(Enemy.list[j]))
+                    {
+                        Enemy.list[j].health -= continuousdamage;
+                    }
+                }
+                //intersect with turrets
+                for (int j = 0; j < Turret.list.Count; j++)
+                {
+                    if (circleintersects(Turret.list[j]))
+                    {
+                        Turret.list[j].health -= continuousdamage;
+                    }
+                }
+                //intersect bullets
+                for (int j = 0; j < Bullet.list.Count; j++)
+                {
+                    if (circleintersects(Bullet.list[j]))
+                    {
+                        Bullet.list[j].isDestroyed = true;
+                    }
+                }
+
+                //intersect Player
+                if (rect.Intersects(Level.player.rect) && Level.player.health > 0)
+                {
+                    if (Level.player.isInvincible == false)
+                    {
+                        Level.player.health -= continuousdamage;
+                    }
+                }
+
+
             }
             else
             {
@@ -78,6 +122,68 @@ namespace Spaceship_Battle
                 {
                     startexploding();
                 }
+
+                //intersect with enemies
+                for (int j = 0; j < Enemy.list.Count; j++)
+                {
+                    if (intersectsEnemy(Enemy.list[j]))
+                    {
+                        Enemy.list[j].health = 0;
+                        startexploding();
+                    }
+                }
+                //intersect with turrets
+                for (int j = 0; j < Turret.list.Count; j++)
+                {
+                    if (intersectsTurret(Turret.list[j]))
+                    {
+                        startexploding();
+                    }
+                }
+                //intersect bullets
+                for (int j = 0; j < Bullet.list.Count; j++)
+                {
+                    if (intersectsBullet(Bullet.list[j]))
+                    {
+                        startexploding();
+                    }
+                }
+
+            }
+            return false;
+        }
+
+        public static void updateAll() {
+            for (int i = list.Count - 1; i >= 0; i--) {
+                if (list[i].update()) {
+                    list.RemoveAt(i);
+                }
+            }
+        }
+
+        public bool intersectsTurret(Turret t)
+        {
+            if (rect.Intersects(t.rect) && t.health > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool intersectsEnemy(Enemy e)
+        {
+            if (rect.Intersects(e.rect) && e.health > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool intersectsBullet(Bullet b) {
+            if (rect.Intersects(b.rect))
+            {
+                b.isDestroyed = true;
+                return true;
             }
             return false;
         }
@@ -103,12 +209,12 @@ namespace Spaceship_Battle
             return output;
         }
 
-        public Boolean circleintersects(Rectangle input)
+        public Boolean circleintersects(GravityBody input)
         {
             Boolean output = false;
             int radius = rect.Width / 2;
-            double distance1 = Math.Sqrt(Math.Pow(input.X - x, 2) + Math.Pow(input.Y - y, 2));
-            double distance2 = Math.Sqrt(Math.Pow(input.X + input.Width - x, 2) + Math.Pow(input.Y + input.Height - y, 2));
+            double distance1 = Math.Sqrt(Math.Pow(input.pos.X - pos.X, 2) + Math.Pow(input.pos.Y - pos.Y, 2));
+            double distance2 = Math.Sqrt(Math.Pow(input.pos.X + input.rect.Width - pos.X, 2) + Math.Pow(input.pos.Y + input.rect.Height - pos.Y, 2));
             output = distance1 <= radius || distance2 <= radius;
             if (output) { startexploding(); }
             return output;
@@ -118,7 +224,6 @@ namespace Spaceship_Battle
         {
             if (!exploded)
             {
-                pic = explosionpic;
                 exploded = true;
                 rect.Width = 10;
                 rect.Height = rect.Width;
@@ -127,9 +232,21 @@ namespace Spaceship_Battle
             }
         }
 
-        public void Draw(SpriteBatch sb, GameTime g)
+        public void Draw(SpriteBatch sb)
         {
-            sb.Draw(pic, rect, srect, Color.White, angle, origin, SpriteEffects.None, 0);
+            if (exploded)
+            {
+                sb.Draw(explosionpic, rect, srect, Color.White, angle, origin, SpriteEffects.None, 0);
+            }
+            else {
+                sb.Draw(rocketpic, rect, srect, Color.White, angle, origin, SpriteEffects.None, 0);
+            }
+        }
+
+        public static void drawAll(SpriteBatch sb) {
+            for (int i = 0; i < list.Count; i++) {
+                list[i].Draw(sb);
+            }
         }
     }
 }

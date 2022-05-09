@@ -173,14 +173,21 @@ namespace Spaceship_Battle
             }
             if (gamePad.IsButtonDown(Buttons.A) || (newMouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton != ButtonState.Pressed))
             {
-                gun.fire(true);
+                if (Level.numLevel < 3)
+                {
+                    gun.fire(true);
+                }
+                else {
+                    Missile.list.Add(new Missile((int)pos.X, (int)pos.Y, newMouse.X-GravityBody.offsetX, newMouse.Y-GravityBody.offsetY, 5));
+                }
             }
 
-            if (kb.IsKeyDown(Keys.Space) && !oldKb.IsKeyDown(Keys.Space) && Fireball.isActivated)
+            if (kb.IsKeyDown(Keys.Space) && !oldKb.IsKeyDown(Keys.Space) && Level.numLevel >=2)
             {
                 Fireball.list.Add(new Fireball(level, (int)pos.X, (int) pos.Y, rotation, 5));
                 numFireballs++;
             }
+
             oldMouse = newMouse;
             oldKb = kb;
         }

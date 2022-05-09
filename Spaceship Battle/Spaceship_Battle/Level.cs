@@ -60,6 +60,7 @@ namespace Spaceship_Battle
             Powerup.loadcontent(content, this);
             Turret.loadcontent(content, this);
             Debris.LoadContent(content, this);
+            Missile.loadcontent(content);
             
             numLevel = levelnumber;
             
@@ -119,6 +120,7 @@ namespace Spaceship_Battle
             Bullet.updateAll();
             Turret.updateAll();
             Debris.updateAll();
+            Missile.updateAll();
 
             //handle player death
             if (player.health <= 0)
@@ -173,6 +175,7 @@ namespace Spaceship_Battle
                 Fireball.drawAll(sb);
                 Debris.drawAll(sb);
                 Turret.drawAll(sb);
+                Missile.drawAll(sb);
 
                 //player
                 if (player.health > 0)

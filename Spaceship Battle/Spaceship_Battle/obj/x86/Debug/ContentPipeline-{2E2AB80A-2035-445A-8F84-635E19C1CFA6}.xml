@@ -190,6 +190,33 @@
       <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\white.xnb</Output>
       <Time>2022-04-29T13:04:13.089228-05:00</Time>
     </Item>
+    <Item>
+      <Source>missile.png</Source>
+      <Name>missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\missile.xnb</Output>
+      <Time>2022-05-09T13:07:51.8593817-05:00</Time>
+    </Item>
+    <Item>
+      <Source>redexplosion.png</Source>
+      <Name>redexplosion</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redexplosion.xnb</Output>
+      <Time>2022-05-09T13:42:22.8922293-05:00</Time>
+    </Item>
+    <Item>
+      <Source>airplane (2).png</Source>
+      <Name>airplane (2)</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane (2).xnb</Output>
+      <Time>2022-05-09T14:21:26.7256099-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{2E2AB80A-2035-445A-8F84-635E19C1CFA6}</ContentProjectGUID>

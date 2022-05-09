@@ -58,7 +58,7 @@ namespace Spaceship_Battle
 
         public new Boolean update() {
             base.update();
-            
+
 
             if (rect.Intersects(Level.player.rect)) {
                 Level.player.health -= 10;
@@ -77,6 +77,14 @@ namespace Spaceship_Battle
                 {
                     Bullet.list[i].isDestroyed = true;
                     return false;
+                }
+            }
+
+            for (int i = 0; i < Missile.list.Count; i++)
+            {
+                if (rect.Intersects(Missile.list[i].rect))
+                {
+                    Missile.list[i].startexploding();
                 }
             }
 
