@@ -247,7 +247,6 @@ D:\Downloads\temp spaceship battle\Spaceship Battle\Spaceship_Battle\bin\x86\Deb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\nextlevelfont.xnb
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playpause.xnb
-\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\fileForObstacles.txt
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\turret.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\turret.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\playpause.xnb
@@ -262,3 +261,6 @@ D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\D
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\redexplosion.xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane (2).xnb
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level1.txt
+\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level1.txt
+\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level2.txt
+\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level3.txt

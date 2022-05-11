@@ -34,7 +34,6 @@ namespace Spaceship_Battle
         Random rand = new Random();
         public int width, height;
         SpriteFont f1;
-        FileReader reader;
         String levelstring;
 
         public Level(IServiceProvider sp, GraphicsDevice g, int levelnumber, int w, int h) {
@@ -46,25 +45,8 @@ namespace Spaceship_Battle
             Debris.LoadContent(content, this);
             Planet.LoadContent(content);
 
-            reader = new FileReader();
-            reader.read(@"Content\level"+numLevel+".txt");
-            List<Object> objects = reader.objects;
-            for (int i = 1; i < objects.Count; i++)
-            {
-                if (objects[i].GetType().Equals(typeof(Planet)))
-                {
-                    Planet.list.Add((Planet)(objects[i]));
-                }
-                else if (objects[i].GetType().Equals(typeof(Debris)))
-                {
-                    Debris.list.Add((Debris)(objects[i]));
-                }
-            }
+            readfile();
 
-            bk = (Background)objects[0];
-            world = new Rectangle(0, 0, bk.w, bk.h);
-            GravityBody.w = bk.w;
-            GravityBody.h = bk.h;
             f1 = content.Load<SpriteFont>("nextlevelfont");
             
             content = new ContentManager(sp, "Content");
@@ -216,6 +198,7 @@ namespace Spaceship_Battle
                 //player.gun.capacity += 20;
                 Enemy.numEnemies += 5;
                 numPowerups += 5;
+                readfile();
             }
             if (numLevel == 1)
             {
@@ -230,6 +213,7 @@ namespace Spaceship_Battle
                 player.gun.capacity = Gun.L3Cap;
             }
             timerBetweenLevels = 300;
+
             player.pos.X = 120;
             player.pos.Y = height / 2;
             world.X = 0; world.Y = 0;
@@ -244,6 +228,29 @@ namespace Spaceship_Battle
 
             Powerup.initialize(numPowerups);
             Turret.initialize();
+        }
+
+        private void readfile() {
+            FileReader reader;
+            reader = new FileReader();
+            reader.read(@"Content\level" + numLevel + ".txt");
+            List<Object> objects = reader.objects;
+            for (int i = 1; i < objects.Count; i++)
+            {
+                if (objects[i].GetType().Equals(typeof(Planet)))
+                {
+                    Planet.list.Add((Planet)(objects[i]));
+                }
+                else if (objects[i].GetType().Equals(typeof(Debris)))
+                {
+                    Debris.list.Add((Debris)(objects[i]));
+                }
+            }
+
+            bk = (Background)objects[0];
+            world = new Rectangle(0, 0, bk.w, bk.h);
+            GravityBody.w = bk.w;
+            GravityBody.h = bk.h;
         }
 
     }
