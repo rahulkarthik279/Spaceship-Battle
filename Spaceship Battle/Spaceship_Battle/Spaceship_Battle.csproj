@@ -86,6 +86,7 @@
     <Compile Include="Level.cs" />
     <Compile Include="LoadingScreen.cs" />
     <Compile Include="Meteor.cs" />
+    <Compile Include="Missile.cs" />
     <Compile Include="PauseGame.cs" />
     <Compile Include="Planet.cs" />
     <Compile Include="Player.cs" />

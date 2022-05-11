@@ -14,13 +14,14 @@ namespace Spaceship_Battle
 {
     class Background
     {
+        public static GraphicsDevice g;
         Bitmap hugeimage;
         Texture2D[,] text;
         Microsoft.Xna.Framework.Rectangle[,] rect;
         Microsoft.Xna.Framework.Rectangle[,] drect;
         public int w, h, xrect, yrect;
 
-        public Background(GraphicsDevice g, String imagePath) {
+        public Background(String imagePath) {
             Console.WriteLine("Being import image");
             hugeimage = (Bitmap)Bitmap.FromFile(imagePath);
             Console.WriteLine("Finished bitmap loading");
@@ -61,9 +62,6 @@ namespace Spaceship_Battle
                     text[a, b].SetData(data);
                 }
             }
-
-
-
         }
 
         public void draw(SpriteBatch sb, int xoffset, int yoffset) {
@@ -78,6 +76,8 @@ namespace Spaceship_Battle
             }
         }
 
-
+        public static void initialize(GraphicsDevice graphics) {
+            g = graphics;
+        }
     }
 }

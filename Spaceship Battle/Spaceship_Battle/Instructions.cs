@@ -29,7 +29,7 @@ namespace Spaceship_Battle
         {
             int x = 100;
             int y = 90;
-            for(int i = 0; i < instructions.Count; i++)
+            for (int i = 0; i < instructions.Count; i++)
             {
                 sb.DrawString(StartMenu.font, instructions[i], new Vector2(x, y), Color.White);
                 y += 25;
@@ -43,7 +43,7 @@ namespace Spaceship_Battle
             MouseState m = Mouse.GetState();
             Point mousepos = new Point(m.X, m.Y);
             GamePadState newPad = GamePad.GetState(PlayerIndex.One);
-            if(newPad.Buttons.Back == ButtonState.Pressed)//&& oldPad.Buttons.Back == ButtonState.Released)
+            if (newPad.Buttons.Back == ButtonState.Pressed)//&& oldPad.Buttons.Back == ButtonState.Released)
             {
                 //oldPad = newPad;
                 return -2;
@@ -61,7 +61,7 @@ namespace Spaceship_Battle
                 backButton.setActive(false);
             }
             return 0;
-            
+
         }
     }
 }

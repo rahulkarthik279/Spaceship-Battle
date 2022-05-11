@@ -13,7 +13,7 @@ namespace Spaceship_Battle
 {
     class Level
     {
-        int numLevel;
+        public static int numLevel;
         int timerBetweenLevels = 300;
 
 
@@ -33,54 +33,37 @@ namespace Spaceship_Battle
         public int timer = 0;
         Random rand = new Random();
         public int width, height;
-        public static SpriteFont f1;
-        FileReader reader;
+        SpriteFont f1;
         String levelstring;
 
-        public Level(IServiceProvider sp, GraphicsDevice g, int w, int h) {
+        public Level(IServiceProvider sp, GraphicsDevice g, int levelnumber, int w, int h) {
+            numLevel = levelnumber;
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            bk = new Background(g, @"Content\smallmountain.jpg");
-            world = new Rectangle(0, 0, bk.w, bk.h);
-            GravityBody.w = bk.w;
-            GravityBody.h = bk.h;
+
+            Debris.LoadContent(content, this);
+            Planet.LoadContent(content);
+
+            readfile();
+
             f1 = content.Load<SpriteFont>("nextlevelfont");
             
             content = new ContentManager(sp, "Content");
             worldText = content.Load<Texture2D>("space");
             
             Gun.text = content.Load<Texture2D>("spaceship_rifle");
-
-            Planet.LoadContent(content);
+            Turret.loadcontent(content, this);
             Meteor.LoadContent(content , world.Width, world.Height);
             Enemy.loadcontent(content, 12, this); // second number represent numEnmies
             Fireball.loadcontent(content);
             Bullet.loadcontent(content);
             Powerup.loadcontent(content, this);
-            Turret.loadcontent(content, this);
-            Debris.LoadContent(content, this);
-            
-            numLevel = 1;
+            Missile.loadcontent(content);
             
             //powerups
             numPowerups = 10;
             Powerup.initialize(numPowerups);
-
-            reader = new FileReader();
-            reader.read(@"Content/fileForObstacles.txt");
-            List<Object> objects = reader.objects;
-            for (int i = 0; i < objects.Count; i++)
-            {
-                if (objects[i].GetType().Equals(typeof(Planet)))
-                {
-                    Planet.list.Add((Planet)(objects[i]));
-                }
-                else if (objects[i].GetType().Equals(typeof(Debris)))
-                {
-                    Debris.list.Add((Debris)(objects[i]));
-                }
-            }
 
             player = new Player(this, new Rectangle(120, h / 2, 60, 30));
             player.text = content.Load<Texture2D>("playerspaceship");
@@ -92,6 +75,11 @@ namespace Spaceship_Battle
             unfilledText = content.Load<Texture2D>("box (1)");
             healthBarText = content.Load<Texture2D>("whiterectangle");
             levelstring = "";
+
+            if (numLevel >= 2)
+            {
+                Fireball.isActivated = true;
+            }
         }
 
         public static void LoadContent(IServiceProvider sp, int w, int h) {
@@ -113,11 +101,11 @@ namespace Spaceship_Battle
             Bullet.updateAll();
             Turret.updateAll();
             Debris.updateAll();
+            Missile.updateAll();
 
             //handle player death
-            if (Player.health <= 0)
+            if (player.health <= 0)
             {
-                Player.health = 0;
                 levelstring = "YOU DIED! \nRestarting level " + (numLevel) + " in";
                 if (timerBetweenLevels > 0)
                 {
@@ -136,6 +124,11 @@ namespace Spaceship_Battle
                 if (timerBetweenLevels == 300)
                 {
                     numLevel++;
+                    if(numLevel == 4)
+                    {
+                        Game1.gamestate = Game1.GameState.Complete;
+                    }
+                    
                 }
                 if (timerBetweenLevels > 0)
                 {
@@ -146,7 +139,7 @@ namespace Spaceship_Battle
                     }
                 }
             }
-            healthBar.Width = (int)Player.health;
+            healthBar.Width = (int)player.health;
 
             timer++;
         }
@@ -168,9 +161,10 @@ namespace Spaceship_Battle
                 Fireball.drawAll(sb);
                 Debris.drawAll(sb);
                 Turret.drawAll(sb);
+                Missile.drawAll(sb);
 
                 //player
-                if (Player.health > 0)
+                if (player.health > 0)
                 {
                     player.draw(sb, gt);
                     player.gun.draw(sb, gt, true);
@@ -209,8 +203,9 @@ namespace Spaceship_Battle
                 //player.gun.capacity += 20;
                 Enemy.numEnemies += 5;
                 numPowerups += 5;
+                readfile();
             }
-            if(numLevel  == 1)
+            if (numLevel == 1)
             {
                 player.gun.capacity = Gun.L1Cap;
             }
@@ -223,6 +218,7 @@ namespace Spaceship_Battle
                 player.gun.capacity = Gun.L3Cap;
             }
             timerBetweenLevels = 300;
+
             player.pos.X = 120;
             player.pos.Y = height / 2;
             world.X = 0; world.Y = 0;
@@ -230,13 +226,36 @@ namespace Spaceship_Battle
             GravityBody.offsetY = 0;
             player.velocity.X = 0;
             player.velocity.Y = 0;
-            Player.health = 100;
+            player.health = 100;
             player.gun.numActive = 0;
-            Player.bulletsLeft = player.gun.capacity;
+            //player.gun.bulletsLeft = player.gun.capacity;
             Enemy.list.Clear();
 
             Powerup.initialize(numPowerups);
             Turret.initialize();
+        }
+
+        private void readfile() {
+            FileReader reader;
+            reader = new FileReader();
+            reader.read(@"Content\level" + numLevel + ".txt");
+            List<Object> objects = reader.objects;
+            for (int i = 1; i < objects.Count; i++)
+            {
+                if (objects[i].GetType().Equals(typeof(Planet)))
+                {
+                    Planet.list.Add((Planet)(objects[i]));
+                }
+                else if (objects[i].GetType().Equals(typeof(Debris)))
+                {
+                    Debris.list.Add((Debris)(objects[i]));
+                }
+            }
+
+            bk = (Background)objects[0];
+            world = new Rectangle(0, 0, bk.w, bk.h);
+            GravityBody.w = bk.w;
+            GravityBody.h = bk.h;
         }
 
     }

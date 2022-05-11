@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -24,7 +25,7 @@ namespace Spaceship_Battle
         PauseGame pause;
         Level level;
         public enum GameState { Start, Load, Instructions, Level, Pause, Complete };
-        public GameState gamestate;
+        public static GameState gamestate;
 
         public Game1()
         {
@@ -47,6 +48,7 @@ namespace Spaceship_Battle
             w = GraphicsDevice.Viewport.Width;
             h = GraphicsDevice.Viewport.Height;
             gamestate = GameState.Start;
+            Background.initialize(GraphicsDevice);
             base.Initialize();
         }
 
@@ -83,6 +85,7 @@ namespace Spaceship_Battle
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
+            
             switch (gamestate)
             {
                 case GameState.Start:
@@ -90,9 +93,26 @@ namespace Spaceship_Battle
                     return;
                 case GameState.Load:
                     {
-                        startLevel();
+                        int starter = 1;
+                        if (startmenu.buttons[0].active)
+                        {
+                            try
+                            {
+                                Console.WriteLine(PauseGame.savefilename);
+                                String f = File.ReadAllText(PauseGame.savefilename);
+                                starter = Convert.ToInt32(f);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("REEREEEEEEEE");
+                                Console.WriteLine(e.Message);
+                            }
+                        }
+                        startLevel(starter);
+
                         gamestate+=2;
                         break;
+
                     }
                 case GameState.Level:
                     level.update(gameTime);
@@ -107,6 +127,10 @@ namespace Spaceship_Battle
                     break;
                 case GameState.Instructions:
                     gamestate += Instructions.update();
+                    break;
+                case GameState.Complete:
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                        this.Exit();
                     break;
             }
             base.Update(gameTime);
@@ -140,19 +164,22 @@ namespace Spaceship_Battle
                 case GameState.Instructions:
                     Instructions.draw(spriteBatch, gameTime);
                     break;
+                case GameState.Complete:
+                    spriteBatch.DrawString(StartMenu.font, "Congrats! You have completed the mission!!!!\nClick back on controller or escape on keyboard to exit the game", new Vector2(200, 100), Color.White);
+                    break;
             }
             spriteBatch.End();
             base.Draw(gameTime);
         }
 
-        public void startLevel()
+        public void startLevel(int numlevel)
         {
             graphics.PreferredBackBufferHeight = 400;
             graphics.PreferredBackBufferWidth = 800;
             graphics.ApplyChanges();
             w = GraphicsDevice.Viewport.Width;
             h = GraphicsDevice.Viewport.Height;
-            level = new Level(Services, GraphicsDevice, w, h);
+            level = new Level(Services, GraphicsDevice, numlevel, w, h);
         }
     }
 }

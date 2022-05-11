@@ -40,29 +40,34 @@ namespace Spaceship_Battle
             //    bullets.Add(new Bullet(level, rect.X + rect.Width, rect.Y + rect.Height / 2, 400, 400, 120));
             //}
         }
-        
+
         public void fire(bool isPlayers)
         {
+            MouseState m = Mouse.GetState();
             if (numActive < capacity)
             {
                 if (!isPlayers)
                 {
-                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), (int)Level.player.pos.X, (int)Level.player.pos.Y, rand.Next(60, 180)));
+                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y - level.getoffset(1), (int)Level.player.pos.X, (int)Level.player.pos.Y, rand.Next(60, 180)));
                 }
                 else
                 {
-                    Bullet.list.Add(new Bullet(level, rect.X + rect.Width/2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12), true));
+                    if (Level.numLevel < 3)
+                    {
+                        Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12), true));
+                    }
+                    else {
+                        Missile.list.Add(new Missile((int)Level.player.pos.X, (int)Level.player.pos.Y, m.X - GravityBody.offsetX, m.Y - GravityBody.offsetY, 5));
+                    }
                 }
-
                 numActive++;
-                
             }
-            
+
         }
 
 
         public void update(Rectangle playerrect)
-        { 
+        {
             rect.X = playerrect.X + 15;
             rect.Y = playerrect.Y + playerrect.Height;
         }
@@ -72,13 +77,13 @@ namespace Spaceship_Battle
             if (isPlayers)
             {
                 sb.Draw(text, rect, null, Color.White, Level.player.rotation, new Vector2(text.Width / 2, text.Height / 2), SpriteEffects.None, 0);
-                
+
             }
             else
             {
                 sb.Draw(text, rect, Color.White);
             }
-            sb.DrawString(StartMenu.font, "Bullets left: " + Player.bulletsLeft, new Vector2(600, 0), Color.White);
+            sb.DrawString(StartMenu.font, "Bullets left: " + (capacity-numActive), new Vector2(600, 0), Color.White);
         }
     }
 }

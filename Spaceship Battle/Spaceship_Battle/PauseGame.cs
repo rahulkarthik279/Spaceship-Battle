@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -23,7 +24,8 @@ namespace Spaceship_Battle
         bool isPaused = false;
         SpriteFont font;
         public bool exit = false;
-        GamePadState oldPad = GamePad.GetState(PlayerIndex.One);
+        public const string savefilename = @"Content\save.txt";
+
         public PauseGame(IServiceProvider service)
         {
             content = new ContentManager(service, "Content");
@@ -46,8 +48,6 @@ namespace Spaceship_Battle
                 sb.DrawString(font, save.insideText, new Vector2(startstringX, save.drect.Y + 20), Color.White);
                 float startstringX2 = saveAndExit.drect.X + saveAndExit.drect.Width / 2.0f - saveAndExit.insideText.Length * 4.5f;
                 sb.DrawString(font, saveAndExit.insideText, new Vector2(startstringX2, saveAndExit.drect.Y + 20), Color.White);
-                sb.DrawString(font, "Bullets Left: " + Player.bulletsLeft, new Vector2(325, 25), Color.LightBlue);
-                sb.DrawString(font, "Health Left: " + Player.health, new Vector2(325, 50), Color.LightBlue);
             }
         }
 
@@ -72,21 +72,8 @@ namespace Spaceship_Battle
         {
             MouseState m = Mouse.GetState();
             Point mousepos = new Point(m.X, m.Y);
-            GamePadState newPad = GamePad.GetState(PlayerIndex.One);
             if (isPaused)
             {
-                if(newPad.Buttons.Back == ButtonState.Pressed && oldPad.Buttons.Back != ButtonState.Pressed)
-                {
-                    oldPad = newPad;
-                    setActive(true);
-                    isPaused = false;
-                    return 1;
-                }
-                else if(newPad.Buttons.RightShoulder == ButtonState.Pressed && oldPad.Buttons.RightShoulder != ButtonState.Pressed)
-                {
-                    oldPad = newPad;
-                    exit = true;
-                }
                 if (save.drect.Contains(mousepos))
                 {
                     save.setActive(true);
@@ -95,6 +82,7 @@ namespace Spaceship_Battle
                         oldM = m;
                         setActive(true);
                         isPaused = false;
+                        saveGame();
                         return 1;
                     }
                 }
@@ -107,6 +95,7 @@ namespace Spaceship_Battle
                     saveAndExit.setActive(true);
                     if (m.LeftButton == ButtonState.Pressed)
                     {
+                        saveGame();
                         exit = true;
                     }
                 }
@@ -115,19 +104,23 @@ namespace Spaceship_Battle
                     saveAndExit.setActive(false);
                 }
             }
-            if ((pauseOrPlay.drect.Contains(mousepos) && (m.LeftButton == ButtonState.Pressed & oldM.LeftButton == ButtonState.Released)) || (newPad.Buttons.Back == ButtonState
-                .Pressed && oldPad.Buttons.Back != ButtonState.Pressed))
+
+            if (pauseOrPlay.drect.Contains(mousepos) && (m.LeftButton == ButtonState.Pressed & oldM.LeftButton == ButtonState.Released))
             {
                 setActive(true);
 
                 oldM = m;
-                oldPad = newPad;
                 return 1;
             }
             oldM = m;
-            oldPad = newPad;
             return 0;
 
+        }
+
+        public void saveGame() {
+            
+            File.WriteAllText(savefilename, Level.numLevel.ToString());
+            Console.WriteLine(File.ReadAllText(savefilename));
         }
     }
 }

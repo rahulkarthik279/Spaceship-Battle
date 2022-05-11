@@ -41,7 +41,7 @@ namespace Spaceship_Battle
 
         public static void loadcontent(ContentManager content, int numenemies, Level l) {
             list = new List<Enemy>();
-            text = content.Load<Texture2D>("airplane");
+            text = content.Load<Texture2D>("airplane (2)");
             numEnemies = numenemies;
             level = l;
             rand = new Random();
@@ -58,7 +58,7 @@ namespace Spaceship_Battle
                 list.Add(new Enemy(new Rectangle(rand.Next((int)Level.player.pos.X, level.world.Width), rand.Next((int)Level.player.pos.Y - 500, level.world.Height), 60, 30)));
             }
             for (int i = list.Count - 1; i >= 0; i--) {
-                if (list[i].health == 0)
+                if (list[i].health <= 0)
                 {
                     list.RemoveAt(i);
                 }
