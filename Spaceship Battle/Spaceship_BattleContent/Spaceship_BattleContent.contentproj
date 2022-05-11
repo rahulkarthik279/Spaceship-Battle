@@ -158,8 +158,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fileForObstacles.txt">
-      <Name>fileForObstacles</Name>
+    <None Include="level1.txt">
+      <Name>level1</Name>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Compile Include="playpause.jpg">

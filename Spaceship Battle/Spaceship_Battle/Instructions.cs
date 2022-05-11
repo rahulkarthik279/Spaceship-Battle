@@ -13,8 +13,9 @@ namespace Spaceship_Battle
 {
     class Instructions
     {
-        public static List<string> instructions;
+        static List<string> instructions;
         public static Button backButton;
+        //static GamePadState oldPad = GamePad.GetState(PlayerIndex.One);
         public static void LoadContent()
         {
             instructions = new List<string>();
@@ -41,6 +42,12 @@ namespace Spaceship_Battle
         {
             MouseState m = Mouse.GetState();
             Point mousepos = new Point(m.X, m.Y);
+            GamePadState newPad = GamePad.GetState(PlayerIndex.One);
+            if (newPad.Buttons.Back == ButtonState.Pressed)//&& oldPad.Buttons.Back == ButtonState.Released)
+            {
+                //oldPad = newPad;
+                return -2;
+            }
             if (backButton.drect.Contains(mousepos))
             {
                 backButton.setActive(true);
@@ -54,6 +61,7 @@ namespace Spaceship_Battle
                 backButton.setActive(false);
             }
             return 0;
+
         }
     }
 }

@@ -48,6 +48,7 @@ namespace Spaceship_Battle
             w = GraphicsDevice.Viewport.Width;
             h = GraphicsDevice.Viewport.Height;
             gamestate = GameState.Start;
+            Background.initialize(GraphicsDevice);
             base.Initialize();
         }
 

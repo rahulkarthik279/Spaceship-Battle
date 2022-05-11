@@ -106,6 +106,9 @@ namespace Spaceship_Battle
                 }
             }
 
+            if (pos.X < -500 || pos.X > level.world.Width|| pos.Y<-50 || pos.Y > level.world.Height) {
+                isDestroyed = true;
+            }
         }
 
         public static void drawAll(SpriteBatch sb)

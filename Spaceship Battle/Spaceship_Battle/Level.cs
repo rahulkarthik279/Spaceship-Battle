@@ -38,40 +38,18 @@ namespace Spaceship_Battle
         String levelstring;
 
         public Level(IServiceProvider sp, GraphicsDevice g, int levelnumber, int w, int h) {
+            numLevel = levelnumber;
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            bk = new Background(g, @"Content\smallmountain.jpg");
-            world = new Rectangle(0, 0, bk.w, bk.h);
-            GravityBody.w = bk.w;
-            GravityBody.h = bk.h;
-            f1 = content.Load<SpriteFont>("nextlevelfont");
-            
-            content = new ContentManager(sp, "Content");
-            worldText = content.Load<Texture2D>("space");
-            
-            Gun.text = content.Load<Texture2D>("spaceship_rifle");
 
-            Planet.LoadContent(content);
-            Meteor.LoadContent(content , world.Width, world.Height);
-            Enemy.loadcontent(content, 12, this); // second number represent numEnmies
-            Fireball.loadcontent(content);
-            Bullet.loadcontent(content);
-            Powerup.loadcontent(content, this);
-            Turret.loadcontent(content, this);
             Debris.LoadContent(content, this);
-            Missile.loadcontent(content);
-            
-            numLevel = levelnumber;
-            
-            //powerups
-            numPowerups = 10;
-            Powerup.initialize(numPowerups);
+            Planet.LoadContent(content);
 
             reader = new FileReader();
-            reader.read(@"Content/fileForObstacles.txt");
+            reader.read(@"Content\level"+numLevel+".txt");
             List<Object> objects = reader.objects;
-            for (int i = 0; i < objects.Count; i++)
+            for (int i = 1; i < objects.Count; i++)
             {
                 if (objects[i].GetType().Equals(typeof(Planet)))
                 {
@@ -82,7 +60,28 @@ namespace Spaceship_Battle
                     Debris.list.Add((Debris)(objects[i]));
                 }
             }
+
+            bk = (Background)objects[0];
+            world = new Rectangle(0, 0, bk.w, bk.h);
+            GravityBody.w = bk.w;
+            GravityBody.h = bk.h;
+            f1 = content.Load<SpriteFont>("nextlevelfont");
             
+            content = new ContentManager(sp, "Content");
+            worldText = content.Load<Texture2D>("space");
+            
+            Gun.text = content.Load<Texture2D>("spaceship_rifle");
+            Turret.loadcontent(content, this);
+            Meteor.LoadContent(content , world.Width, world.Height);
+            Enemy.loadcontent(content, 12, this); // second number represent numEnmies
+            Fireball.loadcontent(content);
+            Bullet.loadcontent(content);
+            Powerup.loadcontent(content, this);
+            Missile.loadcontent(content);
+            
+            //powerups
+            numPowerups = 10;
+            Powerup.initialize(numPowerups);
 
             player = new Player(this, new Rectangle(120, h / 2, 60, 30));
             player.text = content.Load<Texture2D>("playerspaceship");
@@ -214,11 +213,22 @@ namespace Spaceship_Battle
                 {
                     Fireball.isActivated = true;
                 }
-                player.gun.capacity += 20;
+                //player.gun.capacity += 20;
                 Enemy.numEnemies += 5;
                 numPowerups += 5;
             }
-
+            if (numLevel == 1)
+            {
+                player.gun.capacity = Gun.L1Cap;
+            }
+            if (numLevel == 2)
+            {
+                player.gun.capacity = Gun.L2Cap;
+            }
+            if (numLevel == 3)
+            {
+                player.gun.capacity = Gun.L3Cap;
+            }
             timerBetweenLevels = 300;
             player.pos.X = 120;
             player.pos.Y = height / 2;
@@ -229,7 +239,7 @@ namespace Spaceship_Battle
             player.velocity.Y = 0;
             player.health = 100;
             player.gun.numActive = 0;
-
+            //player.gun.bulletsLeft = player.gun.capacity;
             Enemy.list.Clear();
 
             Powerup.initialize(numPowerups);
