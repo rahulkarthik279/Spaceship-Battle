@@ -131,6 +131,13 @@ namespace Spaceship_Battle
                 case GameState.Complete:
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                         this.Exit();
+                    if(GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))
+                    {
+                        graphics.PreferredBackBufferHeight = 600;
+                        graphics.PreferredBackBufferWidth = 800;
+                        gamestate = GameState.Start;
+                        
+                    }
                     break;
             }
             base.Update(gameTime);
@@ -165,7 +172,7 @@ namespace Spaceship_Battle
                     Instructions.draw(spriteBatch, gameTime);
                     break;
                 case GameState.Complete:
-                    spriteBatch.DrawString(StartMenu.font, "Congrats! You have completed the mission!!!!\nClick back on controller or escape on keyboard to exit the game", new Vector2(200, 100), Color.White);
+                    spriteBatch.DrawString(StartMenu.font, "Congrats! You have completed the mission!!!!\nPress back on controller or escape on keyboard to exit the game\nPress start on controller or enter on keyboard to go back to the start menu.", new Vector2(200, 100), Color.White);
                     break;
             }
             spriteBatch.End();
