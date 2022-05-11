@@ -124,6 +124,11 @@ namespace Spaceship_Battle
                 if (timerBetweenLevels == 300)
                 {
                     numLevel++;
+                    if(numLevel == 4)
+                    {
+                        Game1.gamestate = Game1.GameState.Complete;
+                    }
+                    
                 }
                 if (timerBetweenLevels > 0)
                 {

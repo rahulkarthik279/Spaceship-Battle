@@ -183,10 +183,13 @@ namespace Spaceship_Battle
                     velocity.Y += .1f;
                 }
             }
-            if ((gamePad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A)) || (newMouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton != ButtonState.Pressed))
+            if ((newMouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton != ButtonState.Pressed) && (newMouse.X > 30 && newMouse.Y > 30))
             {
                 gun.fire(true);
 
+            }
+            if ((gamePad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A))) {
+                gun.fire(true);
             }
 
             if (((gamePad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B)) || (kb.IsKeyDown(Keys.Space) && !oldKb.IsKeyDown(Keys.Space))) && Level.numLevel >= 2)

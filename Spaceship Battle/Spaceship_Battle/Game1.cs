@@ -25,7 +25,7 @@ namespace Spaceship_Battle
         PauseGame pause;
         Level level;
         public enum GameState { Start, Load, Instructions, Level, Pause, Complete };
-        public GameState gamestate;
+        public static GameState gamestate;
 
         public Game1()
         {
@@ -85,8 +85,7 @@ namespace Spaceship_Battle
         protected override void Update(GameTime gameTime)
         {
             // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            
             switch (gamestate)
             {
                 case GameState.Start:
@@ -129,6 +128,10 @@ namespace Spaceship_Battle
                 case GameState.Instructions:
                     gamestate += Instructions.update();
                     break;
+                case GameState.Complete:
+                    if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                        this.Exit();
+                    break;
             }
             base.Update(gameTime);
         }
@@ -160,6 +163,9 @@ namespace Spaceship_Battle
                     break;
                 case GameState.Instructions:
                     Instructions.draw(spriteBatch, gameTime);
+                    break;
+                case GameState.Complete:
+                    spriteBatch.DrawString(StartMenu.font, "Congrats! You have completed the mission!!!!\nClick back on controller or escape on keyboard to exit the game", new Vector2(200, 100), Color.White);
                     break;
             }
             spriteBatch.End();
