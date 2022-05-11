@@ -20,7 +20,7 @@ namespace Spaceship_Battle
         public static int[] buttonsize = new int[] { 250, 60 };
         Rectangle[] bluebutton = new Rectangle[] { new Rectangle(125, 145, 145, 55), new Rectangle(125, 75, 145, 55) };
         Rectangle[] yellowbutton = new Rectangle[] { new Rectangle(440, 148, 128, 55), new Rectangle(440, 80, 128, 55) };
-
+        GamePadState oldPad = GamePad.GetState(PlayerIndex.One);
         public StartMenu(IServiceProvider service,int w, int h) {
             content = new ContentManager(service, "Content");
             spritesheet = content.Load<Texture2D>("Sci-Fi-buttons-cover");
@@ -32,10 +32,21 @@ namespace Spaceship_Battle
             buttons[2] = new Button(new Rectangle((w - buttonsize[0]) / 2, 450, buttonsize[0], buttonsize[1]), yellowbutton, "Instructions");
         }
 
-        public int update(GameTime gt) {
+        public int update(GameTime gt)
+        {
             MouseState m = Mouse.GetState();
             Point mousepos = new Point(m.X, m.Y);
-            for (int i = 0; i < buttons.Length; i++) {
+            GamePadState newPad = GamePad.GetState(PlayerIndex.One);
+            if(newPad.Buttons.Start == ButtonState.Pressed && oldPad.Buttons.Start == ButtonState.Released)
+            {
+                return 1;
+            }
+            if(newPad.Buttons.LeftShoulder == ButtonState.Pressed && oldPad.Buttons.LeftShoulder == ButtonState.Released)
+            {
+                return 2;
+            }
+            for (int i = 0; i < buttons.Length; i++)
+            {
                 if (buttons[i].drect.Contains(mousepos))
                 {
                     buttons[i].setActive(true);

@@ -13,7 +13,7 @@ namespace Spaceship_Battle
     class Player : GravityBody
     {
         public Texture2D text;
-        public double health;
+        public static double health;
         public bool isAlive;
         public Gun gun;
         KeyboardState oldKb = Keyboard.GetState();
@@ -21,6 +21,8 @@ namespace Spaceship_Battle
         public float rotation;
         public bool isInvincible;
         int numFireballs, invisibletimer;
+        public static int bulletsLeft;
+        GamePadState oldPad = GamePad.GetState(PlayerIndex.One);
         public Level Level
         {
             get { return level; }
@@ -34,6 +36,7 @@ namespace Spaceship_Battle
             isAlive = true;
             invisibletimer = 0;
             gun = new Gun(level, 15, new Rectangle(r.X + 15, r.Y + r.Height, 30, 10));
+            bulletsLeft = gun.capacity;
         }
         public void update(GameTime gt)
         {
@@ -139,9 +142,17 @@ namespace Spaceship_Battle
             double diffX, diffY;
             diffX = newMouse.X - (gun.rect.X + gun.rect.Width / 2);
             diffY = newMouse.Y - (gun.rect.Y + gun.rect.Height / 2);
+            if(gamePad.ThumbSticks.Left != new Vector2(0,0))
+            {
+                rotation = (float)(Math.Atan2(-gamePad.ThumbSticks.Left.Y, gamePad.ThumbSticks.Left.X));
+            }
             //Console.WriteLine(newMouse.X + ", " + newMouse.Y);
-            rotation = (float)Math.Atan2(diffY, diffX);
-            if (kb.IsKeyDown(Keys.Right))
+            else
+            {
+                rotation = (float)Math.Atan2(diffY, diffX);
+            }
+            
+            if (kb.IsKeyDown(Keys.Right) || gamePad.ThumbSticks.Left.X > 0)
             {
                 if (base.velocity.X < 5)
                 {
@@ -149,7 +160,7 @@ namespace Spaceship_Battle
                 }
 
             }
-            if (kb.IsKeyDown(Keys.Left))
+            if (kb.IsKeyDown(Keys.Left) || gamePad.ThumbSticks.Left.X < 0)
             {
                 if (velocity.X > -5)
                 {
@@ -171,18 +182,24 @@ namespace Spaceship_Battle
                     velocity.Y += .1f;
                 }
             }
-            if (gamePad.IsButtonDown(Buttons.A) || (newMouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton != ButtonState.Pressed))
+            if ((gamePad.IsButtonDown(Buttons.A) && oldPad.IsButtonUp(Buttons.A)) || (newMouse.LeftButton == ButtonState.Pressed && oldMouse.LeftButton != ButtonState.Pressed))
             {
                 gun.fire(true);
+                if(bulletsLeft > 0)
+                {
+                    bulletsLeft--;
+                }
+                
             }
 
-            if (kb.IsKeyDown(Keys.Space) && !oldKb.IsKeyDown(Keys.Space) && Fireball.isActivated)
+            if (((gamePad.IsButtonDown(Buttons.B) && oldPad.IsButtonUp(Buttons.B)) || (kb.IsKeyDown(Keys.Space) && !oldKb.IsKeyDown(Keys.Space))) && Fireball.isActivated)
             {
                 Fireball.list.Add(new Fireball(level, (int)pos.X, (int) pos.Y, rotation, 5));
                 numFireballs++;
             }
             oldMouse = newMouse;
             oldKb = kb;
+            oldPad = gamePad;
         }
 
         public void draw(SpriteBatch sb, GameTime gt)

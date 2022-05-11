@@ -14,11 +14,13 @@ namespace Spaceship_Battle
     class Gun
     {
         public int capacity;
-        
         public Rectangle rect;
         public static Texture2D text;
         public int numActive = 0;
         Random rand = new Random();
+        public static int L1Cap = 15;
+        public static int L2Cap = 35;
+        public static int L3Cap = 55;
         public Level Level
         {
             get { return level; }
@@ -53,6 +55,7 @@ namespace Spaceship_Battle
                 }
 
                 numActive++;
+                
             }
             
         }
@@ -69,12 +72,13 @@ namespace Spaceship_Battle
             if (isPlayers)
             {
                 sb.Draw(text, rect, null, Color.White, Level.player.rotation, new Vector2(text.Width / 2, text.Height / 2), SpriteEffects.None, 0);
+                
             }
             else
             {
                 sb.Draw(text, rect, Color.White);
             }
-           
+            sb.DrawString(StartMenu.font, "Bullets left: " + Player.bulletsLeft, new Vector2(600, 0), Color.White);
         }
     }
 }

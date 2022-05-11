@@ -67,7 +67,7 @@ namespace Spaceship_Battle
 
         public new void update()
         {
-            if(health > 0 && Level.player.health > 0)
+            if(health > 0 && Player.health > 0)
             {
                 //positioning
                 base.update();
@@ -96,7 +96,7 @@ namespace Spaceship_Battle
                 //player 
                 if (rect.Intersects(Level.player.rect)) {
                     health = 0;
-                    Level.player.health -= 30;
+                    Player.health -= 30;
                 }
 
                 if (seconds == timeForFiring)
@@ -111,7 +111,7 @@ namespace Spaceship_Battle
 
         public void draw(SpriteBatch sb)
         {
-            if(rect != null && health > 0 && Level.player.health > 0)
+            if(rect != null && health > 0 && Player.health > 0)
             {
                 sb.Draw(text, rect, Color.White);
             }

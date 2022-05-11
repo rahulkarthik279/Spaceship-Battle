@@ -51,7 +51,7 @@ namespace Spaceship_Battle
         {
             if (rect.Intersects(p.rect) && !p.isInvincible)
             {
-                p.health -= 0.2;
+                Player.health -= 0.2;
                 return true;
             }
             return false;

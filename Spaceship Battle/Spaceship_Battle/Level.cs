@@ -41,7 +41,7 @@ namespace Spaceship_Battle
             ContentManager content = new ContentManager(sp, "Content");
             width = w;
             height = h;
-            bk = new Background(g, @"Content\mountain.jpg");
+            bk = new Background(g, @"Content\smallmountain.jpg");
             world = new Rectangle(0, 0, bk.w, bk.h);
             GravityBody.w = bk.w;
             GravityBody.h = bk.h;
@@ -115,8 +115,9 @@ namespace Spaceship_Battle
             Debris.updateAll();
 
             //handle player death
-            if (player.health <= 0)
+            if (Player.health <= 0)
             {
+                Player.health = 0;
                 levelstring = "YOU DIED! \nRestarting level " + (numLevel) + " in";
                 if (timerBetweenLevels > 0)
                 {
@@ -145,7 +146,7 @@ namespace Spaceship_Battle
                     }
                 }
             }
-            healthBar.Width = (int)player.health;
+            healthBar.Width = (int)Player.health;
 
             timer++;
         }
@@ -169,7 +170,7 @@ namespace Spaceship_Battle
                 Turret.drawAll(sb);
 
                 //player
-                if (player.health > 0)
+                if (Player.health > 0)
                 {
                     player.draw(sb, gt);
                     player.gun.draw(sb, gt, true);
@@ -205,11 +206,22 @@ namespace Spaceship_Battle
                 {
                     Fireball.isActivated = true;
                 }
-                player.gun.capacity += 20;
+                //player.gun.capacity += 20;
                 Enemy.numEnemies += 5;
                 numPowerups += 5;
             }
-
+            if(numLevel  == 1)
+            {
+                player.gun.capacity = Gun.L1Cap;
+            }
+            if (numLevel == 2)
+            {
+                player.gun.capacity = Gun.L2Cap;
+            }
+            if (numLevel == 3)
+            {
+                player.gun.capacity = Gun.L3Cap;
+            }
             timerBetweenLevels = 300;
             player.pos.X = 120;
             player.pos.Y = height / 2;
@@ -218,9 +230,9 @@ namespace Spaceship_Battle
             GravityBody.offsetY = 0;
             player.velocity.X = 0;
             player.velocity.Y = 0;
-            player.health = 100;
+            Player.health = 100;
             player.gun.numActive = 0;
-
+            Player.bulletsLeft = player.gun.capacity;
             Enemy.list.Clear();
 
             Powerup.initialize(numPowerups);

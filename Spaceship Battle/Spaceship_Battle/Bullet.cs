@@ -15,7 +15,6 @@ namespace Spaceship_Battle
         public static Texture2D text;
         public static List<Bullet> list;
         public static int damage = 20;
-
         public bool isDestroyed;
         public bool isPlayers;
         public Level Level
@@ -114,6 +113,7 @@ namespace Spaceship_Battle
             {
                 list[i].draw(sb);
             }
+            
         }
 
         public void draw(SpriteBatch sb)
@@ -170,11 +170,11 @@ namespace Spaceship_Battle
         public bool intersectsPlayer(Player p)
         {
 
-            if (rect.Intersects(p.rect) && p.health > 0)
+            if (rect.Intersects(p.rect) && Player.health > 0)
             {
                 if (!isDestroyed&&p.isInvincible==false)
                 {
-                    p.health -= damage;
+                    Player.health -= damage;
                 }
                 isDestroyed = true;
                 

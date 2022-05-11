@@ -61,7 +61,7 @@ namespace Spaceship_Battle
             
 
             if (rect.Intersects(Level.player.rect)) {
-                Level.player.health -= 10;
+                Player.health -= 10;
                 return true;
             }
             for (int i = 0; i < Enemy.list.Count; i++) {

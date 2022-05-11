@@ -97,10 +97,10 @@ namespace Spaceship_Battle
         private string addHealth()
         {
             int addedHealth = rand.Next(1, 4) * 5;
-            Level.player.health += addedHealth;
-            if (Level.player.health > 100)
+            Player.health += addedHealth;
+            if (Player.health > 100)
             {
-                Level.player.health = 100;
+                Player.health = 100;
             }
             return "Added " + addedHealth + " health.";
         }
@@ -108,6 +108,7 @@ namespace Spaceship_Battle
         {
             int addedBullets = rand.Next(1, 3) * 10;
             Level.player.gun.capacity += addedBullets;
+            Player.bulletsLeft += addedBullets;
             return "Added " + addedBullets + " bullets.";
         }
         private string invincibility()
