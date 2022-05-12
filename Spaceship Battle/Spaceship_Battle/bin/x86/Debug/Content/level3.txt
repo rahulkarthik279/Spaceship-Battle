@@ -1,4 +1,4 @@
-b Content\mountain.jpg
+b Content\finalLevel.jpg
 p 2 1890 710 f
 p 2 3000 1420 t
 p 1 280 1450 t

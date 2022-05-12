@@ -30,7 +30,6 @@ namespace Spaceship_Battle
                     {
                         string line = reader.ReadLine();
                         string[] split = line.Split(' ');
-                        Console.WriteLine(line + "  "+split[0][0]);
                         if (split[0] == "p")
                         {
                             bool hasmoon = line.Contains("t");

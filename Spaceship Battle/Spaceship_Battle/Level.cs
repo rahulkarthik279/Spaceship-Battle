@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -14,8 +15,8 @@ namespace Spaceship_Battle
     class Level
     {
         public static int numLevel;
-        int timerBetweenLevels = 300;
-
+        bool stopgame;
+        int startgametime;
 
         public Rectangle world;
 
@@ -75,11 +76,8 @@ namespace Spaceship_Battle
             unfilledText = content.Load<Texture2D>("box (1)");
             healthBarText = content.Load<Texture2D>("whiterectangle");
             levelstring = "";
-
-            if (numLevel >= 2)
-            {
-                Fireball.isActivated = true;
-            }
+            newLevel(false);
+            stopgame = false;
         }
 
         public static void LoadContent(IServiceProvider sp, int w, int h) {
@@ -88,6 +86,47 @@ namespace Spaceship_Battle
 
         public void update(GameTime gt)
         {
+            timer++;
+
+            //handle player death
+            if (player.health <= 0)
+            {
+                levelstring = "YOU DIED! \nRestarting level " + (numLevel) + " in";
+                if (stopgame) {
+                    if (startgametime<gt.TotalGameTime.TotalMilliseconds) {
+                        stopgame = false;
+                        newLevel(false);
+                    }
+                }
+                else
+                {
+                    startgametime = (int)gt.TotalGameTime.TotalMilliseconds + 5000;
+                    stopgame = true;
+                }
+                return;
+            }
+
+            //finish level move on 
+            if (player.pos.X + player.rect.Width >= world.Width && player.pos.Y + player.rect.Height >= world.Height) 
+            {
+                if (stopgame)
+                {
+                        stopgame = false;
+                        newLevel(true);
+                }
+                else {
+                    //startgametime = (int)gt.TotalGameTime.TotalMilliseconds + 5000;
+                    numLevel++;
+                    levelstring = "Passed Level "+(numLevel-1)+"\nLevel " + (numLevel) + " is loading...";
+                    if (numLevel == 4)
+                    {
+                        Game1.gamestate = Game1.GameState.Complete;
+                    }
+                    stopgame = true;
+                }
+                return;
+            }
+
             //gravity stuff
             player.update(gt);
             GravityBody.offsetX = world.X;
@@ -103,52 +142,23 @@ namespace Spaceship_Battle
             Debris.updateAll();
             Missile.updateAll();
 
-            //handle player death
-            if (player.health <= 0)
-            {
-                levelstring = "YOU DIED! \nRestarting level " + (numLevel) + " in";
-                if (timerBetweenLevels > 0)
-                {
-                    timerBetweenLevels--;
-                    if (timerBetweenLevels == 0)
-                    {
-                        newLevel(false);
-                    }
-                }
-            }
-
-            //finish level move on 
-            if (player.pos.X + player.rect.Width >= world.Width && player.pos.Y + player.rect.Height >= world.Height) 
-            {
-                levelstring = "Level " + (numLevel) + " coming up in";
-                if (timerBetweenLevels == 300)
-                {
-                    numLevel++;
-                    if(numLevel == 4)
-                    {
-                        Game1.gamestate = Game1.GameState.Complete;
-                    }
-                    
-                }
-                if (timerBetweenLevels > 0)
-                {
-                    timerBetweenLevels--;
-                    if (timerBetweenLevels == 0)
-                    {
-                        newLevel(true);
-                    }
-                }
-            }
             healthBar.Width = (int)player.health;
 
-            timer++;
         }
 
         public void draw(SpriteBatch sb, GameTime gt)
         {
             //draw background
             //sb.Draw(worldText, world, Color.White);
-            if (timerBetweenLevels == 300)
+            if (stopgame)
+            {
+                sb.DrawString(f1, levelstring, new Vector2(20, 50), Color.White);
+                if (startgametime > gt.TotalGameTime.TotalMilliseconds)
+                {
+                    sb.DrawString(f1, (("" + (startgametime - gt.TotalGameTime.TotalMilliseconds) / 1000)).Substring(0, 4), new Vector2(width / 2, 180), Color.Blue);
+                }
+            }
+            else
             {
                 bk.draw(sb, GravityBody.offsetX, GravityBody.offsetY);
 
@@ -173,11 +183,6 @@ namespace Spaceship_Battle
                 //healthbars
                 sb.Draw(unfilledText, unfilledHealthBar, Color.White);
                 sb.Draw(healthBarText, healthBar, Color.White);
-            }
-            else
-            {
-                sb.DrawString(f1, levelstring, new Vector2( 20, 50), Color.White);
-                sb.DrawString(f1, (timerBetweenLevels / 60 + 1) + "", new Vector2(width / 2, 180), Color.Blue);
             }
         }
 
@@ -205,6 +210,7 @@ namespace Spaceship_Battle
                 numPowerups += 5;
                 readfile();
             }
+
             if (numLevel == 1)
             {
                 player.gun.capacity = Gun.L1Cap;
@@ -217,7 +223,6 @@ namespace Spaceship_Battle
             {
                 player.gun.capacity = Gun.L3Cap;
             }
-            timerBetweenLevels = 300;
 
             player.pos.X = 120;
             player.pos.Y = height / 2;

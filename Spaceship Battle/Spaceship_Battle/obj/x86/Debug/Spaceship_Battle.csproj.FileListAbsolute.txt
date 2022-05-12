@@ -202,7 +202,6 @@ D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\D
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Graphics.xml
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.GamerServices.xml
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Microsoft.Xna.Framework.Input.Touch.xml
-D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.exe
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.pdb
@@ -264,3 +263,7 @@ D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\D
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level1.txt
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level2.txt
 \\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level3.txt
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level2.txt
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\level3.txt
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\finalLevel.jpg
+D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\lineagebk.jpg

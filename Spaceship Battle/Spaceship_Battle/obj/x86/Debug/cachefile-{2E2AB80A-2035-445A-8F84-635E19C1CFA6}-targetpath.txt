@@ -28,3 +28,5 @@ Content\smallmountain.jpg
 Content\level1.txt
 Content\level2.txt
 Content\level3.txt
+Content\finalLevel.jpg
+Content\lineagebk.jpg
