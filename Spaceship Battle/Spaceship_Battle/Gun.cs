@@ -16,6 +16,7 @@ namespace Spaceship_Battle
         public int capacity;
         public Rectangle rect;
         public static Texture2D text;
+        public static SoundEffect gunshot;
         public int numActive = 0;
         Random rand = new Random();
         public static int L1Cap = 15;
@@ -41,6 +42,11 @@ namespace Spaceship_Battle
             //}
         }
 
+        public static void loadcontent(ContentManager content) {
+            text = content.Load<Texture2D>("spaceship_rifle");
+            gunshot = content.Load<SoundEffect>("shotgun");
+        }
+
         public void fire(bool isPlayers)
         {
             MouseState m = Mouse.GetState();
@@ -52,6 +58,7 @@ namespace Spaceship_Battle
                 }
                 else
                 {
+                    gunshot.Play();
                     if (Level.numLevel < 3)
                     {
                         Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y - level.getoffset(1), Level.player.rotation, rand.Next(8, 12), true));

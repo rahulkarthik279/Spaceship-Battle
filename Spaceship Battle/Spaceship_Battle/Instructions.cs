@@ -20,14 +20,31 @@ namespace Spaceship_Battle
         {
             instructions = new List<string>();
             backButton = new Button(new Rectangle(0, 0, 180, 70), new Rectangle[] { new Rectangle(125, 145, 145, 55), new Rectangle(125, 75, 145, 55) }, "Back to Menu");
-            instructions.Add("Arrow keys/gamepad arrows to move.");
+            instructions.Add("CONTROLS FOR MOUSE AND KEYBOARD:");
+            instructions.Add("Arrow keys to move.");
+            instructions.Add("Click the left button of the mouse to fire a bullet and the space bar to fire a fireball.");
+            instructions.Add("Click the pause button to pause the game.");
+            instructions.Add("Move the mouse around to face in a certain direction.");
+            instructions.Add("");
+            instructions.Add("CONTROLS FOR GAMEPAD CONTROLLER:");
+            instructions.Add("Left joystick to move.");
+            instructions.Add("Press A to fire a bullet/missile and B to fire a fireball.");
+            instructions.Add("Press the Back button to pause/resume the game.");
+            instructions.Add("If you want to exit, press back to pause then R1 to save and exit.");
+            instructions.Add("Move the left joystick around to face in a certain direction.");
+            instructions.Add("");
+            instructions.Add("GENERAL RULES:");
             instructions.Add("Hit flashing color boxes for powerups.");
             instructions.Add("Click the mouse to fire a bullet at the specified location.");
             instructions.Add("It takes two bullet hits to kill an enemy.");
+            instructions.Add("It takes one hit from a fireball to kill an enemy.");
+            instructions.Add("As you beat each level, you gain an extra weapon (fireball, then missile).");
+            instructions.Add("And finally, BEWARE OF GRAVITY!!!!");
+
         }
         public static void draw(SpriteBatch sb, GameTime gt)
         {
-            int x = 100;
+            int x = 50;
             int y = 90;
             for (int i = 0; i < instructions.Count; i++)
             {

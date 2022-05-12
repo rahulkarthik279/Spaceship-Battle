@@ -52,8 +52,8 @@ namespace Spaceship_Battle
             
             content = new ContentManager(sp, "Content");
             worldText = content.Load<Texture2D>("space");
-            
-            Gun.text = content.Load<Texture2D>("spaceship_rifle");
+
+            Gun.loadcontent(content);
             Turret.loadcontent(content, this);
             Meteor.LoadContent(content , world.Width, world.Height);
             Enemy.loadcontent(content, 12, this); // second number represent numEnmies
@@ -235,6 +235,8 @@ namespace Spaceship_Battle
             player.gun.numActive = 0;
             //player.gun.bulletsLeft = player.gun.capacity;
             Enemy.list.Clear();
+            Bullet.list.Clear();
+            Missile.list.Clear();
 
             Powerup.initialize(numPowerups);
             Turret.initialize();

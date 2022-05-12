@@ -22,6 +22,7 @@ Content\white.xnb
 Content\missile.xnb
 Content\redexplosion.xnb
 Content\airplane (2).xnb
+Content\shotgun.xnb
 Content\Orbitron-Regular.ttf
 Content\mountain.jpg
 Content\smallmountain.jpg

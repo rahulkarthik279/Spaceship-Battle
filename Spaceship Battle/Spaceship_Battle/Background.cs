@@ -48,7 +48,6 @@ namespace Spaceship_Battle
                 {
                     int tempa = a;
                     int tempb = b;
-                    Console.WriteLine("in loop" + a + " " + b);
                     t[a,b] = new Thread(new ThreadStart(() => loadpiece(tempa,tempb)));
                     t[a, b].Start();
                     //loadpiece(a, b);

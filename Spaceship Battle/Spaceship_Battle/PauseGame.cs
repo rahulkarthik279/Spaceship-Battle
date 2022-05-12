@@ -48,6 +48,8 @@ namespace Spaceship_Battle
                 sb.DrawString(font, save.insideText, new Vector2(startstringX, save.drect.Y + 20), Color.White);
                 float startstringX2 = saveAndExit.drect.X + saveAndExit.drect.Width / 2.0f - saveAndExit.insideText.Length * 4.5f;
                 sb.DrawString(font, saveAndExit.insideText, new Vector2(startstringX2, saveAndExit.drect.Y + 20), Color.White);
+                sb.DrawString(font, "Bullets Left: " + (Level.player.gun.capacity - Level.player.gun.numActive), new Vector2(325, 25), Color.LightBlue);
+                sb.DrawString(font, "Health Left: " + Level.player.health, new Vector2(325, 50), Color.LightBlue);
             }
         }
 
@@ -117,8 +119,9 @@ namespace Spaceship_Battle
 
         }
 
-        public void saveGame() {
-            
+        public void saveGame()
+        {
+
             File.WriteAllText(savefilename, Level.numLevel.ToString());
             Console.WriteLine(File.ReadAllText(savefilename));
         }

@@ -217,6 +217,15 @@
       <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\airplane (2).xnb</Output>
       <Time>2022-05-11T02:36:19.7733012-05:00</Time>
     </Item>
+    <Item>
+      <Source>shotgun.wav</Source>
+      <Name>shotgun</Name>
+      <Importer>WavImporter</Importer>
+      <Processor>SoundEffectProcessor</Processor>
+      <Options>None</Options>
+      <Output>D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\shotgun.xnb</Output>
+      <Time>2022-05-11T23:15:28.0453304-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{2E2AB80A-2035-445A-8F84-635E19C1CFA6}</ContentProjectGUID>
