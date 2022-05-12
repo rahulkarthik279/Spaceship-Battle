@@ -155,7 +155,7 @@ namespace Spaceship_Battle
                 sb.DrawString(f1, levelstring, new Vector2(20, 50), Color.White);
                 if (startgametime > gt.TotalGameTime.TotalMilliseconds)
                 {
-                    sb.DrawString(f1, (("" + (startgametime - gt.TotalGameTime.TotalMilliseconds) / 1000)).Substring(0, 4), new Vector2(width / 2, 180), Color.Blue);
+                    sb.DrawString(f1, (("" + (startgametime - gt.TotalGameTime.TotalMilliseconds) / 1000)).Substring(0, 3), new Vector2(width / 2, 180), Color.Blue);
                 }
             }
             else
