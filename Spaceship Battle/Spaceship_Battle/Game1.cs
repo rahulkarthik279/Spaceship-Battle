@@ -135,8 +135,7 @@ namespace Spaceship_Battle
                     {
                         graphics.PreferredBackBufferHeight = 600;
                         graphics.PreferredBackBufferWidth = 800;
-                        gamestate = GameState.Start;
-                        
+                        gamestate = GameState.Start; 
                     }
                     break;
             }
