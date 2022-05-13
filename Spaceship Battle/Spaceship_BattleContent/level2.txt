@@ -1,5 +1,6 @@
 b Content\mountain.jpg
 p 2 1890 710 f
+p 1 400 400 t
 p 2 3000 1420 t
 p 1 280 1450 t
 d 200 1000 640 480

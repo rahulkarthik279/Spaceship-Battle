@@ -37,6 +37,14 @@ namespace Spaceship_Battle
         {
             MouseState m = Mouse.GetState();
             Point mousepos = new Point(m.X, m.Y);
+            if(GamePad.GetState(PlayerIndex.One).Buttons.LeftShoulder == ButtonState.Pressed)
+            {
+                return 2;
+            }
+            if(GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed)
+            {
+                return 1;
+            }
             for (int i = 0; i < buttons.Length; i++)
             {
                 if (buttons[i].drect.Contains(mousepos))

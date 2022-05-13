@@ -76,7 +76,7 @@ namespace Spaceship_Battle
             using (MemoryStream s = new MemoryStream())
             {
                 thisslice.Save(s, System.Drawing.Imaging.ImageFormat.Png);
-                s.Seek(0, SeekOrigin.Begin); //must do this, or error is thrown in next line
+                s.Seek(0, SeekOrigin.Begin);
                 text[a, b] = Texture2D.FromStream(g, s);
             }
             Console.WriteLine("Loaded piece " + a + ", " + b);

@@ -269,3 +269,6 @@ D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\D
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\lineagebk.jpg
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\obj\x86\Debug\Spaceship_Battle.csprojResolveAssemblyReference.cache
 D:\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\shotgun.xnb
+\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\shotgun.xnb
+\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\finalLevel.jpg
+\\Fisd-student1\hs\lths\156403\Documents\GitHub\Spaceship-Battle\Spaceship Battle\Spaceship_Battle\bin\x86\Debug\Content\lineagebk.jpg

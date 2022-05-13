@@ -53,7 +53,7 @@ namespace Spaceship_Battle
             {
                list[i].update();
             }
-            if (level.timer % 240 == 0 && list.Count < Enemy.numEnemies)
+            if (level.timer % 20 == 0 && list.Count < Enemy.numEnemies)
             {
                 list.Add(new Enemy(new Rectangle(rand.Next((int)Level.player.pos.X, level.world.Width), rand.Next((int)Level.player.pos.Y - 500, level.world.Height), 60, 30)));
             }

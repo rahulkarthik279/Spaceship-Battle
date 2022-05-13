@@ -153,7 +153,6 @@ namespace Spaceship_Battle
                     load.draw(spriteBatch);
                     break;
                 case GameState.Level:
-
                     level.draw(spriteBatch, gameTime);
                     pause.draw(spriteBatch, gameTime);
                     break;

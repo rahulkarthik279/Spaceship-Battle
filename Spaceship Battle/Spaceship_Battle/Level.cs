@@ -56,14 +56,14 @@ namespace Spaceship_Battle
             Gun.loadcontent(content);
             Turret.loadcontent(content, this);
             Meteor.LoadContent(content , world.Width, world.Height);
-            Enemy.loadcontent(content, 12, this); // second number represent numEnmies
+            Enemy.loadcontent(content, 42, this); // second number represent numEnmies
             Fireball.loadcontent(content);
             Bullet.loadcontent(content);
             Powerup.loadcontent(content, this);
             Missile.loadcontent(content);
             
             //powerups
-            numPowerups = 10;
+            numPowerups = 40;
             Powerup.initialize(numPowerups);
 
             player = new Player(this, new Rectangle(120, h / 2, 60, 30));
@@ -71,7 +71,7 @@ namespace Spaceship_Battle
             //player = new Player(this, new Rectangle(30, h / 2, 60, 30));
             //player.LoadContent();
             
-            unfilledHealthBar = new Rectangle(30, 30, 100, 20);
+            unfilledHealthBar = new Rectangle(30, 30, 250, 20);
             healthBar = unfilledHealthBar;
             unfilledText = content.Load<Texture2D>("box (1)");
             healthBarText = content.Load<Texture2D>("whiterectangle");
@@ -206,7 +206,7 @@ namespace Spaceship_Battle
                     Fireball.isActivated = true;
                 }
                 //player.gun.capacity += 20;
-                Enemy.numEnemies += 5;
+                Enemy.numEnemies += 20;
                 numPowerups += 5;
                 readfile();
             }
@@ -231,7 +231,7 @@ namespace Spaceship_Battle
             GravityBody.offsetY = 0;
             player.velocity.X = 0;
             player.velocity.Y = 0;
-            player.health = 100;
+            player.health = 250;
             player.gun.numActive = 0;
             //player.gun.bulletsLeft = player.gun.capacity;
             Enemy.list.Clear();

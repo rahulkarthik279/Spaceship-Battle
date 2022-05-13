@@ -47,10 +47,10 @@ namespace Spaceship_Battle
             if (health > 0)
             {
                 base.update();
-                rotation += 1;
+                rotation += 2;
 
 
-                if (level.timer % 20 == 0)
+                if (level.timer % 6 == 0)
                 {
                     Bullet.list.Add(new Bullet(level, rect.X + rect.Width / 2 - level.getoffset(0), rect.Y + rect.Height / 2 - level.getoffset(1), MathHelper.ToRadians(rotation - 90), 15, false));
                 }
